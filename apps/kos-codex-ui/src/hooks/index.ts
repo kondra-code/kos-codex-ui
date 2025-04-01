@@ -10,9 +10,9 @@ export * from "./team";
 
 export * from "./user-container";
 
-export * from "./troubles-container";
+export * from "./service-example-container";
 
-export * from "./troubles";
+export * from "./service-example";
 
 export * from "./device";
 

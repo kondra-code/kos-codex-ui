@@ -1,12 +1,12 @@
 import { KosModelRegistrationFactory } from "@kosdev-code/kos-ui-sdk";
-import type { TroublesOptions } from "./types";
-import { TroublesModelImpl, MODEL_TYPE } from "./troubles-model";
-import type { TroublesModel } from "./troubles-model";
+import type { ServiceExampleOptions } from "./types";
+import { ServiceExampleModelImpl, MODEL_TYPE } from "./service-example-model";
+import type { ServiceExampleModel } from "./service-example-model";
 
 /**
- * # Troubles
+ * # ServiceExample
  *
- * The registration bean includes convenience methods for creating and working with TroublesModel instances.
+ * The registration bean includes convenience methods for creating and working with ServiceExampleModel instances.
  *
  * ## type
  * The type property is a string that identifies the model type.
@@ -16,14 +16,14 @@ import type { TroublesModel } from "./troubles-model";
  * @example
  * ```typescript
  *
- * @kosDependency({modelType: Troubles.type, id: "troublesId"})
- * private troublesModel: TroublesModel;
+ * @kosDependency({modelType: ServiceExample.type, id: "service-exampleId"})
+ * private service-exampleModel: ServiceExampleModel;
  * ```
  *
  *
  * ## factory
  *
- * The factory method creates a factory function that can be used to create new TroublesModel instances.
+ * The factory method creates a factory function that can be used to create new ServiceExampleModel instances.
  *
  
  * The factory function is a curried function that takes the model id as the first argument and the options as the second argument.
@@ -33,7 +33,7 @@ import type { TroublesModel } from "./troubles-model";
  *
  * @example
  * ```typescript
- * const model = Troubles.factory("troublesId")({
+ * const model = ServiceExample.factory("service-exampleId")({
  *   // Add option data
  * });
  * ```
@@ -42,16 +42,16 @@ import type { TroublesModel } from "./troubles-model";
  *
  * ## predicate
  *
- * [Typescript type predicate](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates) function that will identify and narrow down a model to a TroublesModel.
+ * [Typescript type predicate](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates) function that will identify and narrow down a model to a ServiceExampleModel.
  *
  * @example
  * ```typescript
  *
  * const model: IKosDataModel = ...; // some model
  *
- * if (Troubles.predicate(model)) {
- *    // if the function evaluates to true, the model is narrowed down to TroublesModel
- *    // and the compiler will know that the model has the TroublesModel interface
+ * if (ServiceExample.predicate(model)) {
+ *    // if the function evaluates to true, the model is narrowed down to ServiceExampleModel
+ *    // and the compiler will know that the model has the ServiceExampleModel interface
  *    model.updateAvailability(false);
  * }
  * ```
@@ -68,26 +68,26 @@ import type { TroublesModel } from "./troubles-model";
  *
  * **registration.ts**
  * ```typescript
- * import { Troubles } from "@kos-ui/project-models";
+ * import { ServiceExample } from "@kos-ui/project-models";
  * import { KosModelRegistry } from "@kosdev-code/kos-dispense-sdk";
  *
  * import { initKosProvider } from "@kosdev-code/kos-ui-sdk";
  *
  * KosModelRegistry.dispense
  * .models()
- * .model(Troubles);
+ * .model(ServiceExample);
  * ```
  *
  * ## registration.singleton
  
- * The troubles model is NOT a singleton model.  This means that each time the factory function is called with a unique ID, a new model instance will be created.
+ * The service-example model is NOT a singleton model.  This means that each time the factory function is called with a unique ID, a new model instance will be created.
  * If the factory function is called with an ID that already exists, the existing model will be returned.
  
  * */
-export const Troubles = new KosModelRegistrationFactory<
-  TroublesModel,
-  TroublesOptions
+export const ServiceExample = new KosModelRegistrationFactory<
+  ServiceExampleModel,
+  ServiceExampleOptions
 >({
-  class: TroublesModelImpl,
+  class: ServiceExampleModelImpl,
   type: MODEL_TYPE,
 });

@@ -3,7 +3,7 @@ export * from "./models/counter";
 export * from "./models/color";
 export * from "./models/team";
 export * from "./models/user";
-export * from "./models/troubles";
+export * from "./models/service-example";
 export * from "./models/device";
 export * from "./models/unit-example";
 export * from "./models/widget";

@@ -64,18 +64,9 @@ export const decorators = [
       <ErrorBoundaryWithFallback>
         <Suspense fallback={<LoadingMessage />}>
           <AppExample>
-            <ApplicationProvider>
-              <ApplicationComponentConfigurationProvider
-                modalModeOverride={
-                  context.globals.mode === "compact" ? "fullscreen" : undefined
-                }
-                componentModeOverride={context.globals.mode}
-              >
-                <Suspense>
-                  <Story />
-                </Suspense>
-              </ApplicationComponentConfigurationProvider>
-            </ApplicationProvider>
+            <Suspense>
+              <Story />
+            </Suspense>
           </AppExample>
         </Suspense>
       </ErrorBoundaryWithFallback>

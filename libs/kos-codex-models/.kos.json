@@ -35,14 +35,14 @@
       "type": "color-model",
       "singleton": true
     },
-    "troubles": {
-      "name": "troubles",
-      "type": "troubles-model",
+    "service-example": {
+      "name": "service-example",
+      "type": "service-example-model",
       "singleton": false
     },
-    "troubles-container": {
-      "name": "troubles-container",
-      "type": "troubles-container-model",
+    "service-example-container": {
+      "name": "service-example-container",
+      "type": "service-example-container-model",
       "singleton": true,
       "container": true
     },

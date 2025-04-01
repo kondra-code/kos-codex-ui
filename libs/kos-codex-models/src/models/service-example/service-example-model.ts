@@ -7,35 +7,33 @@ import type {
 } from "@kosdev-code/kos-ui-sdk";
 import { kosModel } from "@kosdev-code/kos-ui-sdk";
 
-import type { TroublesOptions } from "./types";
-import { getTroubles } from "./services";
+import type { ServiceExampleOptions } from "./types";
 
-export const MODEL_TYPE = "troubles-model";
+export const MODEL_TYPE = "service-example-model";
 
-export type TroublesModel = PublicModelInterface<TroublesModelImpl>;
+export type ServiceExampleModel = PublicModelInterface<ServiceExampleModelImpl>;
 
 @kosModel(MODEL_TYPE)
-export class TroublesModelImpl implements IKosDataModel, IKosIdentifiable {
+export class ServiceExampleModelImpl
+  implements IKosDataModel, IKosIdentifiable
+{
   id: string;
   numId?: number;
-  boardPath?: string;
+  description?: string;
   isResolvable?: boolean;
   type?: string;
   private logger: KosContextLogger;
 
-  // extract-code TroublesConstructor
+  // extract-code ServiceExampleConstructor
   constructor(
     modelId: string,
-    options: TroublesOptions,
+    options: ServiceExampleOptions,
     context: KosCreationContext,
   ) {
     this.id = modelId;
     this.logger = context.logger;
     if (options) {
-      this.numId = options.id;
-      this.boardPath = options.boardPath;
-      this.isResolvable = options.resolvable;
-      this.type = options.type;
+      this.description = options.desc;
     }
   }
 
@@ -46,10 +44,10 @@ export class TroublesModelImpl implements IKosDataModel, IKosIdentifiable {
   // -------------------LIFECYCLE----------------------------
 
   async init(): Promise<void> {
-    this.logger.debug(`initializing troubles ${this.id}`);
+    this.logger.debug(`initializing service-example ${this.id}`);
   }
 
   async ready(): Promise<void> {
-    this.logger.debug(`loading troubles ${this.id}`);
+    this.logger.debug(`loading service-example ${this.id}`);
   }
 }

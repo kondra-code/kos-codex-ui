@@ -1,0 +1,31 @@
+import { Meta, Canvas, Story } from "@storybook/blocks";
+import { ServiceExampleStory } from "./service-example.stories";
+import { Snippet } from "../snippet";
+
+<Meta title="Foundations/8. Data services" />
+
+# Services and API Data
+
+Most of the time, the models we use will be hooked up to API calls within the backend. To do this, we use `services` in order to establish the communication between the frontend and backend. These are done via websocket, but use a Below is an example of how to set up a service:
+
+Use `kosui model` to set up a model, give it a name (in this case `service-example`) then set up a container model, and then say `yes` when prompted to set up services.
+
+The CLI tool will provide most of what you need to get started, just missing the api path. Use the API explorer tool within the simulator to find the url, and typescript autocomplete will enable you to type in the path and see what routes are available.
+
+Once the proper path is in place, you can call the service within the `service-example-container` model, then add a method to add the `Troubles` models.
+
+<Snippet name="initialize@service-example-container-model.ts" />
+
+<Snippet name="update@service-example-container-model.ts" />
+
+Once we have that, we can set up the constructor of the `service-example` model to handle the options.
+
+In order to view the API calls happening, you can open the web socket browser, which will show the request and response of the API call.
+
+<Snippet name="ServiceExampleConstructor@service-example-model.ts" />
+
+We can then create a hook with `kosui hook` and a component with `kosui component` and within the component, use the hook iterate over the list as normal, and render the name of each service-example.
+
+<Snippet name="ServiceExample@service-example.tsx" />
+
+<Canvas of={ServiceExampleStory} />

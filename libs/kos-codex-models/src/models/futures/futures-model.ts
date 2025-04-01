@@ -19,13 +19,17 @@ export class FuturesModelImpl
   implements IKosDataModel, IKosIdentifiable, FutureContainer
 {
   id: string;
+
+  // extract-code future-prop
   futureHandler: FutureAwareContainer;
 
+  // extract-code future-constructor
   constructor(modelId: string) {
     this.id = modelId;
     this.futureHandler = new FutureHandler(this);
   }
 
+  // extract-code future-decorator
   @kosFuture()
   async start(trackerId?: string) {
     const [err, data] = await startFuture(trackerId || "");
@@ -37,22 +41,31 @@ export class FuturesModelImpl
     return null;
   }
 
-  get progress(): number | undefined {
-    return this.futureHandler.future?.progress;
+  // extract-code future-getter
+  get future() {
+    return this.futureHandler.future;
   }
 
+  // extract-code future-progress
+  get progress(): number | undefined {
+    return this.future?.progress;
+  }
+
+  // extract-code future-timeleft
   get timeLeft(): number | undefined {
-    if (!this.futureHandler.future?.remainingTimeMs) {
+    if (!this.future?.remainingTimeMs) {
       return 0;
     }
-    return this.futureHandler.future?.remainingTimeMs / 1000;
+    return this.future?.remainingTimeMs / 1000;
   }
 
+  // extract-code future-complete
   get isComplete(): boolean {
-    return this.futureHandler.future?.endState === "SUCCESS";
+    return this.future?.endState === "SUCCESS";
   }
 
+  // extract-code future-progress
   get isInProgress(): boolean {
-    return !!this.futureHandler.future && !this.futureHandler.future.endState;
+    return !!this.future && !this.future.endState;
   }
 }

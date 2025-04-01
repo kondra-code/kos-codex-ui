@@ -1,13 +1,16 @@
 import { SingletonKosModelRegistrationFactory } from "@kosdev-code/kos-ui-sdk";
-import type { TroublesContainerOptions } from "./types";
-import { Troubles } from "./troubles-registration";
-import { TroublesContainerModelImpl, MODEL_TYPE } from "./troubles-container-model";
-import type { TroublesContainerModel } from "./troubles-container-model";
+import type { ServiceExampleContainerOptions } from "./types";
+import { ServiceExample } from "./service-example-registration";
+import {
+  ServiceExampleContainerModelImpl,
+  MODEL_TYPE,
+} from "./service-example-container-model";
+import type { ServiceExampleContainerModel } from "./service-example-container-model";
 
 /**
- * # TroublesContainer
+ * # ServiceExampleContainer
  *
- * The registration bean includes convenience methods for creating and working with TroublesContainerModel instances.
+ * The registration bean includes convenience methods for creating and working with ServiceExampleContainerModel instances.
  *
  * ## type
  * The type property is a string that identifies the model type.
@@ -17,14 +20,14 @@ import type { TroublesContainerModel } from "./troubles-container-model";
  * @example
  * ```typescript
  *
- * @kosDependency({modelType: TroublesContainer.type, id: "troublesContainerId"})
- * private troublesContainerModel: TroublesContainerModel;
+ * @kosDependency({modelType: ServiceExampleContainer.type, id: "service-exampleContainerId"})
+ * private service-exampleContainerModel: ServiceExampleContainerModel;
  * ```
  *
  *
  * ## factory
  *
- * The factory method creates a factory function that can be used to create new TroublesContainerModel instances.
+ * The factory method creates a factory function that can be used to create new ServiceExampleContainerModel instances.
  *
  
  * As this is a singleton model, the factory function accepts the model options as its argument.
@@ -34,7 +37,7 @@ import type { TroublesContainerModel } from "./troubles-container-model";
  *
  * @example
  * ```typescript
- * const model = TroublesContainer.factory({
+ * const model = ServiceExampleContainer.factory({
  *   // Add option data
  * });
  * ```
@@ -43,16 +46,16 @@ import type { TroublesContainerModel } from "./troubles-container-model";
  *
  * ## predicate
  *
- * [Typescript type predicate](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates) function that will identify and narrow down a model to a TroublesContainerModel.
+ * [Typescript type predicate](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates) function that will identify and narrow down a model to a ServiceExampleContainerModel.
  *
  * @example
  * ```typescript
  *
  * const model: IKosDataModel = ...; // some model
  *
- * if (TroublesContainer.predicate(model)) {
- *    // if the function evaluates to true, the model is narrowed down to TroublesContainerModel
- *    // and the compiler will know that the model has the TroublesContainerModel interface
+ * if (ServiceExampleContainer.predicate(model)) {
+ *    // if the function evaluates to true, the model is narrowed down to ServiceExampleContainerModel
+ *    // and the compiler will know that the model has the ServiceExampleContainerModel interface
  *    model.updateAvailability(false);
  * }
  * ```
@@ -69,28 +72,28 @@ import type { TroublesContainerModel } from "./troubles-container-model";
  *
  * **registration.ts**
  * ```typescript
- * import { TroublesContainer } from "@kos-codex/kos-codex-models";
+ * import { ServiceExampleContainer } from "@kos-codex/kos-codex-models";
  * ...
  * import { ExtensionManager, IKosRegistry } from "@kosdev-code/kos-ui-sdk";
  * export const kosModels: IKosRegistry["models"] = {
- *  ...TroublesContainer.registration,
+ *  ...ServiceExampleContainer.registration,
  * };
  * ```
  *
  * ## registration.singleton
  
- * The troublesContainer model is a singleton model.  This means that each time the factory function is called , the same instance will be returned.
+ * The service-exampleContainer model is a singleton model.  This means that each time the factory function is called , the same instance will be returned.
  * If the model does not yet exist, it will be created passing in the provided options to initialize it.
  *
  * Singleton models don't require an ID as they will use the model type as their ID to guarantee uniqueness throughout the system.
  
  * */
-export const TroublesContainer = new SingletonKosModelRegistrationFactory<
-  TroublesContainerModel,
-  TroublesContainerOptions
+export const ServiceExampleContainer = new SingletonKosModelRegistrationFactory<
+  ServiceExampleContainerModel,
+  ServiceExampleContainerOptions
 >({
-  class: TroublesContainerModelImpl,
+  class: ServiceExampleContainerModelImpl,
   type: MODEL_TYPE,
 });
 
-TroublesContainer.addRelatedModel(Troubles);
+ServiceExampleContainer.addRelatedModel(ServiceExample);
