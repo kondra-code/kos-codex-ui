@@ -21,20 +21,20 @@ export class UnitExampleModelImpl implements IKosDataModel, IKosIdentifiable {
 
   // extract-code unit-example-config
   @kosConfigProperty({
-    path: "app:kosdev.ddk:app",
-    attribute: "maxPourVolume",
+    path: "system:service:codexBasic",
+    attribute: "volume",
   })
-  maxPourVolume!: KosConfigProperty<number>;
+  volume!: KosConfigProperty<number>;
 
   // extract-code unit-override-example
   @kosConfigProperty({
-    path: "assembly:core:board:macro:iceAgitator",
-    attribute: "settings.volWithoutIceMl",
+    path: "system:service:codexBasic",
+    attribute: "volume",
     converter: {
       to: "fluid-ounce",
     },
   })
-  volWithoutIce!: KosConfigProperty<number>;
+  volumeAsOunce!: KosConfigProperty<number>;
 
   constructor(
     modelId: string,

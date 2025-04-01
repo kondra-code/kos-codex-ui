@@ -25,10 +25,10 @@ export class DeviceModelImpl implements IKosDataModel, IKosIdentifiable {
 
   // extract-code device-model-enum
   @kosConfigProperty({
-    path: "kos:service:pumpError",
-    attribute: "occlusionPolicy",
+    path: "system:service:codexBasic",
+    attribute: "colors",
   })
-  occlusionPolicy!: KosConfigProperty<OcclusionPolicyOptions>;
+  colors!: KosConfigProperty<OcclusionPolicyOptions>;
 
   // extract-code device-model-boolean
   @kosConfigProperty({

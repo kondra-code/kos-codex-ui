@@ -32,12 +32,12 @@ interface Props {
 // extract-code unit-config
 export const UnitConfig: React.FunctionComponent<Props> = kosComponent(
   ({ unitExample }: Props) => {
-    const [value, setValue] = useState(unitExample.maxPourVolume.value);
+    const [value, setValue] = useState(unitExample.volume.value);
 
     return (
       <LayoutContainer>
-        The max pour volume is {unitExample.maxPourVolume.displayValue}, but is
-        stored as {unitExample.maxPourVolume.rawValue} (in ml).
+        The volume is {unitExample.volume.displayValue}, but is stored as{" "}
+        {unitExample.volume.rawValue} (in ml).
         <FormLayout>
           <Input
             value={value}
@@ -48,8 +48,8 @@ export const UnitConfig: React.FunctionComponent<Props> = kosComponent(
           />
           <Button
             onClick={() => {
-              unitExample.maxPourVolume.updateProperty(Number(value));
-              setValue(() => unitExample.maxPourVolume.value);
+              unitExample.volume.updateProperty(Number(value));
+              setValue(() => unitExample.volume.value);
             }}
             type="button"
           >

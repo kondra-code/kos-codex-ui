@@ -32,18 +32,18 @@ interface Props {
 // extract-code ConfigPropertyEnum
 export const ConfigPropertyEnum: React.FunctionComponent<Props> = kosComponent(
   ({ device }: Props) => {
-    const [value, setValue] = useState(device.occlusionPolicy.value);
+    const [value, setValue] = useState(device.colors.value);
 
     return (
       <LayoutContainer>
-        The Occlusion Policy is set to {device.occlusionPolicy.displayValue}
+        The Color is set to {device.colors.displayValue}
         <FormLayout>
           <Select
             onChange={(e: ChangeEvent<HTMLSelectElement>) =>
               setValue(e.target.value as OcclusionPolicyOptions)
             }
           >
-            {device.occlusionPolicy.options?.map((option) => (
+            {device.colors.options?.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
               </option>
@@ -51,12 +51,12 @@ export const ConfigPropertyEnum: React.FunctionComponent<Props> = kosComponent(
           </Select>
           <Button
             onClick={() => {
-              device.occlusionPolicy.updateProperty(value || "NONE");
-              setValue(() => device.occlusionPolicy.value);
+              device.colors.updateProperty(value || "NONE");
+              setValue(() => device.colors.value);
             }}
             type="button"
           >
-            Change Policy
+            Change Color
           </Button>
         </FormLayout>
       </LayoutContainer>

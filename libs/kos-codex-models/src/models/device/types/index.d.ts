@@ -1,4 +1,4 @@
 export interface DeviceOptions {}
 
 // extract-code OcclusionPolicyOptions
-export type OcclusionPolicyOptions = "NOTIFY" | "NONE" | "BLOCK_POURING";
+export type OcclusionPolicyOptions = "DEFAULT" | "RED" | "BLUE" | "GREEN";
