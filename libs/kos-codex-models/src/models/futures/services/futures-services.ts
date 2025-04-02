@@ -5,11 +5,10 @@ import {
   ServiceFactory,
 } from "@kosdev-code/kos-ui-sdk";
 
-const { URL } = resolveServiceUrl("CARB-WATER_SERVICE");
+const { URL } = resolveServiceUrl();
 
 const { postModel } = ServiceFactory.build({
-  basePath:
-    "/api/ext/dispense/nozzle/nozzle/pipeline/ingredient/pour/{path}/{intent}",
+  basePath: `${URL}/api/system/codex/additional-data/10`,
 });
 /**
  * @category Service
@@ -17,7 +16,6 @@ const { postModel } = ServiceFactory.build({
  */
 export const startFuture = async (tracker: string) => {
   const response = await postModel<FutureResponse>({
-    urlOverride: `${URL}/api/ext/dispense/nozzle/nozzle/pipeline/ingredient/pour/assembly:core:board:macro:pump:carb/PURGE`,
     tracker,
     model: {
       id: tracker,
