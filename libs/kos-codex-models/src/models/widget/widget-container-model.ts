@@ -18,15 +18,13 @@ import type {
 import type { WidgetContainerOptions, WidgetOptions } from "./types";
 import type { WidgetModel } from "./widget-model";
 import { Widget } from ".";
-import { getWidgetContainer } from "./services";
+import { createWidget, getWidgetContainer } from "./services";
 
 export const MODEL_TYPE = "widget-container-model";
 
 export interface WidgetResponse {
-  containerId: string;
-  holderPath: string;
-  ingredientId: string;
-  error?: string;
+  id: number;
+  desc: string;
 }
 
 // extract-code prop-key
@@ -70,11 +68,7 @@ export class WidgetContainerModelImpl
     websocket: true,
   })
   handleWidgetAdd(message: WidgetResponse) {
-    console.log("add", message);
-
-    this.addModel(
-      Widget.instance(message.containerId).options(message).build(),
-    );
+    this.addModel(Widget.instance(`${message.id}`).options(message).build());
   }
 
   // extract-code widget-container-wildcard
@@ -93,7 +87,7 @@ export class WidgetContainerModelImpl
   @kosTopicHandler({
     topic: "/kos/assignments/add",
     websocket: true,
-    condition: (message: WidgetResponse) => message.error !== undefined,
+    condition: (message: WidgetResponse) => message.desc !== undefined,
   })
   handleWidgetCondition(message: WidgetResponse) {
     console.log("condition", message);
@@ -113,14 +107,20 @@ export class WidgetContainerModelImpl
     // Update model properties here.
   }
 
+  async createWidget({ description }: { description: string }) {
+    const [err, data] = await createWidget({ description });
+    if (err) {
+      console.error(err);
+      return;
+    }
+  }
+
   updateWidgets(data: Partial<WidgetOptions>[]) {
     data.forEach((widget) => {
       this.addModel(
-        Widget.instance(widget.containerId ?? `WIDGET_ID_${widget.containerId}`)
+        Widget.instance(widget.id?.toString() ?? `WIDGET_ID_${widget.id}`)
           .options({
-            containerId: widget.containerId || "",
-            ingredientId: widget.ingredientId || "",
-            holderPath: widget.holderPath || "",
+            desc: widget.desc || "",
           })
           .build(),
       );

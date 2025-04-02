@@ -1,0 +1,15 @@
+import { Meta, Canvas } from "@storybook/blocks";
+import { Snippet } from "../snippet";
+import { WidgetListStory } from "./widget-list.stories";
+
+<Meta title="Foundations/10. Event Bus" />
+
+# Commumnicating between models
+
+Sometimes you want to communicate between models - this can be accomplished by using the event bus, which powers topic handlers. This is useful when you want to loosely couple models without having to create a direct dependency between them.
+
+To do this, publish to the event bus, then set up a model to handle that.
+
+<Snippet name="publish-event@team-container-model.ts" />
+
+<Snippet name="topic-handler@user-container-model.ts" />

@@ -3,6 +3,7 @@ import { WidgetContainerModel, WidgetModel } from "@kos-codex/kos-codex-models";
 
 import { kosComponent, KosLog } from "@kosdev-code/kos-ui-sdk";
 import { withWidgetContainer } from "../../hooks";
+import { Button } from "../button";
 
 const log = KosLog.createLogger({ name: "widget-list" });
 log.debug("widget-list component loaded");
@@ -20,6 +21,11 @@ export const WidgetList: React.FunctionComponent<Props> = kosComponent(
         {assignments.map((widget) => {
           return <Widget key={widget.id} widget={widget} />;
         })}
+        <Button
+          onClick={() => widgetContainer.createWidget({ description: "Test" })}
+        >
+          Create
+        </Button>
       </WidgetListContainer>
     );
   },
@@ -29,7 +35,7 @@ export default withWidgetContainer(WidgetList);
 const Widget = kosComponent(({ widget }: { widget: WidgetModel }) => {
   return (
     <div>
-      {widget.containerId} : {widget.ingredientId}
+      {widget.id} : {widget.description}
     </div>
   );
 });

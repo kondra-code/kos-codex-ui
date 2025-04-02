@@ -1,9 +1,8 @@
 // ---------------  Widget ---------------
 
 export interface WidgetOptions {
-  containerId: string;
-  ingredientId: string;
-  holderPath: string;
+  id?: number;
+  desc?: string;
 }
 
 // ---------------  WidgetContainer ---------------

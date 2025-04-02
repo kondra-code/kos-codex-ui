@@ -28,16 +28,6 @@ There's an option within the `@kosTopicHandler` decorator to add a condition to 
 
 <Snippet name="widget-container-condition@widget-container-model.ts" />
 
-## Commumnicating between models
-
-You can also use the eventbus to communicate between models. This is useful when you want to loosely couple models without having to create a direct dependency between them
-
-To do this, publish to the event bus, then set up a model to handle that.
-
-<Snippet name="publish-event@team-container-model.ts" />
-
-<Snippet name="topic-handler@user-container-model.ts" />
-
 ## Prop Keys
 
 Sometimes the topic of an event is dynamic depending on data in the model. You can use the `createPropKey` helper to set the topic dynamically and insert it into the topic string.

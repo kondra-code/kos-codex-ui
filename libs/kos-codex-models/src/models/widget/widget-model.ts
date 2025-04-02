@@ -1,6 +1,4 @@
 import type {
-  KosContextLogger,
-  KosCreationContext,
   IKosDataModel,
   IKosIdentifiable,
   PublicModelInterface,
@@ -16,15 +14,13 @@ export type WidgetModel = PublicModelInterface<WidgetModelImpl>;
 @kosModel(MODEL_TYPE)
 export class WidgetModelImpl implements IKosDataModel, IKosIdentifiable {
   id: string;
-  containerId!: string;
-  ingredientId!: string;
+  description!: string;
 
   constructor(modelId: string, options: WidgetOptions) {
     this.id = modelId;
 
     if (options) {
-      this.containerId = options.containerId;
-      this.ingredientId = options.ingredientId;
+      this.description = options.desc || "";
     }
   }
 
@@ -34,10 +30,10 @@ export class WidgetModelImpl implements IKosDataModel, IKosIdentifiable {
 
   // extract-code kosModelEffect
   @kosModelEffect({
-    dependencies: (model) => [model.containerId],
+    dependencies: (model) => [model.description],
   })
   protected handleInsertion() {
-    if (this.containerId) {
+    if (this.description) {
       // Handle insertion logic here.
     }
   }
