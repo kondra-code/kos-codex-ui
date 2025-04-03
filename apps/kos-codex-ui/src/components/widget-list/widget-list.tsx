@@ -21,9 +21,7 @@ export const WidgetList: React.FunctionComponent<Props> = kosComponent(
         {assignments.map((widget) => {
           return <Widget key={widget.id} widget={widget} />;
         })}
-        <Button
-          onClick={() => widgetContainer.createWidget({ description: "Test" })}
-        >
+        <Button onClick={() => widgetContainer.createWidget()} type="button">
           Create
         </Button>
       </WidgetListContainer>

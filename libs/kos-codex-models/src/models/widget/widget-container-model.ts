@@ -107,8 +107,8 @@ export class WidgetContainerModelImpl
     // Update model properties here.
   }
 
-  async createWidget({ description }: { description: string }) {
-    const [err, data] = await createWidget({ description });
+  async createWidget() {
+    const [err, data] = await createWidget();
     if (err) {
       console.error(err);
       return;

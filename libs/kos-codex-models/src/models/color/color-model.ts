@@ -4,7 +4,8 @@ import type {
   IKosIdentifiable,
   PublicModelInterface,
 } from "@kosdev-code/kos-ui-sdk";
-import { Counter, CounterModel } from "../counter";
+import type { CounterModel } from "../counter";
+import { Counter } from "../counter";
 
 export const MODEL_TYPE = "color-model";
 

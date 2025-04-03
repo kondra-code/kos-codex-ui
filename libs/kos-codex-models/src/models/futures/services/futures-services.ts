@@ -8,7 +8,7 @@ import {
 const { URL } = resolveServiceUrl();
 
 const { postModel } = ServiceFactory.build({
-  basePath: `${URL}/api/system/codex/additional-data/10`,
+  basePath: `${URL}/api/system/codex/objects/additional-data/10`,
 });
 /**
  * @category Service

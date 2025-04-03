@@ -76,6 +76,11 @@
       "name": "timer",
       "type": "timer-model",
       "singleton": false
+    },
+    "session": {
+      "name": "session",
+      "type": "session-model",
+      "singleton": true
     }
   },
   "generator": {

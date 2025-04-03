@@ -13,7 +13,7 @@ const log = KosLog.createLogger({
   group: "Services",
 });
 
-const SERVICE_PATH: ApiPath = "/api/system/codex/list";
+const SERVICE_PATH: ApiPath = "/api/system/codex/objects";
 export type WidgetContainerClientResponse = ClientResponse<
   KosApi,
   typeof SERVICE_PATH,
@@ -34,7 +34,7 @@ export const getWidgetContainer = async (): Promise<
   return await API.get(SERVICE_PATH);
 };
 
-const POST_SERVICE_PATH: ApiPath = "/api/system/codex/add";
+const POST_SERVICE_PATH: ApiPath = "/api/system/codex/objects";
 export type WidgetPostClientResponse = ClientResponse<
   KosApi,
   typeof SERVICE_PATH,
@@ -44,11 +44,12 @@ export type WidgetPostResponse = DeepRequired<
   ElementType<WidgetPostClientResponse>
 >;
 
-export const createWidget = async (widget: {
-  description: string;
-}): Promise<ServiceResponse<WidgetPostClientResponse>> => {
+export const createWidget = async (): Promise<
+  ServiceResponse<WidgetPostClientResponse>
+> => {
+  console.log("creating");
   log.debug("sending GET for  widget-container");
-  return (await API.post(POST_SERVICE_PATH, undefined, {
-    desc: widget.description,
-  })) as ServiceResponse<WidgetPostClientResponse>;
+  return (await API.post(
+    POST_SERVICE_PATH,
+  )) as ServiceResponse<WidgetPostClientResponse>;
 };
