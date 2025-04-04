@@ -36,18 +36,4 @@ export class ServiceExampleModelImpl
       this.description = options.desc;
     }
   }
-
-  updateModel(options: Record<string, never>): void {
-    // Update model properties here.
-  }
-
-  // -------------------LIFECYCLE----------------------------
-
-  async init(): Promise<void> {
-    this.logger.debug(`initializing service-example ${this.id}`);
-  }
-
-  async ready(): Promise<void> {
-    this.logger.debug(`loading service-example ${this.id}`);
-  }
 }

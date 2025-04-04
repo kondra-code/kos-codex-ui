@@ -44,12 +44,13 @@ export type WidgetPostResponse = DeepRequired<
   ElementType<WidgetPostClientResponse>
 >;
 
-export const createWidget = async (): Promise<
-  ServiceResponse<WidgetPostClientResponse>
-> => {
-  console.log("creating");
+export const createWidget = async ({
+  description,
+}: {
+  description: string;
+}): Promise<ServiceResponse<WidgetPostClientResponse>> => {
   log.debug("sending GET for  widget-container");
-  return (await API.post(
-    POST_SERVICE_PATH,
-  )) as ServiceResponse<WidgetPostClientResponse>;
+  return (await API.post(POST_SERVICE_PATH, undefined, {
+    desc: description,
+  })) as ServiceResponse<WidgetPostClientResponse>;
 };

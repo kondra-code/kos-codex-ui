@@ -12,9 +12,8 @@ import {
   WidgetContainer,
   Futures,
   Countdown,
+  Session,
 } from "@kos-codex/kos-codex-models";
-
-import { DispenseExtensionManager } from "@kosdev-code/kos-dispense-sdk";
 
 KosModelRegistry.dispense
   .models()
@@ -28,9 +27,8 @@ KosModelRegistry.dispense
   .model(DeviceModel)
   .model(Color)
   .model(Countdown)
+  .model(Session)
   .companion(Counter.type, Countdown.type);
-
-const dispenseExtensionManager = new DispenseExtensionManager();
 
 const { KosCoreContextProvider } = initKosProvider();
 

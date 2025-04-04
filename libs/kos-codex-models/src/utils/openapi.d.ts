@@ -1,4 +1,103 @@
 export interface paths {
+    "/api/ext/dispense/assignments": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Returns all existing ingredient assigments. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["9e33719c-031e-43a1-a69a-7baf5a3203d3"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        /** Create a new ingredient assignment for the specified holder. If an existing
+         *     assignment exists for the holder, it will be removed as part of adding the
+         *     new mapping. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": components["schemas"]["61de0895-4f27-48e2-8996-ceb65cea0821"];
+                };
+            };
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["61de0895-4f27-48e2-8996-ceb65cea0821"];
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/dispense/assignments/{holderPath}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /** Delete an existing ingredient mapping for the specified holder. (v1.0) */
+        delete: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description The handle path for the holder */
+                    holderPath: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/kos/regions": {
         parameters: {
             query?: never;
@@ -22,7 +121,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["5590fcd0-b552-43c1-9730-d52aade14474"];
+                        "application/json": components["schemas"]["e370aa43-21b8-444e-8358-8170961129f4"];
                     };
                 };
             };
@@ -58,2418 +157,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["3f5dab3b-2fd3-4481-b73f-0e6af820ac82"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/openapi/{*baseUrl}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Returns OpenAPI docs for all endpoints below the specified base URL. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description All endpoints below this baseUrl are returned. */
-                    baseUrl: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/octet-stream": Record<string, never>;
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/manifest/node": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the resolved node manifest. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["01f7092e-52f5-4948-b149-03b8976132b8"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/manifest/device": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the resolved device manifest. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["cf208401-3fed-4ed6-9049-cde2933c4b10"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/manifest/info": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the software info description of the active manifest. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["cbe4de9a-df20-44cc-9efb-72c00a07c75f"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/cms/screens/context/{*path}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the context with the specified path. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    path: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["0d5819e2-c585-4edd-ac6d-a77277a98234"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/cms/screens/contexts": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the list of registered contexts. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["6dcbacf2-090d-443d-a3a0-09b4bb95c6b3"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/freestyle/fcm/calibration/{pump}/calibrate": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Perform calibrate pour on fcm. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Path of the fcm to operate on. */
-                    pump: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["8d71e66f-17a1-4949-8543-cbc8dcf44236"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/freestyle/fcm/calibration/{pump}/preCalibrate": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Perform pre-calibrate pour on fcm. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Path of the fcm to operate on. */
-                    pump: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["8d71e66f-17a1-4949-8543-cbc8dcf44236"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/freestyle/fcm/calibration/{pump}/verify/{calVolume}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Perform verify pour on fcm. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Path of the fcm to operate on. */
-                    pump: string;
-                    /** @description The volume poured during calibration in ml. */
-                    calVolume: number;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["8d71e66f-17a1-4949-8543-cbc8dcf44236"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/freestyle/fcm/calibration/{pump}/baseline": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the baseline calibration for the pump. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Path of the fcm to operate on. */
-                    pump: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["63fac6ee-1d68-4ece-84cb-7f65bf3924f1"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/freestyle/fcm/calibration/{pump}/baseline/{value}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Set the baseline calibration for the pump. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Path of the fcm to operate on. */
-                    pump: string;
-                    /** @description The calibration value. */
-                    value: number;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/freestyle/fcm/calibration/{pump}/complete/{calVolume}/{verifyVolume}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Confirm the verify volume poured. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Path of the fcm to operate on. */
-                    pump: string;
-                    /** @description The volume poured during calibration in ml. */
-                    calVolume: number;
-                    /** @description The volume poured during verification in ml. */
-                    verifyVolume: number;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": string;
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/logs/rotateAll": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Rotate all log streams on all nodes. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/logs/node/{nodeId}/streams": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the list of log streams on the specified node. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Id of the node to operate on. */
-                    nodeId: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["075c6e7f-2826-45ad-8f3c-0a692c9d28d9"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/logs/node/{nodeId}/{stream}/subscribe": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Subscribe to the specified stream. This enables real-time log events for the stream. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Id of the node to operate on. */
-                    nodeId: string;
-                    /** @description Stream to subscribe to. */
-                    stream: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/logs/node/{nodeId}/{stream}/unsubscribe": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Unsubscribe to the specified stream. This disables real-time log events for the stream. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Id of the node to operate on. */
-                    nodeId: string;
-                    /** @description Stream to unsubscribe from. */
-                    stream: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/logs/node/{nodeId}/{stream}/blocks": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return block meta data for the specified stream. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Id of the node to operate on. */
-                    nodeId: string;
-                    /** @description Stream to fetch block data from. */
-                    stream: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["46ad35f8-5832-4564-b55f-bbf6c380b12d"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/logs/node/{nodeId}/{stream}/blocks/{blockId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the log data for the specified block. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Id of the node to operate on. */
-                    nodeId: string;
-                    /** @description Stream to fetch block data from. */
-                    stream: string;
-                    /** @description Block to return. */
-                    blockId: number;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["9f69887b-afc4-4832-a099-ce24f8da62bc"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/logs/rotate/{stream}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Rotate the specified log stream on all nodes. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Log stream to rotate */
-                    stream: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/logs/overrides": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Get all the overrides stored in the database. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["dfc683da-b58e-442c-b020-251fee3ef01f"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        /** Create or update an override (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody: {
-                content: {
-                    "application/json": components["schemas"]["16f9ad4c-0d5d-4647-9785-c16b0243d478"];
-                };
-            };
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        /** Remove an override (v1.0) */
-        delete: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody: {
-                content: {
-                    "application/json": components["schemas"]["16f9ad4c-0d5d-4647-9785-c16b0243d478"];
-                };
-            };
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/config/schema": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return schema data about all known config data. This describes the structure of every known
-         *     ConfigBean. This is used by kOS Studio tools. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["c3779ff3-22ee-417a-8031-de495a396336"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/config/schema/{path}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return schema data about the ConfigBean identified by the handle path. This describes
-         *     the structure of the config bean for use by tools in kOS Studio. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Handle path for the ConfigBean */
-                    path: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["e7d1ff0a-2251-4231-a09b-8affe286c9f4"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/config/{path}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the ConfigBean associated with the specified handle path. This is actual
-         *     configuration object in memory and reflects the actual configuration values
-         *     visible to the associated bean. This only works for beans that exist on this node. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description The handle path to a bean containing a configuration. */
-                    path: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["1fc58076-acfd-468b-8647-75d19ee1a451"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        /** Update the ConfigBean associated with the specified handle path. This will update
-         *     the actual configuration object in memory as well as update the database to persist
-         *     the changes so they will be applied on reboot.
-         *
-         *     If a value is set to the default value then the new value will not be stored in
-         *     the database and any previous value will be removed. This allows changes in default
-         *     values to be made in future release without having the old defaults locked into the
-         *     database.
-         *
-         *     Whether an object reacts in real time to changes in the configuration is up to the
-         *     implementation of the bean. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description The handle path to a bean configuration to update. */
-                    path: string;
-                };
-                cookie?: never;
-            };
-            requestBody: {
-                content: {
-                    "application/json": components["schemas"]["8a1fad4a-244b-4d90-ba54-1c0cfa2a1a48"];
-                };
-            };
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["cc93e5c3-ec90-40b8-a519-1c8c6a641c29"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/config/details/{options}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return configuration details from all available ConfigSources. This will return both
-         *     default values and override values for all handle paths known by all sources. This is
-         *     useful for tooling and for inspecting what changes have been persisted in the config
-         *     service.
-         *
-         *     A stock kOS install defines default values as the initial values of a config bean as
-         *     set in the bean constructor with any values from system xml files loaded on top.
-         *     Override values are any changes applied via endpoints which are persisted in the database.
-         *
-         *     As it is also possible to insert new ConfigSources into the config service which can
-         *     have higher priority than other sources, this is also useful to see what the effective
-         *     default and override values are for the active sources. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Bitwise OR of options that identify the data to return: 1=bean, 2=overrides,
-                     *     4=defaults, 8=schema */
-                    options: number;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["a3536057-6272-477d-b673-3a95a94e8fab"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/config/details/{path}/{options}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the config details for the specified handle path. See /details for a
-         *     description of config details. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description The handle path to return config details for. */
-                    path: string;
-                    /** @description Bitwise OR of options that identify the data to return: 1=bean, 2=overrides,
-                     *     4=defaults, 8=schema */
-                    options: number;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["a3536057-6272-477d-b673-3a95a94e8fab"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/config/bulk": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Update multiple ConfigBeans in a single call. See /{path} for details about the
-         *     update process. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody: {
-                content: {
-                    "application/json": components["schemas"]["4f4d9cf7-70f9-466d-9998-ea37f2358644"];
-                };
-            };
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["cc93e5c3-ec90-40b8-a519-1c8c6a641c29"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/config/value/merged/{scopedPath}/{attr}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return merged value of the scoped config bean attribute. This merges all
-         *     scopes up from the specified scope starting scope. By specifying a nodeId
-         *     scope, you get the same values that the node would actually see. By using
-         *     a higher level scope, you can see the merged value for that scope which
-         *     is useful for debugging and for settings compliance. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Handle path for the ConfigBean */
-                    scopedPath: string;
-                    /** @description Name of attribute to return */
-                    attr: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["5c8b14a1-9f03-4f4a-8925-6ca9de308a00"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/config/value/{scopedPath}/{attr}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return value of the scoped config bean attribute. This merges defaults and overrides
-         *     but only for the scope specified in the path. This is useful for examining just a
-         *     single value at a single scope in the scope stack. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Handle path for the ConfigBean */
-                    scopedPath: string;
-                    /** @description Name of attribute to return */
-                    attr: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["5c8b14a1-9f03-4f4a-8925-6ca9de308a00"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/config/bean/defaults/{scopedPath}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the defaults for a particular scoped path. This is only defaults in
-         *     the specified scope. Useful for debugging. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Handle path for the ConfigBean */
-                    scopedPath: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["7ab832ae-1878-4577-9793-cb3dbb14a259"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/config/bean/merged/{path}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return merged values for the specified path using the default scope of the node.
-         *     This most closely resembles how config beans are set on this node. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Handle path for the ConfigBean */
-                    path: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["7ab832ae-1878-4577-9793-cb3dbb14a259"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/config/bean/overrides/{scopedPath}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the overrides for a particular scoped path. This is only overrides
-         *     in the specified scope. Useful for debugging. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Handle path for the ConfigBean */
-                    scopedPath: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["7ab832ae-1878-4577-9793-cb3dbb14a259"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/device": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the device definition. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["916f9699-11e0-4e38-a766-826c12196a14"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/device/assemblies": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the device assemblies. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["916f9699-11e0-4e38-a766-826c12196a14"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/device/serialNumber": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the serial number of the device. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["7ab832ae-1878-4577-9793-cb3dbb14a259"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/device/serialNumber/{serialNum}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Set the serial number of the device. This may fail if the serial number provider is not ready yet. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description The new serial number for the device. */
-                    serialNum: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/localization/context/{*path}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the context with the specified path. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    path: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["8d6639fa-d662-40ee-ac2a-cba71b359af3"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/localization/contexts": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the list of registered contexts. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["b5161c2f-0def-4003-98fa-5ba13394825e"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/update/install": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Install the specified manifest on the specified device. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody: {
-                content: {
-                    "application/json": components["schemas"]["86ef48f5-7fbc-49c8-b2da-7ca90a3d8969"];
-                };
-            };
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["c86a070a-286d-4862-8bec-462c91a5cf03"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/update/available": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the available updates across all available storage devices. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["dcbc2632-78d8-4fa1-9b96-cb6135d32c97"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/troubles": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return all available troubles. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["a59b54ee-46f4-4da4-a4f5-b89b48a3369f"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/troubles/resolve": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Attempt to resolve all the trouble id's listed in the request body. Troubles marked as
-         *     resolvable can generally execute logic that will resolve the underlying issue without
-         *     the caller needing any knowledge or details of the underlying process. It a trouble
-         *     is successfully resolved it will be removed from the list, otherwise it will remain
-         *     in the list. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody: {
-                content: {
-                    "application/json": components["schemas"]["b5336e3a-6f45-451f-9a5a-2facceb760bb"];
-                };
-            };
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["c86a070a-286d-4862-8bec-462c91a5cf03"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/troubles/resolve/{troubleId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Attempt to resolve the specified trouble. Troubles marked as resolvable can generally
-         *     execute logic that will resolve the underlying issue without the caller needing any
-         *     knowledge or details of the underlying process. It a trouble is successfully resolved
-         *     it will be removed from the list, otherwise it will remain in the list. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Id of the trouble to resolve. */
-                    troubleId: number;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["c86a070a-286d-4862-8bec-462c91a5cf03"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/troubles/{troubleId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the specified trouble. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Id of the trouble to return. */
-                    troubleId: number;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["d5e4a5c0-c65b-4fc9-a865-e5e433ea4331"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/vfs": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the structure of the VFS. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["4b0c3fda-cdfa-4d4b-8477-7f5916901066"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/future/traces": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the list of available future traces. Every future captures a trace of events that
-         *     allow the future to be analyzed. A future can also declare itself a child of another future
-         *     in which case the trace for the child future becomes a child of the parent trace which
-         *     ensures that parent traces can be analyzed with full context. The future service maintains
-         *     a limited queue of traces and this endpoint returns the contents of the queue. This
-         *     only includes the trace objects which describe structure and existence but no events.
-         *     Use the events endpoint to fetch the event list for any future in the trace
-         *
-         *     As trace data is held in a queue, new traces will cause existing traces to be removed
-         *     which means event data may not be available some time after this endpoint reports
-         *     the existence of the trace. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["efcdd978-cfa8-4cfd-aac1-5600683d9f95"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/future/traces/{traceId}/events": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the events for the specified trace. Since traces are held in a queue in future service
-         *     it's possible that new traces have pushed previous traces out of the queue and the events are
-         *     no longer available.
-         *
-         *     Event data contains both timestamps and an index. While the timestamps are ms resolution,
-         *     this may not be sufficient to determine event order. The index is global across every
-         *     trace event and should be used to determine the order of events. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Id of the trace to return events for. */
-                    traceId: number;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["ea27b9fc-ebce-4869-8849-4e247a0410be"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/future/{futureId}/cancel": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Cancel the specified future if not already completed. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Id of the future to cancel. */
-                    futureId: number;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/time/date": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Set the date. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody: {
-                content: {
-                    "application/json": components["schemas"]["e21bc680-e33b-44a0-9d0c-14a12783cd57"];
-                };
-            };
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/time/timezone": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Get the timezone. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["7ab832ae-1878-4577-9793-cb3dbb14a259"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        /** Set the timezone. (v1.0) */
-        post: {
-            parameters: {
-                query?: {
-                    /** @description The new linux timezone. */
-                    tz?: string;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/time/time": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Set the time. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody: {
-                content: {
-                    "application/json": components["schemas"]["f04bf31a-4c30-457f-b415-7978f38f1a8d"];
-                };
-            };
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/descriptor/{path}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Returns the entire descriptor for the HandleAware object with the specified path. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Handle path of the object to return the descriptor for. */
-                    path: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": Record<string, never>;
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/descriptor/{path}/{dotted}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Returns the entire descriptor for the HandleAware object with the specified path. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Handle path of the object to return the descriptor for. */
-                    path: string;
-                    /** @description Dotted notation subset of the descriptor to return. */
-                    dotted: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": Record<string, never>;
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/state/paths": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the paths of all registered state beans. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["075c6e7f-2826-45ad-8f3c-0a692c9d28d9"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/state/{path}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the state bean with the specified path. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Path of the state bean to return. */
-                    path: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["10eb862c-8d91-4a80-ac72-2283d0457b3a"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/freestyle/ice/types": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Returns a list of availble ice types (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["075c6e7f-2826-45ad-8f3c-0a692c9d28d9"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/freestyle/ice/type/{path}/{type}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Set the ice type for the specified ice agitator. This will set the type as well as apply
-         *     all the default settings for that type to the agitator configuration. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Handle path of the ice agitator. */
-                    path: string;
-                    /** @description Ice type for the agitator. */
-                    type: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/logs/groups": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the list of log groups on this node (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["075c6e7f-2826-45ad-8f3c-0a692c9d28d9"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/logs/overrides/{nodeType}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Get all the overrides stored in the database for the specified nodeType. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Node type to return overrides for. */
-                    nodeType: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["dfc683da-b58e-442c-b020-251fee3ef01f"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/logs/overrides/{nodeType}/{typePrefix}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Get all the overrides stored in the database for the specified nodeType and type prefix (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Node type to return overrides for. */
-                    nodeType: string;
-                    /** @description Override type prefix to return. */
-                    typePrefix: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["dfc683da-b58e-442c-b020-251fee3ef01f"];
+                        "application/json": components["schemas"]["4237d7ce-ef70-48c3-8ed9-cc4b179aeb01"];
                     };
                 };
             };
@@ -2585,7 +273,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["5f6dc193-f679-43a2-acdc-91531b5a03a7"];
+                        "application/json": components["schemas"]["b81a5e9f-2d27-40b4-87dd-e51570607720"];
                     };
                 };
             };
@@ -2639,7 +327,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["5f6dc193-f679-43a2-acdc-91531b5a03a7"];
+                        "application/json": components["schemas"]["b81a5e9f-2d27-40b4-87dd-e51570607720"];
                     };
                 };
             };
@@ -2816,14 +504,53 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/ext/dispense/assignments": {
+    "/api/kos/openapi/{*baseUrl}": {
         parameters: {
             query?: never;
             header?: never;
             path?: never;
             cookie?: never;
         };
-        /** Returns all existing ingredient assigments. (v1.0) */
+        /** Returns OpenAPI docs for all endpoints below the specified base URL. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description All endpoints below this baseUrl are returned. */
+                    baseUrl: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/octet-stream": Record<string, never>;
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/manifest/node": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the resolved node manifest. (v1.0) */
         get: {
             parameters: {
                 query?: never;
@@ -2839,27 +566,35 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["f95ad563-b914-4160-8658-88843d23cae9"];
+                        "application/json": components["schemas"]["c1c745f6-e8ca-4036-9621-89749a31f64a"];
                     };
                 };
             };
         };
         put?: never;
-        /** Create a new ingredient assignment for the specified holder. If an existing
-         *     assignment exists for the holder, it will be removed as part of adding the
-         *     new mapping. (v1.0) */
-        post: {
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/manifest/device": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the resolved device manifest. (v1.0) */
+        get: {
             parameters: {
                 query?: never;
                 header?: never;
                 path?: never;
                 cookie?: never;
             };
-            requestBody: {
-                content: {
-                    "application/json": components["schemas"]["739b66d3-b059-4ad4-9fee-7e4c2a1710db"];
-                };
-            };
+            requestBody?: never;
             responses: {
                 /** @description OK */
                 200: {
@@ -2867,18 +602,203 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["739b66d3-b059-4ad4-9fee-7e4c2a1710db"];
+                        "application/json": components["schemas"]["bea126d8-d571-4384-9246-d5f9db97efba"];
                     };
                 };
             };
         };
+        put?: never;
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/api/ext/dispense/assignments/{holderPath}": {
+    "/api/kos/manifest/info": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the software info description of the active manifest. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["e7f01b11-b357-4216-bbde-d1c6fca9b8fa"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/cms/screens/context/{*path}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the context with the specified path. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    path: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["4de0e452-32e3-4d2d-b714-249d09c44964"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/cms/screens/contexts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the list of registered contexts. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["fa9ba227-d260-49bb-9d0b-874ca8e9179b"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/logs/rotateAll": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Rotate all log streams on all nodes. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/logs/node/{nodeId}/streams": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the list of log streams on the specified node. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Id of the node to operate on. */
+                    nodeId: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["0034b7cd-f667-40a0-8121-d6aecef2d72d"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/logs/node/{nodeId}/{stream}/subscribe": {
         parameters: {
             query?: never;
             header?: never;
@@ -2887,15 +807,16 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        post?: never;
-        /** Delete an existing ingredient mapping for the specified holder. (v1.0) */
-        delete: {
+        /** Subscribe to the specified stream. This enables real-time log events for the stream. (v1.0) */
+        post: {
             parameters: {
                 query?: never;
                 header?: never;
                 path: {
-                    /** @description The handle path for the holder */
-                    holderPath: string;
+                    /** @description Id of the node to operate on. */
+                    nodeId: string;
+                    /** @description Stream to subscribe to. */
+                    stream: string;
                 };
                 cookie?: never;
             };
@@ -2910,6 +831,2387 @@ export interface paths {
                 };
             };
         };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/logs/node/{nodeId}/{stream}/unsubscribe": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Unsubscribe to the specified stream. This disables real-time log events for the stream. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Id of the node to operate on. */
+                    nodeId: string;
+                    /** @description Stream to unsubscribe from. */
+                    stream: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/logs/node/{nodeId}/{stream}/blocks": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return block meta data for the specified stream. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Id of the node to operate on. */
+                    nodeId: string;
+                    /** @description Stream to fetch block data from. */
+                    stream: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["a74f861b-9f2e-4525-9995-15f0fe6a7cb5"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/logs/node/{nodeId}/{stream}/blocks/{blockId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the log data for the specified block. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Id of the node to operate on. */
+                    nodeId: string;
+                    /** @description Stream to fetch block data from. */
+                    stream: string;
+                    /** @description Block to return. */
+                    blockId: number;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["1499d23f-6f32-4d18-8a3c-e16cda981767"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/logs/rotate/{stream}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Rotate the specified log stream on all nodes. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Log stream to rotate */
+                    stream: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/logs/overrides": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get all the overrides stored in the database. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["effc8f0d-6b00-4f69-88cc-65b6d7712896"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        /** Create or update an override (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": components["schemas"]["3b272d0f-2a32-48ef-a6da-c17f1a982f9f"];
+                };
+            };
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        /** Remove an override (v1.0) */
+        delete: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": components["schemas"]["3b272d0f-2a32-48ef-a6da-c17f1a982f9f"];
+                };
+            };
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/config/schema": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return schema data about all known config data. This describes the structure of every known
+         *     ConfigBean. This is used by kOS Studio tools. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["d02e9e6a-9888-44e6-b5d7-131a6a535f4f"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/config/schema/{path}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return schema data about the ConfigBean identified by the handle path. This describes
+         *     the structure of the config bean for use by tools in kOS Studio. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Handle path for the ConfigBean */
+                    path: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["19ac2274-3e49-4ebd-8105-e810e7bff0cd"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/config/{path}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the ConfigBean associated with the specified handle path. This is actual
+         *     configuration object in memory and reflects the actual configuration values
+         *     visible to the associated bean. This only works for beans that exist on this node. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description The handle path to a bean containing a configuration. */
+                    path: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["5b7cad3c-6351-4445-8baf-cb64c7a39785"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        /** Update the ConfigBean associated with the specified handle path. This will update
+         *     the actual configuration object in memory as well as update the database to persist
+         *     the changes so they will be applied on reboot.
+         *
+         *     If a value is set to the default value then the new value will not be stored in
+         *     the database and any previous value will be removed. This allows changes in default
+         *     values to be made in future release without having the old defaults locked into the
+         *     database.
+         *
+         *     Whether an object reacts in real time to changes in the configuration is up to the
+         *     implementation of the bean. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description The handle path to a bean configuration to update. */
+                    path: string;
+                };
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": components["schemas"]["8b56adfb-42d7-4f0b-8f70-c1f29f5c825b"];
+                };
+            };
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["4b7ae760-e4ef-4e9f-b05c-26627c748555"];
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/config/details/{options}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return configuration details from all available ConfigSources. This will return both
+         *     default values and override values for all handle paths known by all sources. This is
+         *     useful for tooling and for inspecting what changes have been persisted in the config
+         *     service.
+         *
+         *     A stock kOS install defines default values as the initial values of a config bean as
+         *     set in the bean constructor with any values from system xml files loaded on top.
+         *     Override values are any changes applied via endpoints which are persisted in the database.
+         *
+         *     As it is also possible to insert new ConfigSources into the config service which can
+         *     have higher priority than other sources, this is also useful to see what the effective
+         *     default and override values are for the active sources. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Bitwise OR of options that identify the data to return: 1=bean, 2=overrides,
+                     *     4=defaults, 8=schema */
+                    options: number;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["ac40fb62-e235-4b28-a214-95e2a0a4f215"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/config/details/{path}/{options}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the config details for the specified handle path. See /details for a
+         *     description of config details. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description The handle path to return config details for. */
+                    path: string;
+                    /** @description Bitwise OR of options that identify the data to return: 1=bean, 2=overrides,
+                     *     4=defaults, 8=schema */
+                    options: number;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["ac40fb62-e235-4b28-a214-95e2a0a4f215"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/config/bulk": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Update multiple ConfigBeans in a single call. See /{path} for details about the
+         *     update process. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": components["schemas"]["06bc6940-fc8c-4ed4-a85d-1925524ff7eb"];
+                };
+            };
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["4b7ae760-e4ef-4e9f-b05c-26627c748555"];
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/config/value/merged/{scopedPath}/{attr}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return merged value of the scoped config bean attribute. This merges all
+         *     scopes up from the specified scope starting scope. By specifying a nodeId
+         *     scope, you get the same values that the node would actually see. By using
+         *     a higher level scope, you can see the merged value for that scope which
+         *     is useful for debugging and for settings compliance. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Handle path for the ConfigBean */
+                    scopedPath: string;
+                    /** @description Name of attribute to return */
+                    attr: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["46835236-29d9-4c24-a68c-fac9c07ca526"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/config/value/{scopedPath}/{attr}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return value of the scoped config bean attribute. This merges defaults and overrides
+         *     but only for the scope specified in the path. This is useful for examining just a
+         *     single value at a single scope in the scope stack. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Handle path for the ConfigBean */
+                    scopedPath: string;
+                    /** @description Name of attribute to return */
+                    attr: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["46835236-29d9-4c24-a68c-fac9c07ca526"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/config/bean/defaults/{scopedPath}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the defaults for a particular scoped path. This is only defaults in
+         *     the specified scope. Useful for debugging. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Handle path for the ConfigBean */
+                    scopedPath: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["e3827b48-bafc-4c54-a4b8-5bf6e2824d59"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/config/bean/merged/{path}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return merged values for the specified path using the default scope of the node.
+         *     This most closely resembles how config beans are set on this node. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Handle path for the ConfigBean */
+                    path: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["e3827b48-bafc-4c54-a4b8-5bf6e2824d59"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/config/bean/overrides/{scopedPath}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the overrides for a particular scoped path. This is only overrides
+         *     in the specified scope. Useful for debugging. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Handle path for the ConfigBean */
+                    scopedPath: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["e3827b48-bafc-4c54-a4b8-5bf6e2824d59"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/freestyle/fcm/calibration/{pump}/calibrate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Perform calibrate pour on fcm. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Path of the fcm to operate on. */
+                    pump: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["5d3ccc62-58ba-4b29-9da1-e1c06461983f"];
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/freestyle/fcm/calibration/{pump}/preCalibrate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Perform pre-calibrate pour on fcm. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Path of the fcm to operate on. */
+                    pump: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["5d3ccc62-58ba-4b29-9da1-e1c06461983f"];
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/freestyle/fcm/calibration/{pump}/verify/{calVolume}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Perform verify pour on fcm. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Path of the fcm to operate on. */
+                    pump: string;
+                    /** @description The volume poured during calibration in ml. */
+                    calVolume: number;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["5d3ccc62-58ba-4b29-9da1-e1c06461983f"];
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/freestyle/fcm/calibration/{pump}/baseline": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the baseline calibration for the pump. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Path of the fcm to operate on. */
+                    pump: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["4dfeab80-0964-4731-968a-e5e878c9de42"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/freestyle/fcm/calibration/{pump}/baseline/{value}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Set the baseline calibration for the pump. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Path of the fcm to operate on. */
+                    pump: string;
+                    /** @description The calibration value. */
+                    value: number;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/freestyle/fcm/calibration/{pump}/complete/{calVolume}/{verifyVolume}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Confirm the verify volume poured. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Path of the fcm to operate on. */
+                    pump: string;
+                    /** @description The volume poured during calibration in ml. */
+                    calVolume: number;
+                    /** @description The volume poured during verification in ml. */
+                    verifyVolume: number;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": string;
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/device": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the device definition. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["175caf39-dc2e-4958-9b74-09f282ffc9cb"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/device/assemblies": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the device assemblies. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["175caf39-dc2e-4958-9b74-09f282ffc9cb"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/device/serialNumber": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the serial number of the device. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["e3827b48-bafc-4c54-a4b8-5bf6e2824d59"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/device/serialNumber/{serialNum}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Set the serial number of the device. This may fail if the serial number provider is not ready yet. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description The new serial number for the device. */
+                    serialNum: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/localization/context/{*path}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the context with the specified path. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    path: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["3126d0ad-f73b-4ceb-b002-987dd5a0a1cc"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/localization/contexts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the list of registered contexts. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["7bc232e2-c56f-4821-a637-6ea686f18560"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/update/install": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Install the specified manifest on the specified device. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": components["schemas"]["dcc2f41b-1a99-4360-ac19-aaa418ca46ff"];
+                };
+            };
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["a1480f86-5e3a-4bb8-943d-3dfb18f9d551"];
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/update/available": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the available updates across all available storage devices. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["9b8c1484-6138-4465-9ef0-7289dd72ba34"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/troubles": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return all available troubles. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["c913561c-30c3-43b0-b7ef-4d7abeffa03c"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/troubles/resolve": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Attempt to resolve all the trouble id's listed in the request body. Troubles marked as
+         *     resolvable can generally execute logic that will resolve the underlying issue without
+         *     the caller needing any knowledge or details of the underlying process. It a trouble
+         *     is successfully resolved it will be removed from the list, otherwise it will remain
+         *     in the list. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": components["schemas"]["7ce32f30-aaad-414f-bf79-9ee4fcc3cb80"];
+                };
+            };
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["a1480f86-5e3a-4bb8-943d-3dfb18f9d551"];
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/troubles/resolve/{troubleId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Attempt to resolve the specified trouble. Troubles marked as resolvable can generally
+         *     execute logic that will resolve the underlying issue without the caller needing any
+         *     knowledge or details of the underlying process. It a trouble is successfully resolved
+         *     it will be removed from the list, otherwise it will remain in the list. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Id of the trouble to resolve. */
+                    troubleId: number;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["a1480f86-5e3a-4bb8-943d-3dfb18f9d551"];
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/troubles/{troubleId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the specified trouble. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Id of the trouble to return. */
+                    troubleId: number;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["5c22ab84-f686-4258-a2bb-35a0938834a0"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/future/traces": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the list of available future traces. Every future captures a trace of events that
+         *     allow the future to be analyzed. A future can also declare itself a child of another future
+         *     in which case the trace for the child future becomes a child of the parent trace which
+         *     ensures that parent traces can be analyzed with full context. The future service maintains
+         *     a limited queue of traces and this endpoint returns the contents of the queue. This
+         *     only includes the trace objects which describe structure and existence but no events.
+         *     Use the events endpoint to fetch the event list for any future in the trace
+         *
+         *     As trace data is held in a queue, new traces will cause existing traces to be removed
+         *     which means event data may not be available some time after this endpoint reports
+         *     the existence of the trace. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["e22f6c1c-b930-445f-a201-a8aa40981964"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/future/traces/{traceId}/events": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the events for the specified trace. Since traces are held in a queue in future service
+         *     it's possible that new traces have pushed previous traces out of the queue and the events are
+         *     no longer available.
+         *
+         *     Event data contains both timestamps and an index. While the timestamps are ms resolution,
+         *     this may not be sufficient to determine event order. The index is global across every
+         *     trace event and should be used to determine the order of events. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Id of the trace to return events for. */
+                    traceId: number;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["456ef3c0-fe32-409f-907a-065ebad2a396"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/future/{futureId}/cancel": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Cancel the specified future if not already completed. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Id of the future to cancel. */
+                    futureId: number;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/freestyle/fuelGauges/{holder}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the fuel gauge for the holder. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Path to the holder with the fuel gauge. */
+                    holder: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["d06829c6-6480-45db-833f-13d81c637f28"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/freestyle/fuelGauges/{holder}/{val}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Set fuel gauge to the specified value. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Path to the holder with the fuel gauge. */
+                    holder: string;
+                    /** @description Value of the fuel gauge. */
+                    val: number;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/freestyle/ice/types": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Returns a list of availble ice types (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["0034b7cd-f667-40a0-8121-d6aecef2d72d"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/freestyle/ice/type/{path}/{type}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Set the ice type for the specified ice agitator. This will set the type as well as apply
+         *     all the default settings for that type to the agitator configuration. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Handle path of the ice agitator. */
+                    path: string;
+                    /** @description Ice type for the agitator. */
+                    type: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/vfs": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the structure of the VFS. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["6ead8e04-3f4f-4787-8412-9b438b7b19b9"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/time/date": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Set the date. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": components["schemas"]["51e08250-98bd-4617-ab0e-e7bb3103ef52"];
+                };
+            };
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/time/timezone": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get the timezone. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["e3827b48-bafc-4c54-a4b8-5bf6e2824d59"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        /** Set the timezone. (v1.0) */
+        post: {
+            parameters: {
+                query?: {
+                    /** @description The new linux timezone. */
+                    tz?: string;
+                };
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/time/time": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Set the time. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": components["schemas"]["6fd9ac53-e97c-49d8-a942-5b5648fbe315"];
+                };
+            };
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/dispense/soldOuts/container/{pump}/{reason}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create a sold out trouble for the container attached to the pump. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Handle for the pump. */
+                    pump: string;
+                    /** @description Reason for the trouble. */
+                    reason: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/dispense/soldOuts/slice/{pump}/{reason}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create a sold out trouble for the container attached to the pump. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Handle for the pump. */
+                    pump: string;
+                    /** @description Reason for the trouble. */
+                    reason: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/dispense/soldOuts/troubles": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return all existing SoldOutAware troubles. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["8966c9e5-d6c9-43ba-833e-aebbdea63a85"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/dispense/soldOuts/db": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the sold out data from the database. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["340bebfa-6dcc-4232-a0f7-1462a243ee14"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/descriptor/{path}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Returns the entire descriptor for the HandleAware object with the specified path. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Handle path of the object to return the descriptor for. */
+                    path: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": Record<string, never>;
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/descriptor/{path}/{dotted}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Returns the entire descriptor for the HandleAware object with the specified path. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Handle path of the object to return the descriptor for. */
+                    path: string;
+                    /** @description Dotted notation subset of the descriptor to return. */
+                    dotted: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": Record<string, never>;
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/dispense/pumpEvents/replaceLine/{holder}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Indicate that the lines associated with holder have been replaced. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description The holder associated with the replaced line. */
+                    holder: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/dispense/pumpEvents/replacePump/{pump}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Indicate that the specified pump has been replaced. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description The pump that has been replaced. */
+                    pump: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/state/paths": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the paths of all registered state beans. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["0034b7cd-f667-40a0-8121-d6aecef2d72d"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/state/{path}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the state bean with the specified path. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Path of the state bean to return. */
+                    path: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["21dc1e7e-bf8f-4e34-80f6-884e5212a787"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/logs/groups": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the list of log groups on this node (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["0034b7cd-f667-40a0-8121-d6aecef2d72d"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/logs/overrides/{nodeType}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get all the overrides stored in the database for the specified nodeType. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Node type to return overrides for. */
+                    nodeType: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["effc8f0d-6b00-4f69-88cc-65b6d7712896"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/logs/overrides/{nodeType}/{typePrefix}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get all the overrides stored in the database for the specified nodeType and type prefix (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Node type to return overrides for. */
+                    nodeType: string;
+                    /** @description Override type prefix to return. */
+                    typePrefix: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["effc8f0d-6b00-4f69-88cc-65b6d7712896"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
         options?: never;
         head?: never;
         patch?: never;
@@ -2942,7 +3244,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["075c6e7f-2826-45ad-8f3c-0a692c9d28d9"];
+                        "application/json": components["schemas"]["0034b7cd-f667-40a0-8121-d6aecef2d72d"];
                     };
                 };
             };
@@ -3065,13 +3367,205 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["075c6e7f-2826-45ad-8f3c-0a692c9d28d9"];
+                        "application/json": components["schemas"]["0034b7cd-f667-40a0-8121-d6aecef2d72d"];
                     };
                 };
             };
         };
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/freestyle/fcm/diagnostics/{pump}/pressureTest": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Perform pressure test on fcm. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Path of the fcm to operate on. */
+                    pump: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["5d3ccc62-58ba-4b29-9da1-e1c06461983f"];
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/freestyle/fcm/diagnostics/{pump}/opennessTest": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Perform valve openness test on fcm. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Path of the fcm to operate on. */
+                    pump: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["f6d782be-f09f-4e73-91e0-ce8921d2b6c8"];
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/freestyle/fcm/diagnostics/{pump}/flowTest": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Perform flow test on fcm. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Path of the fcm to operate on. */
+                    pump: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["5d3ccc62-58ba-4b29-9da1-e1c06461983f"];
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/freestyle/fcm/diagnostics/{pump}/electricalTest": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Perform electrical test on fcm. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Path of the fcm to operate on. */
+                    pump: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["10caf2dc-2be7-4f83-81ba-d994fe785568"];
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/ota/resume/{name}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Resume the specified downloader. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    name: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
         delete?: never;
         options?: never;
         head?: never;
@@ -3148,42 +3642,6 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/kos/ota/resume/{name}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Resume the specified downloader. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    name: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
     "/api/kos/ota/paused": {
         parameters: {
             query?: never;
@@ -3207,7 +3665,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["075c6e7f-2826-45ad-8f3c-0a692c9d28d9"];
+                        "application/json": components["schemas"]["0034b7cd-f667-40a0-8121-d6aecef2d72d"];
                     };
                 };
             };
@@ -3279,7 +3737,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["b2c06066-9ded-4008-937c-374ba1d1f38d"];
+                        "application/json": components["schemas"]["2609b6fc-9268-41a4-a13b-95fbef2d58f1"];
                     };
                 };
             };
@@ -3292,14 +3750,14 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/ext/dispense/ingredients": {
+    "/api/ext/dispense/metrics": {
         parameters: {
             query?: never;
             header?: never;
             path?: never;
             cookie?: never;
         };
-        /** Return the list of all currently known ingredients by sourceId. (v1.0) */
+        /** Return all metrics in the system. This should only be used for debugging. (v1.0) */
         get: {
             parameters: {
                 query?: never;
@@ -3315,7 +3773,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["2d19440b-f2b4-4cca-9317-cb622bd7ec3c"];
+                        "application/json": components["schemas"]["1f562673-1c0a-4016-8941-4b313af36a60"];
                     };
                 };
             };
@@ -3328,14 +3786,14 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/ext/dispense/ingredients/sources": {
+    "/api/ext/dispense/metrics/names": {
         parameters: {
             query?: never;
             header?: never;
             path?: never;
             cookie?: never;
         };
-        /** Return the list of all currently known sources. (v1.0) */
+        /** Return the names of all global metrics. (v1.0) */
         get: {
             parameters: {
                 query?: never;
@@ -3351,7 +3809,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["075c6e7f-2826-45ad-8f3c-0a692c9d28d9"];
+                        "application/json": components["schemas"]["0034b7cd-f667-40a0-8121-d6aecef2d72d"];
                     };
                 };
             };
@@ -3364,19 +3822,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/ext/dispense/insertion/filters": {
+    "/api/ext/dispense/metrics/{name}": {
         parameters: {
             query?: never;
             header?: never;
             path?: never;
             cookie?: never;
         };
-        /** Return the filters in the chain. (v1.0) */
+        /** Return the named global metrics object. (v1.0) */
         get: {
             parameters: {
                 query?: never;
                 header?: never;
-                path?: never;
+                path: {
+                    /** @description Name of the metrics to return. */
+                    name: string;
+                };
                 cookie?: never;
             };
             requestBody?: never;
@@ -3387,7 +3848,88 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["b4b3d6eb-78ab-4813-b9db-813576727efc"];
+                        "application/json": components["schemas"]["bfdddf3e-7759-4dcf-ab43-3e9822756373"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        /** Create / reset the named global metrics object. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Name of the metrics to create / reset. */
+                    name: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        /** Remove the named global metrics object. (v1.0) */
+        delete: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Name of the metrics to remove. */
+                    name: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/dispense/metrics/{nozzle}/names": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the names of all metrics for the nozzle. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Path of the nozzle to query. */
+                    nozzle: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["0034b7cd-f667-40a0-8121-d6aecef2d72d"];
                     };
                 };
             };
@@ -3395,6 +3937,93 @@ export interface paths {
         put?: never;
         post?: never;
         delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/ext/dispense/metrics/{nozzle}/{name}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the named metrics object for the nozzle. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Path of the nozzle to query. */
+                    nozzle: string;
+                    /** @description Name of the metrics to return. */
+                    name: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["bfdddf3e-7759-4dcf-ab43-3e9822756373"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        /** Create / reset the named metrics object for the nozzle. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Path of the nozzle to query. */
+                    nozzle: string;
+                    /** @description Name of the metrics to create / reset. */
+                    name: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        /** Remove the named metrics object for the nozzle. (v1.0) */
+        delete: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Path of the nozzle to query. */
+                    nozzle: string;
+                    /** @description Name of the metrics to remove. */
+                    name: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
         options?: never;
         head?: never;
         patch?: never;
@@ -3423,7 +4052,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["76449b83-a635-4813-abf5-507977d3c90c"];
+                        "application/json": components["schemas"]["1d319bfb-6d48-4643-abcd-b3127c9cd948"];
                     };
                 };
             };
@@ -3462,7 +4091,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["30cdd967-cf81-4b70-ad50-0b5d195e9bef"];
+                        "application/json": components["schemas"]["6dead225-a413-4d8a-8fbd-7b41550105fd"];
                     };
                 };
             };
@@ -3475,7 +4104,43 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/ext/dispense/pumpEvents/replaceLine/{holder}": {
+    "/api/ext/dispense/insertion/filters": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the filters in the chain. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["010b31ec-e5c8-4395-aac9-7577cc093363"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/nodeMgr/reboot": {
         parameters: {
             query?: never;
             header?: never;
@@ -3484,14 +4149,48 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Indicate that the lines associated with holder have been replaced. (v1.0) */
+        /** Reboot the entire device. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/nodeMgr/node/{nodeId}/reboot": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Reboot the specified node. (v1.0) */
         post: {
             parameters: {
                 query?: never;
                 header?: never;
                 path: {
-                    /** @description The holder associated with the replaced line. */
-                    holder: string;
+                    /** @description Id of the node to operate on. */
+                    nodeId: string;
                 };
                 cookie?: never;
             };
@@ -3512,23 +4211,47 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/ext/dispense/pumpEvents/replacePump/{pump}": {
+    "/api/kos/nodeMgr/node/{nodeId}/blockedManifests": {
         parameters: {
             query?: never;
             header?: never;
             path?: never;
             cookie?: never;
         };
-        get?: never;
-        put?: never;
-        /** Indicate that the specified pump has been replaced. (v1.0) */
-        post: {
+        /** Return the list of blocked manifests for the specified node. (v1.0) */
+        get: {
             parameters: {
                 query?: never;
                 header?: never;
                 path: {
-                    /** @description The pump that has been replaced. */
-                    pump: string;
+                    /** @description Id of the node to operate on. */
+                    nodeId: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["38f032c0-cf40-429f-811a-4de4eb7039bf"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        /** Clear the list of blocked manifests on the specified node. (v1.0) */
+        delete: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Id of the node to operate on. */
+                    nodeId: string;
                 };
                 cookie?: never;
             };
@@ -3543,7 +4266,646 @@ export interface paths {
                 };
             };
         };
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/nodeMgr/node/{nodeId}/blockedManifests/{manifestId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Add the specified manifestId to the blocked list on the specified node. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Id of the node to operate on. */
+                    nodeId: string;
+                    /** @description The manifestId to add to the block list. */
+                    manifestId: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        /** Remove the specified manifestId from the blocked list on the specified node. (v1.0) */
+        delete: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Id of the node to operate on. */
+                    nodeId: string;
+                    /** @description The manifestId to remove from the block list. */
+                    manifestId: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/nodeMgr/blockedManifests": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the list of blocked manifest ids. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["0034b7cd-f667-40a0-8121-d6aecef2d72d"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
         delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/nodeMgr/blockedManifests/{manifestId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Add the specified manifestId to the blocked list on the primary node, which will cause a rollback if active. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description The manifestId to add to the block list. */
+                    manifestId: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        /** Remove the specified manifestId from the blocked list on the primary node. (v1.0) */
+        delete: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description The manifestId to remove from the block list. */
+                    manifestId: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/storage/devices": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the available storage devices. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["a701c4f1-92ff-446e-b5f4-ccff5014b0ca"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/network/interfaces": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the list of available network interfaces. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["5c3028ac-9586-4a5b-8378-67f4dd2d7c2c"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/browser": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return available browser instances. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["16b44b02-78ae-4ab5-ac77-c957abe47ba9"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/browser/redirect": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Redirect to the url in the request param. Used internally for redirect based navigation. (v1.0) */
+        get: {
+            parameters: {
+                query?: {
+                    /** @description The url to redirect to. */
+                    url?: string;
+                };
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/browser/{nodeId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Set the url for the browser associated with the specified nodeId and null name. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description NodeId of the browser to update. */
+                    nodeId: string;
+                };
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": components["schemas"]["c332eb7a-99ae-448e-89ea-47c6133e51fd"];
+                };
+            };
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/browser/{nodeId}/{name}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Set the url for the browser associated with the specified nodeId and name. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description NodeId of the browser to update. */
+                    nodeId: string;
+                    /** @description Name of the browser on the node. */
+                    name: string;
+                };
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": components["schemas"]["c332eb7a-99ae-448e-89ea-47c6133e51fd"];
+                };
+            };
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/browser/intent": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Navigate using the supplied BrowserIntent object. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": components["schemas"]["0de416e5-5989-49fb-ac45-f6e3ffe8fad2"];
+                };
+            };
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/browser/url": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Navigate using the supplied BrowserUrl object. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": components["schemas"]["89b5f581-452e-4651-a757-d08ee66368df"];
+                };
+            };
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/criticalData/sources": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the list of sources viewed using HandleView. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["53732eb1-6424-4fbd-92b7-d7223968ae0e"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/criticalData/data": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return all critical data. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["21db50a5-1b71-4b0c-8145-cc4a5f92bbb3"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        /** Set all critical data at once. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": components["schemas"]["21db50a5-1b71-4b0c-8145-cc4a5f92bbb3"];
+                };
+            };
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/kos/criticalData/data/{name}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Return the named critical data. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Name of the critical data to return. */
+                    name: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["21db50a5-1b71-4b0c-8145-cc4a5f92bbb3"];
+                    };
+                };
+            };
+        };
+        put?: never;
+        /** Set the named critical data. (v1.0) */
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Name of the critical data to set. */
+                    name: string;
+                };
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": components["schemas"]["21db50a5-1b71-4b0c-8145-cc4a5f92bbb3"];
+                };
+            };
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        /** Delete the named critical data. (v1.0) */
+        delete: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    /** @description Name of the critical data to delete. */
+                    name: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
         options?: never;
         head?: never;
         patch?: never;
@@ -3575,7 +4937,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["3fb55b8a-fab7-4277-9be8-7c2b44e03a19"];
+                        "application/json": components["schemas"]["9be8683f-eb5c-42c6-b969-a19fac703142"];
                     };
                 };
             };
@@ -3614,7 +4976,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["f22d5986-0a9a-4092-9eb5-694732af87ce"];
+                        "application/json": components["schemas"]["148ed800-89fb-47c4-8e52-c60407b2007b"];
                     };
                 };
             };
@@ -3783,207 +5145,14 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/kos/nodeMgr/reboot": {
+    "/api/ext/dispense/ingredients": {
         parameters: {
             query?: never;
             header?: never;
             path?: never;
             cookie?: never;
         };
-        get?: never;
-        put?: never;
-        /** Reboot the entire device. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/nodeMgr/node/{nodeId}/reboot": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Reboot the specified node. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Id of the node to operate on. */
-                    nodeId: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/nodeMgr/node/{nodeId}/blockedManifests": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the list of blocked manifests for the specified node. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Id of the node to operate on. */
-                    nodeId: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["68f3bbfa-16f7-4e29-9bf5-4879addde120"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        /** Clear the list of blocked manifests on the specified node. (v1.0) */
-        delete: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Id of the node to operate on. */
-                    nodeId: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/nodeMgr/node/{nodeId}/blockedManifests/{manifestId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Add the specified manifestId to the blocked list on the specified node. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Id of the node to operate on. */
-                    nodeId: string;
-                    /** @description The manifestId to add to the block list. */
-                    manifestId: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        /** Remove the specified manifestId from the blocked list on the specified node. (v1.0) */
-        delete: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Id of the node to operate on. */
-                    nodeId: string;
-                    /** @description The manifestId to remove from the block list. */
-                    manifestId: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/nodeMgr/blockedManifests": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the list of blocked manifest ids. (v1.0) */
+        /** Return the list of all currently known ingredients by sourceId. (v1.0) */
         get: {
             parameters: {
                 query?: never;
@@ -3999,7 +5168,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["075c6e7f-2826-45ad-8f3c-0a692c9d28d9"];
+                        "application/json": components["schemas"]["8275b0de-0ba6-4da1-865e-3a2108778a57"];
                     };
                 };
             };
@@ -4012,59 +5181,37 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/kos/nodeMgr/blockedManifests/{manifestId}": {
+    "/api/ext/dispense/ingredients/sources": {
         parameters: {
             query?: never;
             header?: never;
             path?: never;
             cookie?: never;
         };
-        get?: never;
+        /** Return the list of all currently known sources. (v1.0) */
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description OK */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["0034b7cd-f667-40a0-8121-d6aecef2d72d"];
+                    };
+                };
+            };
+        };
         put?: never;
-        /** Add the specified manifestId to the blocked list on the primary node, which will cause a rollback if active. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description The manifestId to add to the block list. */
-                    manifestId: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        /** Remove the specified manifestId from the blocked list on the primary node. (v1.0) */
-        delete: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description The manifestId to remove from the block list. */
-                    manifestId: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
+        post?: never;
+        delete?: never;
         options?: never;
         head?: never;
         patch?: never;
@@ -4093,7 +5240,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["78613682-c3a9-4b86-a31a-597eb7939ab5"];
+                        "application/json": components["schemas"]["a95b8566-5242-46b3-9028-35100e97d9d6"];
                     };
                 };
             };
@@ -4107,7 +5254,11 @@ export interface paths {
                 path?: never;
                 cookie?: never;
             };
-            requestBody?: never;
+            requestBody: {
+                content: {
+                    "application/json": components["schemas"]["9123c893-c165-4f25-bc36-544e6348c9a2"];
+                };
+            };
             responses: {
                 /** @description OK */
                 200: {
@@ -4151,7 +5302,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["c86a070a-286d-4862-8bec-462c91a5cf03"];
+                        "application/json": components["schemas"]["a1480f86-5e3a-4bb8-943d-3dfb18f9d551"];
                     };
                 };
             };
@@ -4219,568 +5370,6 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/ext/freestyle/fuelGauges/{holder}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the fuel gauge for the holder. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Path to the holder with the fuel gauge. */
-                    holder: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["968b4381-c76a-4fc8-bd1b-7ef024c55506"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/freestyle/fuelGauges/{holder}/{val}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Set fuel gauge to the specified value. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Path to the holder with the fuel gauge. */
-                    holder: string;
-                    /** @description Value of the fuel gauge. */
-                    val: number;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/storage/devices": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the available storage devices. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["44b4baa9-a8c0-44f7-83f6-94f48ce40725"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/network/interfaces": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the list of available network interfaces. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["1760c8be-366f-4d05-afde-75914ea2f303"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/browser": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return available browser instances. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["87f68c2a-b3cd-4104-a3a5-5e0fb725d297"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/browser/redirect": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Redirect to the url in the request param. Used internally for redirect based navigation. (v1.0) */
-        get: {
-            parameters: {
-                query?: {
-                    /** @description The url to redirect to. */
-                    url?: string;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/browser/{nodeId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Set the url for the browser associated with the specified nodeId and null name. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description NodeId of the browser to update. */
-                    nodeId: string;
-                };
-                cookie?: never;
-            };
-            requestBody: {
-                content: {
-                    "application/json": components["schemas"]["ed9fbe0d-799f-4eba-b387-39b5930f6b60"];
-                };
-            };
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/browser/{nodeId}/{name}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Set the url for the browser associated with the specified nodeId and name. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description NodeId of the browser to update. */
-                    nodeId: string;
-                    /** @description Name of the browser on the node. */
-                    name: string;
-                };
-                cookie?: never;
-            };
-            requestBody: {
-                content: {
-                    "application/json": components["schemas"]["ed9fbe0d-799f-4eba-b387-39b5930f6b60"];
-                };
-            };
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/browser/intent": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Navigate using the supplied BrowserIntent object. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody: {
-                content: {
-                    "application/json": components["schemas"]["c6802875-c81d-4c00-a64b-156660efc145"];
-                };
-            };
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/browser/url": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Navigate using the supplied BrowserUrl object. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody: {
-                content: {
-                    "application/json": components["schemas"]["fa2d99cd-055f-4c2f-90ec-1bc84e8f5f45"];
-                };
-            };
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/criticalData/sources": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the list of sources viewed using HandleView. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["45845a89-d5f8-45cf-9bdc-337c9d556aae"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/criticalData/data": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return all critical data. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["a5eb0827-4d1a-4e11-a3d3-4648235e3b45"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        /** Set all critical data at once. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody: {
-                content: {
-                    "application/json": components["schemas"]["a5eb0827-4d1a-4e11-a3d3-4648235e3b45"];
-                };
-            };
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/kos/criticalData/data/{name}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the named critical data. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Name of the critical data to return. */
-                    name: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["a5eb0827-4d1a-4e11-a3d3-4648235e3b45"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        /** Set the named critical data. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Name of the critical data to set. */
-                    name: string;
-                };
-                cookie?: never;
-            };
-            requestBody: {
-                content: {
-                    "application/json": components["schemas"]["a5eb0827-4d1a-4e11-a3d3-4648235e3b45"];
-                };
-            };
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        /** Delete the named critical data. (v1.0) */
-        delete: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Name of the critical data to delete. */
-                    name: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
     "/api/ext/freestyle/brandset/nutrition/{bevId}": {
         parameters: {
             query?: never;
@@ -4795,7 +5384,7 @@ export interface paths {
             parameters: {
                 query?: {
                     /** @description Reqeust param that is comma separated list of volumes. */
-                    volumes?: components["schemas"]["ffd34ab9-465e-4da0-b07d-47cc51f60786"];
+                    volumes?: components["schemas"]["42622045-f207-4762-9fb8-ce7e7c9bf215"];
                 };
                 header?: never;
                 path: {
@@ -4812,7 +5401,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["5bbde274-a45a-4693-9489-114b70eca2e4"];
+                        "application/json": components["schemas"]["a6e821f4-523a-49ae-b916-307e1c604f3f"];
                     };
                 };
             };
@@ -4848,7 +5437,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["7ab832ae-1878-4577-9793-cb3dbb14a259"];
+                        "application/json": components["schemas"]["e3827b48-bafc-4c54-a4b8-5bf6e2824d59"];
                     };
                 };
             };
@@ -4864,7 +5453,7 @@ export interface paths {
             };
             requestBody: {
                 content: {
-                    "application/json": components["schemas"]["7ab832ae-1878-4577-9793-cb3dbb14a259"];
+                    "application/json": components["schemas"]["e3827b48-bafc-4c54-a4b8-5bf6e2824d59"];
                 };
             };
             responses: {
@@ -4877,591 +5466,6 @@ export interface paths {
                 };
             };
         };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/freestyle/fcm/diagnostics/{pump}/pressureTest": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Perform pressure test on fcm. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Path of the fcm to operate on. */
-                    pump: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["8d71e66f-17a1-4949-8543-cbc8dcf44236"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/freestyle/fcm/diagnostics/{pump}/opennessTest": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Perform valve openness test on fcm. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Path of the fcm to operate on. */
-                    pump: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["5e048c30-31fa-4110-89ab-65e4b27598d5"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/freestyle/fcm/diagnostics/{pump}/flowTest": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Perform flow test on fcm. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Path of the fcm to operate on. */
-                    pump: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["8d71e66f-17a1-4949-8543-cbc8dcf44236"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/freestyle/fcm/diagnostics/{pump}/electricalTest": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Perform electrical test on fcm. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Path of the fcm to operate on. */
-                    pump: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["3e6869bb-1077-46dc-9879-9126cd14036f"];
-                    };
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/dispense/metrics": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return all metrics in the system. This should only be used for debugging. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["5389c2f7-730e-4f32-b9f5-5f1fbd8c3346"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/dispense/metrics/names": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the names of all global metrics. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["075c6e7f-2826-45ad-8f3c-0a692c9d28d9"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/dispense/metrics/{name}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the named global metrics object. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Name of the metrics to return. */
-                    name: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["fc92b73c-0bff-4150-b379-0f6974fd4fa9"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        /** Create / reset the named global metrics object. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Name of the metrics to create / reset. */
-                    name: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        /** Remove the named global metrics object. (v1.0) */
-        delete: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Name of the metrics to remove. */
-                    name: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/dispense/metrics/{nozzle}/names": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the names of all metrics for the nozzle. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Path of the nozzle to query. */
-                    nozzle: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["075c6e7f-2826-45ad-8f3c-0a692c9d28d9"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/dispense/metrics/{nozzle}/{name}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the named metrics object for the nozzle. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Path of the nozzle to query. */
-                    nozzle: string;
-                    /** @description Name of the metrics to return. */
-                    name: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["fc92b73c-0bff-4150-b379-0f6974fd4fa9"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        /** Create / reset the named metrics object for the nozzle. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Path of the nozzle to query. */
-                    nozzle: string;
-                    /** @description Name of the metrics to create / reset. */
-                    name: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        /** Remove the named metrics object for the nozzle. (v1.0) */
-        delete: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Path of the nozzle to query. */
-                    nozzle: string;
-                    /** @description Name of the metrics to remove. */
-                    name: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/dispense/soldOuts/container/{pump}/{reason}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Create a sold out trouble for the container attached to the pump. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Handle for the pump. */
-                    pump: string;
-                    /** @description Reason for the trouble. */
-                    reason: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/dispense/soldOuts/slice/{pump}/{reason}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Create a sold out trouble for the container attached to the pump. (v1.0) */
-        post: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path: {
-                    /** @description Handle for the pump. */
-                    pump: string;
-                    /** @description Reason for the trouble. */
-                    reason: string;
-                };
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content?: never;
-                };
-            };
-        };
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/dispense/soldOuts/troubles": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return all existing SoldOutAware troubles. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["d307fbe9-55c8-4841-a471-10ca132a7aeb"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/ext/dispense/soldOuts/db": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Return the sold out data from the database. (v1.0) */
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["1af2f517-f881-41c3-8c08-c15fe4c11597"];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -5472,83 +5476,121 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
-        "e7ea9d69-a281-4d13-9da3-8fa5e0142d5d": {
-            format?: string;
-            id?: string;
-            order?: string;
-        };
-        "b5336e3a-6f45-451f-9a5a-2facceb760bb": number[];
-        "dda9cf91-4a9a-43b6-b9fe-bc355c1114f8": {
-            /** Format: double */
-            position?: number;
-            /** Format: double */
-            group?: number;
-        };
-        "68f3bbfa-16f7-4e29-9bf5-4879addde120": string[];
-        /** @description (typeName=com.tccc.kos.commons.core.service.config.MethodPair$MethodSchema) */
-        "4a659b93-630e-4dde-8aa5-f56a9b5a86e3": components["schemas"]["25fb47da-ee21-4930-a4a0-3fd620c878cc"];
-        "3f5dab3b-2fd3-4481-b73f-0e6af820ac82": {
-            /** @description (typeName=java.util.Collection<com.tccc.kos.commons.util.format.date.DateFormat>) */
-            dateFormats?: components["schemas"]["652b0f12-ae13-41b2-bb5b-b24d34d2695f"];
-            /** @description (typeName=java.util.Collection<com.tccc.kos.commons.util.units.UnitSystem>) */
-            unitSystems?: components["schemas"]["ef9ff69d-8506-4fb5-90d3-14882431aef1"];
-            /** @description (typeName=java.util.Collection<com.tccc.kos.commons.util.format.time.TimeFormat>) */
-            timeFormats?: components["schemas"]["1e7b7645-4bb2-4411-b276-1e79a7e34815"];
-        };
-        "76449b83-a635-4813-abf5-507977d3c90c": components["schemas"]["30cdd967-cf81-4b70-ad50-0b5d195e9bef"][];
-        "fac889a1-eab8-4a45-ad9b-646f5155d509": {
-            /** @description (typeName=java.util.Map<java.lang.String, java.lang.String>) */
-            defaults?: components["schemas"]["7ab832ae-1878-4577-9793-cb3dbb14a259"];
+        "3cddc6a3-eb35-43fc-ad49-00660b6cd6af": {
             scope?: string;
-            /** @description (typeName=java.util.Map<java.lang.String, java.lang.String>) */
-            overrides?: components["schemas"]["7ab832ae-1878-4577-9793-cb3dbb14a259"];
+            attr?: string;
+            previousValue?: string;
+            currentValue?: string;
         };
-        "7ada1850-8ab4-45eb-906a-2d166b4fa217": {
-            parent?: string;
+        /** @description (typeName=com.tccc.kos.ext.dispense.service.nozzle.metrics.NozzleMetrics$Info) */
+        "288e6ae0-adf9-4c2a-84f0-17f37f4ae09e": components["schemas"]["442068e6-e34a-4e7b-aede-6d6f3b2ed59d"];
+        "ecf22302-2503-4aed-9fa5-843687018eea": {
+            /** @description (typeName=com.tccc.kos.commons.util.ListenerList<com.tccc.kos.core.service.udev.storage.StorageMountListener>) */
+            listeners?: components["schemas"]["df055a54-3776-480a-95a6-5436241a47a7"];
+            removed?: boolean;
+            vendor?: string;
             /** @description (typeName=java.io.File) */
-            parentFile?: components["schemas"]["7ada1850-8ab4-45eb-906a-2d166b4fa217"];
-            hidden?: boolean;
-            /** Format: int64 */
-            freeSpace?: number;
-            /** Format: int64 */
-            totalSpace?: number;
-            /** Format: int64 */
-            usableSpace?: number;
-            /** @description (typeName=java.io.File) */
-            canonicalFile?: components["schemas"]["7ada1850-8ab4-45eb-906a-2d166b4fa217"];
-            directory?: boolean;
-            path?: string;
-            /** @description (typeName=java.io.File) */
-            absoluteFile?: components["schemas"]["7ada1850-8ab4-45eb-906a-2d166b4fa217"];
-            file?: boolean;
-            absolute?: boolean;
-            name?: string;
-            canonicalPath?: string;
-            absolutePath?: string;
-        };
-        "b814510d-f04f-41e2-9d18-3eab77c570ce": {
-            ampm?: boolean;
-            format?: string;
+            mountDir?: components["schemas"]["a70ed2cd-d1d6-417c-bf2a-0efe344acc99"];
+            model?: string;
+            label?: string;
             id?: string;
-        };
-        "55c0b715-6a56-4993-bd6c-2427a2606855": {
-            cancel?: boolean;
-            fail?: boolean;
-            abort?: boolean;
-            success?: boolean;
-            /** @description (typeName=com.tccc.kos.commons.util.concurrent.future.FutureEvent) */
-            futureEvent?: components["schemas"]["af4bf61e-339b-4107-a40a-7e531708327f"];
-            terminate?: boolean;
-            done?: boolean;
-        };
-        "6cc91399-9766-4fae-b3f9-3891375a66cb": components["schemas"]["82c65079-ac98-43dc-94b9-c120cea5d78a"][];
-        "5c8b14a1-9f03-4f4a-8925-6ca9de308a00": {
-            valid?: boolean;
-            value?: string;
             /** Format: int64 */
-            lastUpdateTime?: number;
+            runTimeMs?: number;
+            /** @description (typeName=com.tccc.kos.commons.util.NodeId) */
+            nodeId?: components["schemas"]["b2a542fc-3ebf-4132-ba44-2b8c8acf693c"];
+            syspath?: string;
+            /** @description (typeName=com.tccc.kos.core.service.udev.storage.StorageInfo) */
+            storageInfo?: components["schemas"]["feba0d6d-c271-455d-ba2b-93e040e8ab22"];
+            local?: boolean;
         };
-        "7b6b69ec-9a16-4c01-9f07-535441538725": {
+        "13a65783-aeca-45b7-bceb-940222b07fb3": unknown;
+        "4ac11d29-aee5-4d5b-b42b-6309f8b41c03": {
+            /** @description (typeName=java.lang.Object[]) */
+            values?: components["schemas"]["de2a26d4-b51c-4d5a-ab25-40de78f63cd9"];
+            /** @description (typeName=java.lang.Class<? extends com.tccc.kos.commons.core.service.config.options.ConfigOptions>) */
+            optionsClass?: components["schemas"]["b57c0bf2-20e9-46a6-9ece-a4bcf7c2c222"];
+            format?: string;
+            /** @description (typeName=com.tccc.kos.commons.core.service.config.options.ConfigOptions) */
+            options?: components["schemas"]["e61a451a-86cf-4202-bb52-fa87cc5cde5d"];
+            type?: string;
+            desc?: string;
+        };
+        "21dc1e7e-bf8f-4e34-80f6-884e5212a787": {
+            path?: string;
+            name?: string;
+        };
+        "d02e9e6a-9888-44e6-b5d7-131a6a535f4f": components["schemas"]["19ac2274-3e49-4ebd-8105-e810e7bff0cd"][];
+        "0e7e2a2c-20ab-4e00-85e9-fc53c58c2853": {
+            default?: boolean;
+            measure?: string;
+            /** Format: double */
+            offset?: number;
+            /** Format: int32 */
+            decimals?: number;
+            name?: string;
+            /** Format: double */
+            scale?: number;
+            alias?: string;
+        };
+        "2609b6fc-9268-41a4-a13b-95fbef2d58f1": components["schemas"]["b3a9e47b-b1f8-4116-9894-295b15fdf36e"][];
+        "2c8b7c13-9c2b-4793-bbe9-9565addf3a1c": unknown;
+        "0de416e5-5989-49fb-ac45-f6e3ffe8fad2": {
+            /** @description (typeName=com.tccc.kos.core.service.browser.BrowserId) */
+            browserId?: components["schemas"]["6d138f12-f37e-4b53-abdb-c2ccf2164a8a"];
+            type?: string;
+            /** @description (typeName=java.util.Map<java.lang.String, java.lang.Object>) */
+            properties?: components["schemas"]["8b56adfb-42d7-4f0b-8f70-c1f29f5c825b"];
+        };
+        "456ef3c0-fe32-409f-907a-065ebad2a396": components["schemas"]["14993297-fa07-4fb3-ac62-56f39f60b9d8"][];
+        "6dead225-a413-4d8a-8fbd-7b41550105fd": {
+            /** Format: int64 */
+            insertTime?: number;
+            /** @description (typeName=com.tccc.kos.ext.freestyle.hardware.rfid.freestyle.FreestyleRfidTag) */
+            rfidTag?: components["schemas"]["ac0059b2-a2ea-4c5a-a593-52d5506fc65b"];
+            id?: string;
+            /** @description (typeName=java.lang.String[]) */
+            ingredientIds?: components["schemas"]["13a65783-aeca-45b7-bceb-940222b07fb3"];
+            locked?: boolean;
+            intrinsic?: boolean;
+            soldOut?: boolean;
+            /** Format: date-time */
+            piercedDate?: string;
+            mark?: string;
+        };
+        /** @description (typeName=com.tccc.kos.commons.core.localization.LocalizationContext$CtxNamespace) */
+        "4fbca23b-e8dd-429b-a5b5-c0d28fe4957f": components["schemas"]["4f86614d-45ca-48c5-9575-10f28b5b49a0"];
+        "419b048a-a15a-408f-ae55-dde5f0a0889b": components["schemas"]["a5049d3f-f6ca-411f-b3c6-821f4739058e"][];
+        "9e33719c-031e-43a1-a69a-7baf5a3203d3": components["schemas"]["61de0895-4f27-48e2-8996-ceb65cea0821"][];
+        "cfd5cb9b-df47-41b1-aff6-8bf5bca247ee": {
+            identifier?: string;
+            /** Format: int64 */
+            size?: number;
+            miniHash?: string;
+            hash?: string;
+        };
+        "3fc5fd41-7c2d-47d1-ac1b-088b0fb059cc": {
+            kmfJson?: string;
+            /** @description (typeName=java.util.Collection<? extends com.tccc.kos.commons.manifest.ManifestArtifact>) */
+            layers?: components["schemas"]["e1b3aa87-66a9-4add-b948-bf9688df3c15"];
+            kosVersion?: string;
+            nodeType?: string;
+            /** @description (typeName=java.util.Map<java.lang.String, java.lang.String>) */
+            properties?: components["schemas"]["e3827b48-bafc-4c54-a4b8-5bf6e2824d59"];
+            /** @description (typeName=java.util.Collection<? extends com.tccc.kos.commons.manifest.ManifestSection>) */
+            sections?: components["schemas"]["b8abfde0-fb0a-4efd-9124-0c4278178eb6"];
+            /** @description (typeName=java.util.Collection<? extends com.tccc.kos.commons.manifest.ManifestArtifact>) */
+            artifacts?: components["schemas"]["e1b3aa87-66a9-4add-b948-bf9688df3c15"];
+        };
+        "0c418aed-b2d1-4b5f-bfce-5f7fad12dbd1": {
+            identifier?: string;
+            /** Format: int64 */
+            size?: number;
+            miniHash?: string;
+            name?: string;
+            version?: string;
+            hash?: string;
+        };
+        "ac0059b2-a2ea-4c5a-a593-52d5506fc65b": {
             /** Format: int32 */
             tagVersion?: number;
             /** Format: double */
@@ -5557,398 +5599,68 @@ export interface components {
             width?: number;
             /** Format: int64 */
             id?: number;
-            uin?: string;
             /** Format: int32 */
             plantCode?: number;
+            uin?: string;
             /** Format: date-time */
             piercedDate?: string;
             enjoyByDateStr?: string;
             /** Format: int32 */
             cartridgeNum?: number;
         };
-        "7e3afd10-9dce-4249-ac7a-83e3b084575b": {
-            color?: string;
+        "51e08250-98bd-4617-ab0e-e7bb3103ef52": {
             /** Format: int32 */
-            rank?: number;
-            actionRole?: string;
-            visibleRole?: string;
-        };
-        "f95ad563-b914-4160-8658-88843d23cae9": components["schemas"]["739b66d3-b059-4ad4-9fee-7e4c2a1710db"][];
-        "93ae9f7c-3760-4aaf-923c-d85ddfcd2c74": {
-            /** @description (typeName=java.util.Map<java.lang.String, com.tccc.kos.commons.core.localization.LocalizationContext$CtxLocaleInfo>) */
-            locales?: components["schemas"]["c7dd678b-6e0e-402e-b53e-f5a5b9be6cf3"];
-        };
-        "b2c06066-9ded-4008-937c-374ba1d1f38d": components["schemas"]["61a39a65-ee0b-44f9-88a1-fba553678645"][];
-        "512ac08e-0e3e-4f39-a297-108b36db9ec7": {
-            identifier?: string;
-            /** Format: int64 */
-            size?: number;
-            miniHash?: string;
-            hash?: string;
-        };
-        "9f69887b-afc4-4832-a099-ce24f8da62bc": {
-            stream?: string;
+            month?: number;
             /** Format: int32 */
-            startLineNum?: number;
-            /** Format: int64 */
-            startTime?: number;
+            year?: number;
             /** Format: int32 */
-            blockNum?: number;
-            /** Format: int64 */
-            endTime?: number;
-            /** @description (typeName=java.util.List<java.lang.String>) */
-            lines?: components["schemas"]["68f3bbfa-16f7-4e29-9bf5-4879addde120"];
-            nodeId?: string;
+            day?: number;
+        };
+        "5bbf7f91-93ec-409a-8b0c-3cccfce4219d": {
+            format?: string;
+            id?: string;
+            order?: string;
+        };
+        "6323e4bb-9a81-4ca6-b148-318b87644353": components["schemas"]["f70bc957-e470-432f-9356-d5f39d0de890"][];
+        "cd535e99-2f29-4bb5-ad79-ea7671f036f2": {
             /** Format: int32 */
-            endLineNum?: number;
+            arbitrationLost?: number;
             /** Format: int32 */
-            lineCount?: number;
+            busError?: number;
+            /** Format: int32 */
+            errorWarning?: number;
+            /** Format: int32 */
+            errorPassive?: number;
+            /** Format: int32 */
+            restarts?: number;
+            /** Format: int32 */
+            busOff?: number;
         };
-        "15244228-8cdb-4329-80b7-f63fd21ba064": {
-            /** @description (typeName=com.tccc.kos.commons.manifest.ManifestArtifact) */
-            artifact?: components["schemas"]["512ac08e-0e3e-4f39-a297-108b36db9ec7"];
-            identifier?: string;
-            incomplete?: boolean;
-            /** @description (typeName=com.tccc.kos.commons.kab.KabFile) */
-            kab?: components["schemas"]["62728db0-561b-4d4e-ab42-3b52a216fed5"];
-        };
-        "a62561c5-75b6-428f-bdac-3f6c27995e1b": {
-            defaultLocale?: string;
-            file?: string;
-            /** @description (typeName=java.util.List<java.lang.String>) */
-            fallbacks?: components["schemas"]["68f3bbfa-16f7-4e29-9bf5-4879addde120"];
-            kabId?: string;
-        };
-        "b3329501-c557-47c0-888d-2291dca52e05": components["schemas"]["512ac08e-0e3e-4f39-a297-108b36db9ec7"][];
-        "a59b54ee-46f4-4da4-a4f5-b89b48a3369f": components["schemas"]["d5e4a5c0-c65b-4fc9-a865-e5e433ea4331"][];
-        "3fb55b8a-fab7-4277-9be8-7c2b44e03a19": {
-            /** @description (typeName=java.util.List<com.tccc.kos.ext.freestyle.service.micro.calibration.MicroCalibrationReport$PumpReport>) */
-            pumps?: components["schemas"]["064d246b-a297-47d0-b699-14f1d022d719"];
-            boardPath?: string;
-        };
-        "c86a070a-286d-4862-8bec-462c91a5cf03": {
-            reason?: string;
-            note?: string;
-            /** @description (typeName=com.tccc.kos.commons.util.ReasonData) */
-            reasonData?: components["schemas"]["caa56e80-2b5f-4812-8e22-7281873babba"];
-            /** @description (typeName=com.tccc.kos.commons.util.concurrent.future.FutureWork) */
-            rootFuture?: components["schemas"]["c86a070a-286d-4862-8bec-462c91a5cf03"];
-            /** @description (typeName=com.tccc.kos.commons.util.concurrent.future.FutureState) */
-            endState?: components["schemas"]["55c0b715-6a56-4993-bd6c-2427a2606855"];
-            tracker?: string;
-            /** Format: int64 */
-            remainingTimeMs?: number;
+        "cf804919-42f4-475a-81eb-1a46a14e3d35": unknown;
+        "a544be6d-21e1-445a-a71c-09d9337cab6f": {
             name?: string;
-            /** Format: int32 */
-            progress?: number;
-            /** Format: int32 */
-            id?: number;
-            /** Format: int32 */
-            abortAbandonedTimeoutMs?: number;
-            /** @description (typeName=com.tccc.kos.commons.util.json.JsonViewWrapper) */
-            clientData?: components["schemas"]["0ac0c787-d87d-4906-8c25-e20f8fe2c262"];
+            /** @description (typeName=java.util.List<com.tccc.kos.core.manifest.ResolvedManifestArtifact>) */
+            artifacts?: components["schemas"]["c06be153-fdcf-471a-abc5-ecf8ef1539d2"];
         };
-        "0c597e06-570c-4019-97a4-ea94abedbbf9": {
-            /** @description (typeName=byte[]) */
-            criticalData?: components["schemas"]["78677368-d870-4a38-907f-cb0351a07e70"];
-            /** Format: double */
-            sourceWeight?: number;
-            /** Format: int32 */
-            sourceMaxLength?: number;
-            criticalDataReady?: boolean;
-        };
-        "48651aa1-aa1b-44f4-ae52-4c261065a3d6": {
-            /** Format: int32 */
-            apFlags?: number;
-            bssid?: string;
-            /** Format: int32 */
-            wpaFlags?: number;
-            /** Format: int32 */
-            bitrate?: number;
-            ssid?: string;
-            /** Format: int32 */
-            signal?: number;
-            /** Format: int32 */
-            rsnFlags?: number;
-            /** Format: int32 */
-            lastSeenAgo?: number;
-            /** Format: int32 */
-            frequency?: number;
-        };
-        "46ad35f8-5832-4564-b55f-bbf6c380b12d": components["schemas"]["9f69887b-afc4-4832-a099-ce24f8da62bc"][];
-        "8a1fad4a-244b-4d90-ba54-1c0cfa2a1a48": Record<string, never>;
-        "1e7b7645-4bb2-4411-b276-1e79a7e34815": components["schemas"]["b814510d-f04f-41e2-9d18-3eab77c570ce"][];
-        "927f8c09-fc12-4534-b3c3-2bc0eb89634e": {
-            type?: string;
-        };
-        "1af2f517-f881-41c3-8c08-c15fe4c11597": components["schemas"]["3e475e17-80b1-4b87-b551-a977686e9b46"][];
-        "246fa47c-9467-453f-aab4-95f675d99dd1": {
-            scope?: string;
-            attr?: string;
-            previousValue?: string;
-            currentValue?: string;
-        };
-        "f22d5986-0a9a-4092-9eb5-694732af87ce": {
-            pumpPath?: string;
-            /** @description (typeName=com.tccc.kos.ext.freestyle.service.micro.calibration.MicroCalibration) */
-            pumpCal?: components["schemas"]["1794fb52-a9c0-494a-af24-a3a5b4e65100"];
-            /** @description (typeName=com.tccc.kos.ext.freestyle.service.micro.calibration.MicroCalibration) */
-            storageCal?: components["schemas"]["1794fb52-a9c0-494a-af24-a3a5b4e65100"];
-        };
-        "bc6ae3b9-138c-4a38-b5d2-d2400d32c217": {
-            nodeName?: string;
-            optional?: boolean;
-            nodeType?: string;
-            /** @description (typeName=com.tccc.kos.commons.util.NodeId) */
-            nodeId?: components["schemas"]["23e1c60c-afbf-4fb2-a86a-945449dc1cb2"];
-            primary?: boolean;
-        };
-        "fa49c150-2718-4796-ae78-0c008689377f": {
-            deviceType?: string;
-            nextManifestId?: string;
-            /** @description (typeName=java.util.Set<com.tccc.kos.commons.manifest.BaseManifestArtifact>) */
-            installArtifacts?: components["schemas"]["7fb9d036-79c3-493e-9bc9-9f041ad2e303"];
-            name?: string;
-            manifestType?: string;
-            /** @description (typeName=java.util.Set<com.tccc.kos.commons.manifest.BaseManifestArtifact>) */
-            installLayers?: components["schemas"]["7fb9d036-79c3-493e-9bc9-9f041ad2e303"];
-            /** Format: int32 */
-            version?: number;
-            /** @description (typeName=java.util.Map<java.lang.String, java.lang.String>) */
-            properties?: components["schemas"]["7ab832ae-1878-4577-9793-cb3dbb14a259"];
-            /** @description (typeName=java.util.Map<java.lang.String, java.util.Set<com.tccc.kos.commons.manifest.BaseManifestArtifact>>) */
-            sections?: components["schemas"]["3503b50d-7363-41f4-9461-89e0ec17ad44"];
-        };
-        /** @description (typeName=com.tccc.kos.ext.dispense.service.nozzle.metrics.NozzleMetrics$Info) */
-        "b329cafd-8274-47a9-9826-126c317e3782": components["schemas"]["6119f999-9e66-4473-be6e-c224338c9803"];
-        "5e048c30-31fa-4110-89ab-65e4b27598d5": unknown;
-        "5ffbd6c2-9de5-44be-9d7e-9a555b49f741": components["schemas"]["427c3e69-3c97-4378-922e-6319c4e2c5bd"][];
-        "87f68c2a-b3cd-4104-a3a5-5e0fb725d297": components["schemas"]["7a56ac8b-4f4c-4baf-b563-031961c81014"][];
-        "1b6fd358-a701-4534-8362-98ffa0afc9e5": unknown;
-        "cc93e5c3-ec90-40b8-a519-1c8c6a641c29": {
+        /** @description (typeName=java.util.Set<com.tccc.kos.commons.manifest.BaseManifestArtifact>) */
+        "aa2ae7fc-bfe7-413c-b16f-8815da06c9e6": components["schemas"]["4a408a56-5bae-4f97-82b2-5c520b35f763"];
+        "4b7ae760-e4ef-4e9f-b05c-26627c748555": {
             tracker?: string;
             /** @description (typeName=java.util.Map<java.lang.String, com.tccc.kos.commons.core.service.config.BeanChanges>) */
-            beanChanges?: components["schemas"]["8f6d9d6f-c2d4-4839-9e73-be9e1506bf69"];
+            beanChanges?: components["schemas"]["e4e14f7f-64b4-4c9b-b36d-373eb7a754b2"];
         };
-        "a5eb0827-4d1a-4e11-a3d3-4648235e3b45": {
-            integralNumber?: boolean;
-            double?: boolean;
-            valueNode?: boolean;
-            floatingPointNumber?: boolean;
-            bigInteger?: boolean;
-            float?: boolean;
-            /** @description (typeName=com.fasterxml.jackson.databind.node.JsonNodeType) */
-            nodeType?: components["schemas"]["867dd4be-cd4b-467d-bf70-662347612281"];
-            int?: boolean;
-            long?: boolean;
-            textual?: boolean;
-            empty?: boolean;
-            missingNode?: boolean;
-            pojo?: boolean;
-            number?: boolean;
-            boolean?: boolean;
-            null?: boolean;
-            array?: boolean;
-            binary?: boolean;
-            containerNode?: boolean;
-            short?: boolean;
-            bigDecimal?: boolean;
-            object?: boolean;
-        };
-        "556362d3-1ffc-41b9-b1b8-2cc73f1f1073": {
-            carrier?: boolean;
-            duplex?: string;
-            /** Format: int32 */
-            speed?: number;
-        };
-        "f44452d4-3bed-4000-83fa-ccddaaa45647": unknown;
-        "af8c6911-95f4-4989-b52c-b8019b9007f6": components["schemas"]["246fa47c-9467-453f-aab4-95f675d99dd1"][];
-        "f04bf31a-4c30-457f-b415-7978f38f1a8d": {
-            /** Format: int32 */
-            sec?: number;
-            /** Format: int32 */
-            min?: number;
-            /** Format: int32 */
-            hour?: number;
-        };
-        /** @description (typeName=java.util.Map<java.lang.String, com.tccc.kos.ext.dispense.service.nozzle.metrics.NozzleMetrics>) */
-        "5389c2f7-730e-4f32-b9f5-5f1fbd8c3346": components["schemas"]["4fed230a-47ca-4ee4-93d0-c73d9c1b3811"];
-        /** @description (typeName=com.tccc.kos.commons.core.localization.LocalizationContext$CtxLocaleInfo) */
-        "c7dd678b-6e0e-402e-b53e-f5a5b9be6cf3": components["schemas"]["a62561c5-75b6-428f-bdac-3f6c27995e1b"];
-        "25fb47da-ee21-4930-a4a0-3fd620c878cc": {
-            /** @description (typeName=java.lang.Object[]) */
-            values?: components["schemas"]["1c9b772a-9b1a-4414-98f9-517a29961024"];
-            /** @description (typeName=java.lang.Class<? extends com.tccc.kos.commons.core.service.config.options.ConfigOptions>) */
-            optionsClass?: components["schemas"]["d0ee9c2a-047f-443f-9e8b-fd4796605e00"];
-            format?: string;
-            /** @description (typeName=com.tccc.kos.commons.core.service.config.options.ConfigOptions) */
-            options?: components["schemas"]["927f8c09-fc12-4534-b3c3-2bc0eb89634e"];
-            type?: string;
-            desc?: string;
-        };
-        "dfc683da-b58e-442c-b020-251fee3ef01f": components["schemas"]["16f9ad4c-0d5d-4647-9785-c16b0243d478"][];
-        "5c3e9ac4-0b54-430b-880a-4aa7a709c43b": unknown;
-        "dcbc2632-78d8-4fa1-9b96-cb6135d32c97": components["schemas"]["3580c10a-890e-4aff-84a2-b22243dc6135"][];
-        "d5e4a5c0-c65b-4fc9-a865-e5e433ea4331": {
-            reason?: string;
-            /** Format: date-time */
-            createTime?: string;
-            resolvable?: boolean;
-            /** @description (typeName=java.util.Set<java.lang.String>) */
-            ifaces?: components["schemas"]["afb660a1-973c-4e4f-b9ab-f534b303e7a6"];
-            /** Format: int32 */
-            id?: number;
-            /** @description (typeName=com.tccc.kos.commons.util.json.JsonViewWrapper) */
-            clientData?: components["schemas"]["3719f02d-9be7-4be3-b9d4-e9767d7662e8"];
-            type?: string;
-            /** @description (typeName=java.util.Set<java.lang.String>) */
-            tags?: components["schemas"]["afb660a1-973c-4e4f-b9ab-f534b303e7a6"];
-            /** @description (typeName=com.tccc.kos.commons.core.service.trouble.TroubleInfo) */
-            info?: components["schemas"]["7e3afd10-9dce-4249-ac7a-83e3b084575b"];
-            group?: string;
-        };
-        "652b0f12-ae13-41b2-bb5b-b24d34d2695f": components["schemas"]["e7ea9d69-a281-4d13-9da3-8fa5e0142d5d"][];
-        "7a56ac8b-4f4c-4baf-b563-031961c81014": {
-            defaultHost?: string;
-            lastUrl?: string;
-            online?: boolean;
-            /** @description (typeName=com.tccc.kos.core.service.browser.BrowserId) */
-            id?: components["schemas"]["1a682fc8-5cc5-4a6e-abc0-e40833b5d9e1"];
-        };
-        "01f7092e-52f5-4948-b149-03b8976132b8": {
-            incomplete?: boolean;
-            /** @description (typeName=com.tccc.kos.commons.manifest.NodeManifest) */
-            nodeManifest?: components["schemas"]["d554c4d2-d2c1-413a-a206-89262a572d28"];
-            /** @description (typeName=java.util.Set<com.tccc.kos.core.manifest.ResolvedManifestArtifact>) */
-            layers?: components["schemas"]["5609eac9-5c9c-4249-a0f1-b3beed7c85cf"];
-            /** @description (typeName=java.util.List<com.tccc.kos.commons.manifest.ManifestArtifact>) */
-            missingArtifacts?: components["schemas"]["7c9ab20c-f640-4c46-b779-0489f2e2167e"];
-            /** @description (typeName=java.util.List<com.tccc.kos.core.manifest.ResolvedManifestSection>) */
-            sections?: components["schemas"]["b8892d3a-48f5-410d-81cd-cb2be1962605"];
-        };
-        "fc92b73c-0bff-4150-b379-0f6974fd4fa9": {
+        "4d62ba80-ae17-4520-9ea9-c68d63f9967a": {
             /** Format: double */
-            totalVolume?: number;
-            internal?: boolean;
-            /** Format: int64 */
-            creationTimeMS?: number;
-            name?: string;
-            /** Format: int64 */
-            lastChangedTimeMS?: number;
-            /** Format: date-time */
-            creationDate?: string;
-            locked?: boolean;
-            /** @description (typeName=java.util.Map<java.lang.String, com.tccc.kos.ext.dispense.service.nozzle.metrics.NozzleMetrics$Info>) */
-            byIngredients?: components["schemas"]["b329cafd-8274-47a9-9826-126c317e3782"];
-            /** @description (typeName=java.util.Map<java.lang.String, com.tccc.kos.ext.dispense.service.nozzle.metrics.NozzleMetrics$Info>) */
-            byPumps?: components["schemas"]["b329cafd-8274-47a9-9826-126c317e3782"];
-        };
-        "afb660a1-973c-4e4f-b9ab-f534b303e7a6": string[];
-        "5590fcd0-b552-43c1-9730-d52aade14474": components["schemas"]["79a9fe9d-64a1-4d1c-a175-5a59af1f0ec4"][];
-        "caa56e80-2b5f-4812-8e22-7281873babba": {
-            /** @description (typeName=java.lang.Class<?>) */
-            view?: components["schemas"]["c5cd3b68-5b0f-4c22-82db-f37c075c4e61"];
-            data?: Record<string, never>;
-        };
-        "3580c10a-890e-4aff-84a2-b22243dc6135": {
-            /** @description (typeName=java.util.List<com.tccc.kos.core.primary.service.update.UpdateInfo$Note>) */
-            notes?: components["schemas"]["d3b5cdc4-8080-4bd4-93b0-8554eb4bd896"];
-            blocked?: boolean;
-            /** Format: int64 */
-            createTime?: number;
-            active?: boolean;
-            manifestId?: string;
-            deviceId?: string;
-        };
-        "0d5819e2-c585-4edd-ac6d-a77277a98234": {
-            path?: string;
-            basePath?: string;
-            /** @description (typeName=java.util.List<com.tccc.kos.ext.cms.service.screen.Screen>) */
-            screens?: components["schemas"]["6cc91399-9766-4fae-b3f9-3891375a66cb"];
-            /** @description (typeName=com.tccc.kos.commons.util.json.JsonViewWrapper) */
-            details?: components["schemas"]["0ac0c787-d87d-4906-8c25-e20f8fe2c262"];
-            type?: string;
-        };
-        "4b0c3fda-cdfa-4d4b-8477-7f5916901066": unknown;
-        "00aa8833-9667-4afc-9cde-618cea3a52e6": {
-            name?: string;
-            /** @description (typeName=java.util.Collection<? extends com.tccc.kos.commons.manifest.ManifestArtifact>) */
-            artifacts?: components["schemas"]["b3329501-c557-47c0-888d-2291dca52e05"];
-        };
-        "e6b16277-79c7-4f59-b941-28c91f9aff7a": components["schemas"]["41c382e8-f0b6-4c26-b6bb-a055df496f9e"][];
-        "ea27b9fc-ebce-4869-8849-4e247a0410be": components["schemas"]["1c540768-25a8-4d9c-9878-ca19af148478"][];
-        "b4b3d6eb-78ab-4813-b9db-813576727efc": components["schemas"]["dda9cf91-4a9a-43b6-b9fe-bc355c1114f8"][];
-        "3e6869bb-1077-46dc-9879-9126cd14036f": string;
-        "ffd34ab9-465e-4da0-b07d-47cc51f60786": components["schemas"]["91e010d7-76d6-4c46-a65b-a396ec9693fe"][];
-        "a3572765-7147-40bf-bc33-a0dca3c0c23f": {
-            configured?: boolean;
-            /** @description (typeName=com.tccc.kos.core.service.network.beans.EthernetDetails) */
-            ethernet?: components["schemas"]["556362d3-1ffc-41b9-b1b8-2cc73f1f1073"];
-            /** @description (typeName=com.tccc.kos.core.service.network.beans.WifiDetails) */
-            wifi?: components["schemas"]["48651aa1-aa1b-44f4-ae52-4c261065a3d6"];
-            hwaddress?: string;
-            name?: string;
-            /** @description (typeName=com.tccc.kos.core.service.network.beans.Ip4Settings) */
-            ip4settings?: components["schemas"]["ca8b2124-c8c5-4e2c-9d84-60cb50cc9db1"];
-            type?: string;
-            /** @description (typeName=com.tccc.kos.core.service.network.beans.NetworkInterfaceCategory) */
-            category?: components["schemas"]["1b6fd358-a701-4534-8362-98ffa0afc9e5"];
-            /** Format: int32 */
-            nmdevicestate?: number;
-            /** Format: int32 */
-            mtu?: number;
-        };
-        "bdba9840-ddf0-4ae1-95be-b6cbc4da24cd": {
-            id?: string;
-            /** @description (typeName=java.util.Set<com.tccc.kos.commons.util.units.Unit>) */
-            units?: components["schemas"]["e031880f-08fb-4a64-8cda-db38c9abddde"];
-        };
-        /** @description (typeName=com.tccc.kos.commons.core.service.config.BeanChanges) */
-        "8f6d9d6f-c2d4-4839-9e73-be9e1506bf69": components["schemas"]["5ec4cb8d-34b9-45d6-a759-9b39523a5caf"];
-        "e7d1ff0a-2251-4231-a09b-8affe286c9f4": {
-            /** @description (typeName=java.util.Map<java.lang.String, com.tccc.kos.commons.core.service.config.MethodPair$MethodSchema>) */
-            schema?: components["schemas"]["4a659b93-630e-4dde-8aa5-f56a9b5a86e3"];
-            /** @description (typeName=java.util.List<java.lang.String>) */
-            paths?: components["schemas"]["68f3bbfa-16f7-4e29-9bf5-4879addde120"];
-        };
-        "82c65079-ac98-43dc-94b9-c120cea5d78a": {
-            vfsPath?: string;
-            endDate?: string;
-            /** Format: int32 */
-            videoLoops?: number;
-            name?: string;
-            /** Format: int32 */
-            width?: number;
-            screenType?: string;
-            /** Format: int64 */
-            buildDate?: number;
-            /** Format: int32 */
-            priority?: number;
-            /** Format: int32 */
-            imageDisplaySec?: number;
-            contentType?: string;
-            startDate?: string;
-            /** Format: int32 */
-            height?: number;
-        };
-        "4f4d9cf7-70f9-466d-9998-ea37f2358644": components["schemas"]["eee89288-74a1-4b3e-b716-608ad910b00a"][];
-        "1fd6ffbd-1ad5-4f6f-9122-57579b5348ec": unknown;
-        "cbe4de9a-df20-44cc-9efb-72c00a07c75f": {
-            /** @description (typeName=com.tccc.kos.commons.util.MultiValueMap<java.lang.String, com.tccc.kos.core.service.manifest.NodeSoftwareInfo>) */
-            nodes?: components["schemas"]["eeb3b80e-e101-4745-b44e-878da8d7f69a"];
-        };
-        "7ab832ae-1878-4577-9793-cb3dbb14a259": string;
-        "ef9ff69d-8506-4fb5-90d3-14882431aef1": components["schemas"]["bdba9840-ddf0-4ae1-95be-b6cbc4da24cd"][];
-        "620f22ac-aa6a-43e3-a9cf-9e7fb802b10f": {
+            running?: number;
+            noStorage?: boolean;
             /** Format: double */
-            volume?: number;
+            baseline?: number;
+            calibrated?: boolean;
         };
-        "50af293a-5e43-43dd-879c-56f0dc456130": {
-            /** Format: int32 */
-            id?: number;
-            desc?: string;
+        "e61a451a-86cf-4202-bb52-fa87cc5cde5d": {
+            type?: string;
         };
-        "d2d74596-ac8b-484c-83e6-44ded0b4c21a": {
+        "69022c98-b16d-498d-af35-ba6bb48173d2": {
             /** Format: int32 */
             rxPackets?: number;
             /** Format: int32 */
@@ -5968,102 +5680,67 @@ export interface components {
             /** Format: int32 */
             rxOverErrors?: number;
         };
-        "91e010d7-76d6-4c46-a65b-a396ec9693fe": unknown;
-        "71e44149-334b-48fb-bc48-d5d5a7a93f2f": string[];
-        "af4bf61e-339b-4107-a40a-7e531708327f": unknown;
-        "a3536057-6272-477d-b673-3a95a94e8fab": {
-            /** @description (typeName=java.util.List<java.lang.String>) */
-            scopeNames?: components["schemas"]["68f3bbfa-16f7-4e29-9bf5-4879addde120"];
-            /** @description (typeName=java.util.List<com.tccc.kos.commons.core.service.config.ConfigDetails>) */
-            details?: components["schemas"]["e6b16277-79c7-4f59-b941-28c91f9aff7a"];
-        };
-        "1fc58076-acfd-468b-8647-75d19ee1a451": {
-            /** @description (typeName=com.tccc.kos.commons.util.ListenerList<com.tccc.kos.commons.core.service.config.ConfigBeanListener>) */
-            listeners?: components["schemas"]["c10ecebb-7081-4dee-adba-125acd1f25af"];
-        };
-        "7fb9d036-79c3-493e-9bc9-9f041ad2e303": components["schemas"]["89a8f6e3-e52a-4816-a690-e0ba087b8d28"][];
-        "020787dc-1a0c-4e44-ba08-4cfadbc04f9f": components["schemas"]["b7b1f06e-77ef-4f80-af35-e0f2d12ec76c"][];
-        "d554c4d2-d2c1-413a-a206-89262a572d28": {
-            kmfJson?: string;
-            /** @description (typeName=java.util.Collection<? extends com.tccc.kos.commons.manifest.ManifestArtifact>) */
-            layers?: components["schemas"]["b3329501-c557-47c0-888d-2291dca52e05"];
-            kosVersion?: string;
-            nodeType?: string;
-            /** @description (typeName=java.util.Map<java.lang.String, java.lang.String>) */
-            properties?: components["schemas"]["7ab832ae-1878-4577-9793-cb3dbb14a259"];
-            /** @description (typeName=java.util.Collection<? extends com.tccc.kos.commons.manifest.ManifestSection>) */
-            sections?: components["schemas"]["e4112c62-24e3-4d9b-86d3-c17ba8f14dc2"];
-            /** @description (typeName=java.util.Collection<? extends com.tccc.kos.commons.manifest.ManifestArtifact>) */
-            artifacts?: components["schemas"]["b3329501-c557-47c0-888d-2291dca52e05"];
-        };
-        "1fa3f2a7-3e55-4ede-9908-5e571425a2cd": {
-            name?: string;
-            /** @description (typeName=java.util.List<com.tccc.kos.core.manifest.ResolvedManifestArtifact>) */
-            artifacts?: components["schemas"]["9ce3debb-1ab3-4c6f-91a0-bd1a7301bba8"];
-        };
-        /** @description (typeName=com.tccc.kos.ext.cms.service.screen.ScreenContext) */
-        "6dcbacf2-090d-443d-a3a0-09b4bb95c6b3": components["schemas"]["0d5819e2-c585-4edd-ac6d-a77277a98234"];
-        "45845a89-d5f8-45cf-9bdc-337c9d556aae": components["schemas"]["0c597e06-570c-4019-97a4-ea94abedbbf9"][];
-        "dc8ace44-b07d-48cc-a1fd-bdea98f84247": components["schemas"]["0a5e5757-e5a6-4fc5-a60c-3233ef721f2f"][];
-        "ca8b2124-c8c5-4e2c-9d84-60cb50cc9db1": {
-            /** @description (typeName=java.util.List<java.lang.String>) */
-            addressprefixlist?: components["schemas"]["68f3bbfa-16f7-4e29-9bf5-4879addde120"];
-            address?: string;
-            method?: string;
+        "471538f6-23cc-4afd-b551-7e910d9ffcc5": {
+            color?: string;
             /** Format: int32 */
-            prefix?: number;
-            /** @description (typeName=java.util.List<java.lang.String>) */
-            dnslist?: components["schemas"]["68f3bbfa-16f7-4e29-9bf5-4879addde120"];
-            gateway?: string;
+            rank?: number;
+            actionRole?: string;
+            visibleRole?: string;
         };
-        "44b4baa9-a8c0-44f7-83f6-94f48ce40725": components["schemas"]["bb17aeec-adae-4ae0-96cc-4c826edefffa"][];
-        "1794fb52-a9c0-494a-af24-a3a5b4e65100": {
-            /** Format: double */
-            running?: number;
-            noStorage?: boolean;
-            /** Format: double */
-            baseline?: number;
-            calibrated?: boolean;
+        "b6ac1c50-b7f5-49e6-9a6d-a3d9fb2dbaf7": {
+            /** @description (typeName=java.lang.Class<?>) */
+            view?: components["schemas"]["29537709-71c2-45a6-9a66-9c343d7d5556"];
+            data?: Record<string, never>;
         };
-        /** @description (typeName=java.util.Set<com.tccc.kos.commons.manifest.BaseManifestArtifact>) */
-        "3503b50d-7363-41f4-9461-89e0ec17ad44": components["schemas"]["7fb9d036-79c3-493e-9bc9-9f041ad2e303"];
-        "86ef48f5-7fbc-49c8-b2da-7ca90a3d8969": {
-            manifestId?: string;
-            deviceId?: string;
+        "1d319bfb-6d48-4643-abcd-b3127c9cd948": components["schemas"]["6dead225-a413-4d8a-8fbd-7b41550105fd"][];
+        "29537709-71c2-45a6-9a66-9c343d7d5556": unknown;
+        "4f86614d-45ca-48c5-9575-10f28b5b49a0": {
+            /** @description (typeName=java.util.Map<java.lang.String, com.tccc.kos.commons.core.localization.LocalizationContext$CtxLocaleInfo>) */
+            locales?: components["schemas"]["ee291a8c-cc50-4b6c-9f54-3e43eb89f039"];
         };
-        "10eb862c-8d91-4a80-ac72-2283d0457b3a": {
-            path?: string;
-            name?: string;
+        "c332eb7a-99ae-448e-89ea-47c6133e51fd": {
+            redirect?: boolean;
+            url?: string;
         };
-        "40888442-2867-4620-9fe7-528dbc05b00d": unknown;
-        "1f583606-ce7d-41af-a692-b6907a760b6f": {
-            browserName?: string;
-            /** @description (typeName=com.tccc.kos.commons.util.NodeId) */
-            nodeId?: components["schemas"]["23e1c60c-afbf-4fb2-a86a-945449dc1cb2"];
+        "8d1c31f4-65cf-4784-84f4-7f8ac3903a41": {
+            /** Format: int32 */
+            slicePos?: number;
+            /** Format: int64 */
+            createTime?: number;
+            containerId?: string;
+            /** Format: int32 */
+            soldOutCount?: number;
+            /** Format: int64 */
+            lastUpdateTime?: number;
         };
-        "5bbde274-a45a-4693-9489-114b70eca2e4": {
+        "0034b7cd-f667-40a0-8121-d6aecef2d72d": string[];
+        "a701c4f1-92ff-446e-b5f4-ccff5014b0ca": components["schemas"]["ecf22302-2503-4aed-9fa5-843687018eea"][];
+        "a6e821f4-523a-49ae-b916-307e1c604f3f": {
             /** @description (typeName=java.util.List<com.tccc.kos.ext.freestyle.service.brandset.regulatory.NutritionVolume>) */
-            volumes?: components["schemas"]["b34fa43f-8c9c-4611-901f-325835d1a7c6"];
+            volumes?: components["schemas"]["003683e3-222c-4682-8e8c-5303e3c4d784"];
             error?: string;
             /** @description (typeName=java.util.Map<java.lang.String, java.lang.String>) */
-            labels?: components["schemas"]["7ab832ae-1878-4577-9793-cb3dbb14a259"];
+            labels?: components["schemas"]["e3827b48-bafc-4c54-a4b8-5bf6e2824d59"];
         };
-        "5f6dc193-f679-43a2-acdc-91531b5a03a7": {
-            /** @description (typeName=com.tccc.kos.ext.freestyle.hardware.can.canbus.CANStats$LinkStats) */
-            linkStats?: components["schemas"]["d2d74596-ac8b-484c-83e6-44ded0b4c21a"];
-            /** @description (typeName=com.tccc.kos.ext.freestyle.hardware.can.canbus.CANStats$DeviceStats) */
-            deviceStats?: components["schemas"]["8167b676-d7d0-4f83-8a0f-67538c370712"];
-            /** Format: int32 */
-            state?: number;
-            /** Format: int32 */
-            txError?: number;
-            /** Format: int32 */
-            rxError?: number;
+        "47eb430b-84a1-4849-993d-dd146e8ab77d": {
+            /** @description (typeName=com.tccc.kos.commons.manifest.ManifestArtifact) */
+            artifact?: components["schemas"]["cfd5cb9b-df47-41b1-aff6-8bf5bca247ee"];
+            identifier?: string;
+            incomplete?: boolean;
+            /** @description (typeName=com.tccc.kos.commons.kab.KabFile) */
+            kab?: components["schemas"]["694d0445-bdd6-4d8b-8a0b-056982cab77a"];
         };
-        "81f2d414-73f0-479c-9638-d022fe646973": components["schemas"]["bc6ae3b9-138c-4a38-b5d2-d2400d32c217"][];
-        "1c9b772a-9b1a-4414-98f9-517a29961024": unknown;
-        "064d246b-a297-47d0-b699-14f1d022d719": components["schemas"]["f22d5986-0a9a-4092-9eb5-694732af87ce"][];
-        "b0240c76-2d43-4131-8d83-2350a792e770": {
+        "effc8f0d-6b00-4f69-88cc-65b6d7712896": components["schemas"]["3b272d0f-2a32-48ef-a6da-c17f1a982f9f"][];
+        "38f032c0-cf40-429f-811a-4de4eb7039bf": string[];
+        "28190df0-4418-4a12-9d32-71e2b50d17bf": string[];
+        "9be8683f-eb5c-42c6-b969-a19fac703142": {
+            /** @description (typeName=java.util.List<com.tccc.kos.ext.freestyle.service.micro.calibration.MicroCalibrationReport$PumpReport>) */
+            pumps?: components["schemas"]["c104fe89-bb81-4c15-ae53-b241dc9978ba"];
+            boardPath?: string;
+        };
+        /** @description (typeName=com.tccc.kos.commons.core.service.config.BeanChanges) */
+        "e4e14f7f-64b4-4c9b-b36d-373eb7a754b2": components["schemas"]["93f0bcbe-18fc-47de-928f-d4433c549499"];
+        "8c6949e6-24ed-4792-a494-6b582a24e6e5": {
             /** Format: double */
             initGauge?: number;
             /** Format: int32 */
@@ -6080,107 +5757,14 @@ export interface components {
             /** Format: int64 */
             lastUpdateTime?: number;
         };
-        "a800c190-310e-493f-9c5a-3866b4676102": {
-            val?: string;
-            reason?: string;
-            attr?: string;
-        };
-        "d0ee9c2a-047f-443f-9e8b-fd4796605e00": unknown;
-        "8d71e66f-17a1-4949-8543-cbc8dcf44236": unknown;
-        "867dd4be-cd4b-467d-bf70-662347612281": unknown;
-        "d7651a20-9af8-4879-a7e4-9b7e9154da5d": {
-            default?: boolean;
-            measure?: string;
-            /** Format: double */
-            offset?: number;
-            /** Format: int32 */
-            decimals?: number;
-            name?: string;
-            /** Format: double */
-            scale?: number;
-            alias?: string;
-        };
-        "c6802875-c81d-4c00-a64b-156660efc145": {
-            /** @description (typeName=com.tccc.kos.core.service.browser.BrowserId) */
-            browserId?: components["schemas"]["1f583606-ce7d-41af-a692-b6907a760b6f"];
-            type?: string;
-            /** @description (typeName=java.util.Map<java.lang.String, java.lang.Object>) */
-            properties?: components["schemas"]["8a1fad4a-244b-4d90-ba54-1c0cfa2a1a48"];
-        };
-        "4f0cd2b1-27a7-4872-a67c-960603cecb66": {
-            /** Format: int64 */
-            lastChangedTimeMono?: number;
-            /** Format: double */
-            totalVolume?: number;
-            internal?: boolean;
-            /** Format: int64 */
-            creationTimeMS?: number;
-            /** @description (typeName=java.util.Collection<java.lang.String>) */
-            ingredientIds?: components["schemas"]["075c6e7f-2826-45ad-8f3c-0a692c9d28d9"];
-            /** Format: date-time */
-            creationDate?: string;
-            /** @description (typeName=java.util.Map<java.lang.String, com.tccc.kos.ext.dispense.service.nozzle.metrics.NozzleMetrics$Info>) */
-            byIngredients?: components["schemas"]["d4cf7e70-e9e2-4705-a3d3-a99b8705b2d9"];
-            /** @description (typeName=java.util.Map<java.lang.String, com.tccc.kos.ext.dispense.service.nozzle.metrics.NozzleMetrics$Info>) */
-            byPumps?: components["schemas"]["d4cf7e70-e9e2-4705-a3d3-a99b8705b2d9"];
-            /** @description (typeName=java.util.Collection<java.lang.String>) */
-            pumpPaths?: components["schemas"]["075c6e7f-2826-45ad-8f3c-0a692c9d28d9"];
-            removed?: boolean;
-            name?: string;
-            /** Format: int64 */
-            lastChangedTimeMS?: number;
-            locked?: boolean;
-        };
-        "eee89288-74a1-4b3e-b716-608ad910b00a": {
-            path?: string;
-            /** @description (typeName=java.util.Map<java.lang.String, java.lang.Object>) */
-            values?: components["schemas"]["8a1fad4a-244b-4d90-ba54-1c0cfa2a1a48"];
-            scope?: string;
-            replace?: boolean;
-        };
-        "9b015dfc-362c-458f-af7c-d5774cd41c8d": {
-            deviceType?: string;
-            /** @description (typeName=java.util.Map<java.lang.String, java.lang.String>) */
-            properties?: components["schemas"]["7ab832ae-1878-4577-9793-cb3dbb14a259"];
-            /** @description (typeName=com.tccc.kos.commons.manifest.device.ManifestDeviceInfo) */
-            deviceInfo?: components["schemas"]["5d1229e6-dfe2-491e-8da4-d0a9c991e102"];
-        };
-        "89a8f6e3-e52a-4816-a690-e0ba087b8d28": {
-            identifier?: string;
-            /** Format: int64 */
-            size?: number;
-            miniHash?: string;
-            name?: string;
-            version?: string;
-            hash?: string;
-        };
-        "8167b676-d7d0-4f83-8a0f-67538c370712": {
-            /** Format: int32 */
-            arbitrationLost?: number;
-            /** Format: int32 */
-            busError?: number;
-            /** Format: int32 */
-            errorWarning?: number;
-            /** Format: int32 */
-            errorPassive?: number;
-            /** Format: int32 */
-            restarts?: number;
-            /** Format: int32 */
-            busOff?: number;
-        };
-        "b7b1f06e-77ef-4f80-af35-e0f2d12ec76c": {
-            displayValue?: string;
-            units?: string;
-            type?: string;
-        };
-        "62728db0-561b-4d4e-ab42-3b52a216fed5": {
+        "694d0445-bdd6-4d8b-8a0b-056982cab77a": {
             mfgAuthority?: string;
             /** @description (typeName=com.tccc.kos.commons.util.Mode) */
-            mode?: components["schemas"]["1b8e7aa0-e641-432a-8b73-7c0766444fca"];
+            mode?: components["schemas"]["9821e05f-ca55-4d0b-a446-25de253be668"];
             identifier?: string;
             vendorAuthority?: string;
             /** @description (typeName=java.io.File) */
-            file?: components["schemas"]["7ada1850-8ab4-45eb-906a-2d166b4fa217"];
+            file?: components["schemas"]["a70ed2cd-d1d6-417c-bf2a-0efe344acc99"];
             /** Format: int32 */
             size?: number;
             /** Format: int64 */
@@ -6192,49 +5776,121 @@ export interface components {
             /** Format: date-time */
             createDate?: string;
         };
-        "5ec4cb8d-34b9-45d6-a759-9b39523a5caf": {
-            /** @description (typeName=java.util.List<com.tccc.kos.commons.core.service.config.BeanChanges$AttrChange>) */
-            scopedChanges?: components["schemas"]["af8c6911-95f4-4989-b52c-b8019b9007f6"];
-            /** @description (typeName=java.util.List<com.tccc.kos.commons.core.service.config.BeanChanges$AttrChange>) */
-            changes?: components["schemas"]["af8c6911-95f4-4989-b52c-b8019b9007f6"];
-            /** @description (typeName=java.util.List<com.tccc.kos.commons.core.service.config.BeanChanges$Error>) */
-            errors?: components["schemas"]["63db3340-a008-4729-88dc-e7ba1dda98ed"];
+        "4237d7ce-ef70-48c3-8ed9-cc4b179aeb01": {
+            /** @description (typeName=java.util.Collection<com.tccc.kos.commons.util.format.date.DateFormat>) */
+            dateFormats?: components["schemas"]["d8983f4e-eebd-47a9-8d2b-ebc0eb68a30d"];
+            /** @description (typeName=java.util.Collection<com.tccc.kos.commons.util.units.UnitSystem>) */
+            unitSystems?: components["schemas"]["6323e4bb-9a81-4ca6-b148-318b87644353"];
+            /** @description (typeName=java.util.Collection<com.tccc.kos.commons.util.format.time.TimeFormat>) */
+            timeFormats?: components["schemas"]["314d69c9-57fd-4286-8dfe-5e434697feb9"];
         };
-        "23e1c60c-afbf-4fb2-a86a-945449dc1cb2": {
-            nodeName?: string;
-            hostname?: string;
-            id?: string;
-            nodeType?: string;
-        };
-        "63db3340-a008-4729-88dc-e7ba1dda98ed": components["schemas"]["a800c190-310e-493f-9c5a-3866b4676102"][];
-        "30cdd967-cf81-4b70-ad50-0b5d195e9bef": {
+        "c7822a5c-023f-48bf-946c-578fcb3f5a9a": components["schemas"]["a544be6d-21e1-445a-a71c-09d9337cab6f"][];
+        "bfdddf3e-7759-4dcf-ab43-3e9822756373": {
+            /** Format: double */
+            totalVolume?: number;
+            internal?: boolean;
             /** Format: int64 */
-            insertTime?: number;
-            /** @description (typeName=com.tccc.kos.ext.freestyle.hardware.rfid.freestyle.FreestyleRfidTag) */
-            rfidTag?: components["schemas"]["7b6b69ec-9a16-4c01-9f07-535441538725"];
-            id?: string;
-            /** @description (typeName=java.lang.String[]) */
-            ingredientIds?: components["schemas"]["1fd6ffbd-1ad5-4f6f-9122-57579b5348ec"];
-            locked?: boolean;
-            intrinsic?: boolean;
-            soldOut?: boolean;
-            /** Format: date-time */
-            piercedDate?: string;
-            mark?: string;
-        };
-        /** @description (typeName=java.util.Collection<? extends com.tccc.kos.ext.dispense.service.ingredient.BaseIngredient>) */
-        "2d19440b-f2b4-4cca-9317-cb622bd7ec3c": components["schemas"]["dc8ace44-b07d-48cc-a1fd-bdea98f84247"];
-        "9ce3debb-1ab3-4c6f-91a0-bd1a7301bba8": components["schemas"]["15244228-8cdb-4329-80b7-f63fd21ba064"][];
-        "16f9ad4c-0d5d-4647-9785-c16b0243d478": {
-            level?: string;
+            creationTimeMS?: number;
             name?: string;
-            type?: string;
-            nodeType?: string;
+            /** Format: int64 */
+            lastChangedTimeMS?: number;
+            /** Format: date-time */
+            creationDate?: string;
+            locked?: boolean;
+            /** @description (typeName=java.util.Map<java.lang.String, com.tccc.kos.ext.dispense.service.nozzle.metrics.NozzleMetrics$Info>) */
+            byIngredients?: components["schemas"]["be1d796f-c56b-444a-899a-8ad1ec89b9fd"];
+            /** @description (typeName=java.util.Map<java.lang.String, com.tccc.kos.ext.dispense.service.nozzle.metrics.NozzleMetrics$Info>) */
+            byPumps?: components["schemas"]["be1d796f-c56b-444a-899a-8ad1ec89b9fd"];
         };
-        "78677368-d870-4a38-907f-cb0351a07e70": unknown;
-        "d3b5cdc4-8080-4bd4-93b0-8554eb4bd896": components["schemas"]["edd52aa4-4eca-4280-9aba-d7f0446498b7"][];
-        "60b53a4a-88d1-4370-9f77-e37d9bd08bfe": components["schemas"]["8cde8851-c49b-420d-97a2-1df12accfc07"][];
-        "427c3e69-3c97-4378-922e-6319c4e2c5bd": {
+        "25f6175d-4e92-48af-bb12-98dae6c67f7b": {
+            empty?: boolean;
+        };
+        "b8abfde0-fb0a-4efd-9124-0c4278178eb6": components["schemas"]["70215390-23e2-440d-a665-9e35b0a30725"][];
+        "a06dbe11-a85e-4274-a19b-487c13446505": {
+            /** Format: double */
+            position?: number;
+            /** Format: double */
+            group?: number;
+        };
+        "42622045-f207-4762-9fb8-ce7e7c9bf215": components["schemas"]["5816b275-4c70-4e7d-857c-940631facdad"][];
+        "b81a5e9f-2d27-40b4-87dd-e51570607720": {
+            /** @description (typeName=com.tccc.kos.ext.freestyle.hardware.can.canbus.CANStats$LinkStats) */
+            linkStats?: components["schemas"]["69022c98-b16d-498d-af35-ba6bb48173d2"];
+            /** @description (typeName=com.tccc.kos.ext.freestyle.hardware.can.canbus.CANStats$DeviceStats) */
+            deviceStats?: components["schemas"]["cd535e99-2f29-4bb5-ad79-ea7671f036f2"];
+            /** Format: int32 */
+            state?: number;
+            /** Format: int32 */
+            txError?: number;
+            /** Format: int32 */
+            rxError?: number;
+        };
+        "ec1b35f2-489e-4b0f-93ef-e2fd071da3e9": components["schemas"]["895bd466-7e3f-49c5-a3c6-b89bd0380066"][];
+        /** @description (typeName=java.util.Map<java.lang.String, com.tccc.kos.ext.dispense.service.nozzle.metrics.NozzleMetrics>) */
+        "1f562673-1c0a-4016-8941-4b313af36a60": components["schemas"]["57967f9d-5269-4b18-b675-1e2ca1277405"];
+        "76346f5c-b579-4a64-896e-0543184dcc3a": {
+            /** @description (typeName=java.util.Collection<? extends com.tccc.kos.commons.manifest.device.ManifestNodeInfo>) */
+            nodes?: components["schemas"]["e02a75df-4de8-41e3-9841-57c61646a6a6"];
+            /** @description (typeName=java.util.Set<java.lang.String>) */
+            nodeTypes?: components["schemas"]["28190df0-4418-4a12-9d32-71e2b50d17bf"];
+        };
+        "d584c20d-79dd-4be0-a437-d48ae15bab6c": components["schemas"]["854ab308-7123-43b8-a1be-39d08d8a5f7c"][];
+        "d74ed601-956a-4df1-83bd-b0a60fac4770": {
+            sourceId?: string;
+            name?: string;
+            id?: string;
+            type?: string;
+        };
+        "7997b9ca-bc10-41e9-a65b-a19f988d72ee": {
+            /** @description (typeName=com.tccc.kos.commons.core.service.config.ConfigSchema) */
+            schema?: components["schemas"]["19ac2274-3e49-4ebd-8105-e810e7bff0cd"];
+            path?: string;
+            /** @description (typeName=java.util.Map<java.lang.String, java.lang.String>) */
+            defaults?: components["schemas"]["e3827b48-bafc-4c54-a4b8-5bf6e2824d59"];
+            /** @description (typeName=java.util.List<com.tccc.kos.commons.core.service.config.ConfigDetails$ScopeData>) */
+            scopes?: components["schemas"]["419b048a-a15a-408f-ae55-dde5f0a0889b"];
+            /** @description (typeName=com.tccc.kos.commons.core.service.config.ConfigBean) */
+            bean?: components["schemas"]["5b7cad3c-6351-4445-8baf-cb64c7a39785"];
+        };
+        "010b31ec-e5c8-4395-aac9-7577cc093363": components["schemas"]["a06dbe11-a85e-4274-a19b-487c13446505"][];
+        "1d2c1318-6c8d-4f2f-b5c0-07e97a2aad31": components["schemas"]["9372b683-eb0f-4749-8183-fee5c50fe37e"][];
+        "61de0895-4f27-48e2-8996-ceb65cea0821": {
+            ingredientId?: string;
+            holderPath?: string;
+            /** Format: int64 */
+            createTime?: number;
+            factoryJson?: string;
+            containerId?: string;
+            error?: string;
+        };
+        "21db50a5-1b71-4b0c-8145-cc4a5f92bbb3": {
+            integralNumber?: boolean;
+            double?: boolean;
+            valueNode?: boolean;
+            floatingPointNumber?: boolean;
+            bigInteger?: boolean;
+            float?: boolean;
+            /** @description (typeName=com.fasterxml.jackson.databind.node.JsonNodeType) */
+            nodeType?: components["schemas"]["2c8b7c13-9c2b-4793-bbe9-9565addf3a1c"];
+            int?: boolean;
+            long?: boolean;
+            textual?: boolean;
+            empty?: boolean;
+            missingNode?: boolean;
+            pojo?: boolean;
+            number?: boolean;
+            boolean?: boolean;
+            null?: boolean;
+            array?: boolean;
+            binary?: boolean;
+            containerNode?: boolean;
+            short?: boolean;
+            bigDecimal?: boolean;
+            object?: boolean;
+        };
+        "c3bf2d97-9885-4dce-a3cd-d5eabcae0d36": unknown;
+        "d8983f4e-eebd-47a9-8d2b-ebc0eb68a30d": components["schemas"]["5bbf7f91-93ec-409a-8b0c-3cccfce4219d"][];
+        "df459e95-8b61-4431-896d-ae8f0edb5e22": {
             downloaderActive?: boolean;
             kabId?: string;
             downloaderName?: string;
@@ -6248,77 +5904,330 @@ export interface components {
             /** Format: int64 */
             lastUpdateTime?: number;
         };
-        "968b4381-c76a-4fc8-bd1b-7ef024c55506": {
-            visible?: boolean;
-            /** @description (typeName=com.tccc.kos.ext.freestyle.service.fuelgauge.FuelGaugeData) */
-            data?: components["schemas"]["b0240c76-2d43-4131-8d83-2350a792e770"];
-        };
-        "61a39a65-ee0b-44f9-88a1-fba553678645": {
-            /** @description (typeName=com.tccc.kos.commons.manifest.BaseManifestArtifact) */
-            artifactInfo?: components["schemas"]["89a8f6e3-e52a-4816-a690-e0ba087b8d28"];
-            /** @description (typeName=java.util.Collection<com.tccc.kos.core.primary.service.ota.OTADownloadRequest>) */
-            requests?: components["schemas"]["5ffbd6c2-9de5-44be-9d7e-9a555b49f741"];
-            error?: string;
-            done?: boolean;
-            /** @description (typeName=com.tccc.kos.core.primary.service.ota.OTAArtifact$Status) */
-            status?: components["schemas"]["5c3e9ac4-0b54-430b-880a-4aa7a709c43b"];
-        };
-        "5d1229e6-dfe2-491e-8da4-d0a9c991e102": {
-            /** @description (typeName=java.util.Collection<? extends com.tccc.kos.commons.manifest.device.ManifestNodeInfo>) */
-            nodes?: components["schemas"]["81f2d414-73f0-479c-9638-d022fe646973"];
-            /** @description (typeName=java.util.Set<java.lang.String>) */
-            nodeTypes?: components["schemas"]["71e44149-334b-48fb-bc48-d5d5a7a93f2f"];
-        };
-        "2229db6d-5b87-4a12-974e-ebc0c5efea3d": {
+        "7ce32f30-aaad-414f-bf79-9ee4fcc3cb80": number[];
+        "feba0d6d-c271-455d-ba2b-93e040e8ab22": {
             /** Format: int64 */
             totalBytes?: number;
             /** Format: int64 */
             freeBytes?: number;
         };
-        "8cde8851-c49b-420d-97a2-1df12accfc07": {
-            /** @description (typeName=com.tccc.kos.commons.manifest.chained.ChainedManifest) */
-            chainedManifest?: components["schemas"]["fa49c150-2718-4796-ae78-0c008689377f"];
+        "3b272d0f-2a32-48ef-a6da-c17f1a982f9f": {
+            level?: string;
+            name?: string;
             type?: string;
-            /** @description (typeName=com.tccc.kos.commons.kab.KabFile) */
-            kab?: components["schemas"]["62728db0-561b-4d4e-ab42-3b52a216fed5"];
+            nodeType?: string;
         };
-        "ed9fbe0d-799f-4eba-b387-39b5930f6b60": {
-            redirect?: boolean;
-            url?: string;
+        "148ed800-89fb-47c4-8e52-c60407b2007b": {
+            pumpPath?: string;
+            /** @description (typeName=com.tccc.kos.ext.freestyle.service.micro.calibration.MicroCalibration) */
+            pumpCal?: components["schemas"]["4d62ba80-ae17-4520-9ea9-c68d63f9967a"];
+            /** @description (typeName=com.tccc.kos.ext.freestyle.service.micro.calibration.MicroCalibration) */
+            storageCal?: components["schemas"]["4d62ba80-ae17-4520-9ea9-c68d63f9967a"];
         };
-        "e031880f-08fb-4a64-8cda-db38c9abddde": components["schemas"]["d7651a20-9af8-4879-a7e4-9b7e9154da5d"][];
-        "c3779ff3-22ee-417a-8031-de495a396336": components["schemas"]["e7d1ff0a-2251-4231-a09b-8affe286c9f4"][];
-        "817fa906-ed5b-4a76-9fd4-aaeb8e4442c3": {
+        "f70bc957-e470-432f-9356-d5f39d0de890": {
+            id?: string;
+            /** @description (typeName=java.util.Set<com.tccc.kos.commons.util.units.Unit>) */
+            units?: components["schemas"]["fe8c8400-582d-4f4c-b298-46eea0360e41"];
+        };
+        "c573ce7e-99c2-4bbe-b667-d1205879d219": {
+            cancel?: boolean;
+            fail?: boolean;
+            abort?: boolean;
+            success?: boolean;
+            /** @description (typeName=com.tccc.kos.commons.util.concurrent.future.FutureEvent) */
+            futureEvent?: components["schemas"]["c3bf2d97-9885-4dce-a3cd-d5eabcae0d36"];
+            terminate?: boolean;
+            done?: boolean;
+        };
+        "28861703-1a3a-4381-b7df-9e10c7149c9d": components["schemas"]["09ea553d-f395-4e05-bad0-0766eb63accb"][];
+        "de2a26d4-b51c-4d5a-ab25-40de78f63cd9": unknown;
+        /** @description (typeName=com.tccc.kos.ext.dispense.service.nozzle.metrics.NozzleMetrics$Info) */
+        "be1d796f-c56b-444a-899a-8ad1ec89b9fd": components["schemas"]["cf804919-42f4-475a-81eb-1a46a14e3d35"];
+        "ea6dc370-5566-468c-b99f-0c76f39cbacf": components["schemas"]["df459e95-8b61-4431-896d-ae8f0edb5e22"][];
+        "f173cd93-0db4-4f36-ab9a-1a6ce5d4637b": {
+            /** @description (typeName=byte[]) */
+            criticalData?: components["schemas"]["d650edb9-dc08-4295-835f-586b029815dc"];
+            /** Format: double */
+            sourceWeight?: number;
+            /** Format: int32 */
+            sourceMaxLength?: number;
+            criticalDataReady?: boolean;
+        };
+        "a95b8566-5242-46b3-9028-35100e97d9d6": components["schemas"]["9123c893-c165-4f25-bc36-544e6348c9a2"][];
+        "cd3a65ee-c02a-42df-b157-6a7b7106ef39": {
             /** Format: double */
             volume?: number;
             /** @description (typeName=java.util.List<com.tccc.kos.ext.freestyle.service.brandset.regulatory.NutritionVolume$RoundedValue>) */
-            values?: components["schemas"]["020787dc-1a0c-4e44-ba08-4cfadbc04f9f"];
+            values?: components["schemas"]["28861703-1a3a-4381-b7df-9e10c7149c9d"];
         };
-        /** @description (typeName=com.tccc.kos.ext.dispense.service.nozzle.metrics.NozzleMetrics) */
-        "4fed230a-47ca-4ee4-93d0-c73d9c1b3811": components["schemas"]["4f0cd2b1-27a7-4872-a67c-960603cecb66"];
-        "79a9fe9d-64a1-4d1c-a175-5a59af1f0ec4": {
+        "fe8c8400-582d-4f4c-b298-46eea0360e41": components["schemas"]["0e7e2a2c-20ab-4e00-85e9-fc53c58c2853"][];
+        "442068e6-e34a-4e7b-aede-6d6f3b2ed59d": {
+            /** Format: double */
+            volume?: number;
+        };
+        "d2e5b8fa-90e6-4ca8-8940-6b6fc33ed481": unknown;
+        "b57c0bf2-20e9-46a6-9ece-a4bcf7c2c222": unknown;
+        "5a443710-5723-44ab-98db-b5566a1b9106": {
+            deviceType?: string;
+            nextManifestId?: string;
+            /** @description (typeName=java.util.Set<com.tccc.kos.commons.manifest.BaseManifestArtifact>) */
+            installArtifacts?: components["schemas"]["4a408a56-5bae-4f97-82b2-5c520b35f763"];
+            name?: string;
+            manifestType?: string;
+            /** @description (typeName=java.util.Set<com.tccc.kos.commons.manifest.BaseManifestArtifact>) */
+            installLayers?: components["schemas"]["4a408a56-5bae-4f97-82b2-5c520b35f763"];
+            /** Format: int32 */
+            version?: number;
+            /** @description (typeName=java.util.Map<java.lang.String, java.lang.String>) */
+            properties?: components["schemas"]["e3827b48-bafc-4c54-a4b8-5bf6e2824d59"];
+            /** @description (typeName=java.util.Map<java.lang.String, java.util.Set<com.tccc.kos.commons.manifest.BaseManifestArtifact>>) */
+            sections?: components["schemas"]["aa2ae7fc-bfe7-413c-b16f-8815da06c9e6"];
+        };
+        "c1c745f6-e8ca-4036-9621-89749a31f64a": {
+            incomplete?: boolean;
+            /** @description (typeName=com.tccc.kos.commons.manifest.NodeManifest) */
+            nodeManifest?: components["schemas"]["3fc5fd41-7c2d-47d1-ac1b-088b0fb059cc"];
+            /** @description (typeName=java.util.Set<com.tccc.kos.core.manifest.ResolvedManifestArtifact>) */
+            layers?: components["schemas"]["c50e1cd7-df6d-4074-be4d-bcd49a3f8d80"];
+            /** @description (typeName=java.util.List<com.tccc.kos.commons.manifest.ManifestArtifact>) */
+            missingArtifacts?: components["schemas"]["9a13f8f8-8b56-4f1d-8693-27dd7a82aacf"];
+            /** @description (typeName=java.util.List<com.tccc.kos.core.manifest.ResolvedManifestSection>) */
+            sections?: components["schemas"]["c7822a5c-023f-48bf-946c-578fcb3f5a9a"];
+        };
+        "b3a9e47b-b1f8-4116-9894-295b15fdf36e": {
+            /** @description (typeName=com.tccc.kos.commons.manifest.BaseManifestArtifact) */
+            artifactInfo?: components["schemas"]["0c418aed-b2d1-4b5f-bfce-5f7fad12dbd1"];
+            /** @description (typeName=java.util.Collection<com.tccc.kos.core.primary.service.ota.OTADownloadRequest>) */
+            requests?: components["schemas"]["ea6dc370-5566-468c-b99f-0c76f39cbacf"];
+            error?: string;
+            done?: boolean;
+            /** @description (typeName=com.tccc.kos.core.primary.service.ota.OTAArtifact$Status) */
+            status?: components["schemas"]["b7293629-eea9-468b-aecf-6a7608d2cd2d"];
+        };
+        "b8c1f8de-93bd-4371-89cd-ee11212bba91": {
+            defaultHost?: string;
+            lastUrl?: string;
+            online?: boolean;
+            /** @description (typeName=com.tccc.kos.core.service.browser.BrowserId) */
+            id?: components["schemas"]["81f5c678-d251-41bb-9636-75e618d483d4"];
+        };
+        "3e0b6fdf-d670-4078-8646-49deb966d15d": {
+            vfsPath?: string;
+            endDate?: string;
+            /** Format: int32 */
+            videoLoops?: number;
+            name?: string;
+            /** Format: int32 */
+            width?: number;
+            screenType?: string;
+            /** Format: int64 */
+            buildDate?: number;
+            /** Format: int32 */
+            priority?: number;
+            /** Format: int32 */
+            imageDisplaySec?: number;
+            contentType?: string;
+            startDate?: string;
+            /** Format: int32 */
+            height?: number;
+        };
+        "a9f7c003-e077-475b-ac7f-0d46a66ef07d": {
+            /** Format: int64 */
+            lastChangedTimeMono?: number;
+            /** Format: double */
+            totalVolume?: number;
+            internal?: boolean;
+            /** Format: int64 */
+            creationTimeMS?: number;
+            /** @description (typeName=java.util.Collection<java.lang.String>) */
+            ingredientIds?: components["schemas"]["0034b7cd-f667-40a0-8121-d6aecef2d72d"];
+            /** Format: date-time */
+            creationDate?: string;
+            /** @description (typeName=java.util.Map<java.lang.String, com.tccc.kos.ext.dispense.service.nozzle.metrics.NozzleMetrics$Info>) */
+            byIngredients?: components["schemas"]["288e6ae0-adf9-4c2a-84f0-17f37f4ae09e"];
+            /** @description (typeName=java.util.Map<java.lang.String, com.tccc.kos.ext.dispense.service.nozzle.metrics.NozzleMetrics$Info>) */
+            byPumps?: components["schemas"]["288e6ae0-adf9-4c2a-84f0-17f37f4ae09e"];
+            /** @description (typeName=java.util.Collection<java.lang.String>) */
+            pumpPaths?: components["schemas"]["0034b7cd-f667-40a0-8121-d6aecef2d72d"];
+            removed?: boolean;
+            name?: string;
+            /** Format: int64 */
+            lastChangedTimeMS?: number;
+            locked?: boolean;
+        };
+        "5d3ccc62-58ba-4b29-9da1-e1c06461983f": unknown;
+        "73049cf5-2c7b-4861-bfb9-6593510737fa": {
+            val?: string;
+            reason?: string;
+            attr?: string;
+        };
+        "130325e2-99b4-4d06-8f78-b85c55d73aa4": components["schemas"]["3e0b6fdf-d670-4078-8646-49deb966d15d"][];
+        "9372b683-eb0f-4749-8183-fee5c50fe37e": unknown;
+        "9123c893-c165-4f25-bc36-544e6348c9a2": {
+            /** Format: int32 */
+            id?: number;
+            desc?: string;
+        };
+        "6d138f12-f37e-4b53-abdb-c2ccf2164a8a": {
+            browserName?: string;
+            /** @description (typeName=com.tccc.kos.commons.util.NodeId) */
+            nodeId?: components["schemas"]["b2a542fc-3ebf-4132-ba44-2b8c8acf693c"];
+        };
+        "46835236-29d9-4c24-a68c-fac9c07ca526": {
+            valid?: boolean;
+            value?: string;
+            /** Format: int64 */
+            lastUpdateTime?: number;
+        };
+        "70bfd5e1-0937-496c-81a5-d536a1fc824f": {
+            /** @description (typeName=java.util.List<com.tccc.kos.core.primary.service.update.UpdateInfo$Note>) */
+            notes?: components["schemas"]["d584c20d-79dd-4be0-a437-d48ae15bab6c"];
+            blocked?: boolean;
+            /** Format: int64 */
+            createTime?: number;
+            active?: boolean;
+            manifestId?: string;
+            deviceId?: string;
+        };
+        "d650edb9-dc08-4295-835f-586b029815dc": unknown;
+        "06bc6940-fc8c-4ed4-a85d-1925524ff7eb": components["schemas"]["5ab722c0-909d-406f-9211-4b2fa1fa0694"][];
+        /** @description (typeName=com.tccc.kos.commons.core.localization.LocalizationContext$CtxLocaleInfo) */
+        "ee291a8c-cc50-4b6c-9f54-3e43eb89f039": components["schemas"]["c1b93029-e916-47f9-810f-84b907850769"];
+        /** @description (typeName=com.tccc.kos.ext.cms.service.screen.ScreenContext) */
+        "fa9ba227-d260-49bb-9d0b-874ca8e9179b": components["schemas"]["4de0e452-32e3-4d2d-b714-249d09c44964"];
+        "4434158c-d40a-40c6-8a97-e432e7d5ac00": {
             country?: string;
             timeFormatId?: string;
             hidden?: boolean;
             unitSystemId?: string;
             id?: string;
             /** @description (typeName=java.util.List<java.lang.String>) */
-            timeZones?: components["schemas"]["68f3bbfa-16f7-4e29-9bf5-4879addde120"];
+            timeZones?: components["schemas"]["38f032c0-cf40-429f-811a-4de4eb7039bf"];
             dateFormatId?: string;
         };
-        "3e475e17-80b1-4b87-b551-a977686e9b46": {
+        /** @description (typeName=com.tccc.kos.commons.core.localization.LocalizationContext) */
+        "7bc232e2-c56f-4821-a637-6ea686f18560": components["schemas"]["3126d0ad-f73b-4ceb-b002-987dd5a0a1cc"];
+        "9cd97ec6-72a6-4fba-8425-b3bebb4ecc99": {
+            ampm?: boolean;
+            format?: string;
+            id?: string;
+        };
+        "89d270f3-7622-464c-8c99-1dfb2120773c": {
+            carrier?: boolean;
+            duplex?: string;
             /** Format: int32 */
-            slicePos?: number;
+            speed?: number;
+        };
+        "895bd466-7e3f-49c5-a3c6-b89bd0380066": {
+            /** Format: int64 */
+            runStartTime?: number;
+            /** @description (typeName=java.util.List<com.tccc.kos.commons.util.concurrent.future.trace.FutureTrace>) */
+            children?: components["schemas"]["ec1b35f2-489e-4b0f-93ef-e2fd071da3e9"];
             /** Format: int64 */
             createTime?: number;
-            containerId?: string;
-            /** Format: int32 */
-            soldOutCount?: number;
             /** Format: int64 */
-            lastUpdateTime?: number;
+            runEndTime?: number;
+            /** @description (typeName=com.tccc.kos.commons.util.concurrent.future.FutureState) */
+            endState?: components["schemas"]["c573ce7e-99c2-4bbe-b667-d1205879d219"];
+            name?: string;
+            /** Format: int32 */
+            id?: number;
+            /** Format: int64 */
+            endTime?: number;
+            /** Format: int32 */
+            parentId?: number;
         };
-        "1a682fc8-5cc5-4a6e-abc0-e40833b5d9e1": unknown;
-        "1c540768-25a8-4d9c-9878-ca19af148478": {
+        "8966c9e5-d6c9-43ba-833e-aebbdea63a85": components["schemas"]["5c22ab84-f686-4258-a2bb-35a0938834a0"][];
+        "53732eb1-6424-4fbd-92b7-d7223968ae0e": components["schemas"]["f173cd93-0db4-4f36-ab9a-1a6ce5d4637b"][];
+        "3126d0ad-f73b-4ceb-b002-987dd5a0a1cc": {
+            path?: string;
+            /** @description (typeName=java.util.Collection<java.lang.String>) */
+            locales?: components["schemas"]["0034b7cd-f667-40a0-8121-d6aecef2d72d"];
+            basePath?: string;
+            /** @description (typeName=com.tccc.kos.commons.util.json.JsonViewWrapper) */
+            details?: components["schemas"]["b6ac1c50-b7f5-49e6-9a6d-a3d9fb2dbaf7"];
+            type?: string;
+            /** @description (typeName=java.util.Map<java.lang.String, com.tccc.kos.commons.core.localization.LocalizationContext$CtxNamespace>) */
+            namespaces?: components["schemas"]["4fbca23b-e8dd-429b-a5b5-c0d28fe4957f"];
+        };
+        "9b8c1484-6138-4465-9ef0-7289dd72ba34": components["schemas"]["70bfd5e1-0937-496c-81a5-d536a1fc824f"][];
+        "e02a75df-4de8-41e3-9841-57c61646a6a6": components["schemas"]["43d49be8-f9f8-4548-ac17-f26e1956570c"][];
+        "2d6bdbb7-e1bd-45a4-903e-51c248c3d565": {
+            /** @description (typeName=java.util.List<java.lang.String>) */
+            addressprefixlist?: components["schemas"]["38f032c0-cf40-429f-811a-4de4eb7039bf"];
+            address?: string;
+            method?: string;
+            /** Format: int32 */
+            prefix?: number;
+            /** @description (typeName=java.util.List<java.lang.String>) */
+            dnslist?: components["schemas"]["38f032c0-cf40-429f-811a-4de4eb7039bf"];
+            gateway?: string;
+        };
+        "5c3028ac-9586-4a5b-8378-67f4dd2d7c2c": components["schemas"]["82737546-68e5-4212-8538-d18c312d731f"][];
+        "c06be153-fdcf-471a-abc5-ecf8ef1539d2": components["schemas"]["47eb430b-84a1-4849-993d-dd146e8ab77d"][];
+        "5b7cad3c-6351-4445-8baf-cb64c7a39785": {
+            /** @description (typeName=com.tccc.kos.commons.util.ListenerList<com.tccc.kos.commons.core.service.config.ConfigBeanListener>) */
+            listeners?: components["schemas"]["1d2c1318-6c8d-4f2f-b5c0-07e97a2aad31"];
+        };
+        "d7672c5c-1576-4fb0-b900-316f6fcc9ba0": {
+            /** Format: int32 */
+            apFlags?: number;
+            bssid?: string;
+            /** Format: int32 */
+            wpaFlags?: number;
+            /** Format: int32 */
+            bitrate?: number;
+            ssid?: string;
+            /** Format: int32 */
+            signal?: number;
+            /** Format: int32 */
+            rsnFlags?: number;
+            /** Format: int32 */
+            lastSeenAgo?: number;
+            /** Format: int32 */
+            frequency?: number;
+        };
+        "19ac2274-3e49-4ebd-8105-e810e7bff0cd": {
+            /** @description (typeName=java.util.Map<java.lang.String, com.tccc.kos.commons.core.service.config.MethodPair$MethodSchema>) */
+            schema?: components["schemas"]["684983a0-2704-4836-b941-26b742cb6630"];
+            /** @description (typeName=java.util.List<java.lang.String>) */
+            paths?: components["schemas"]["38f032c0-cf40-429f-811a-4de4eb7039bf"];
+        };
+        "8b56adfb-42d7-4f0b-8f70-c1f29f5c825b": Record<string, never>;
+        "e22f6c1c-b930-445f-a201-a8aa40981964": components["schemas"]["895bd466-7e3f-49c5-a3c6-b89bd0380066"][];
+        "82737546-68e5-4212-8538-d18c312d731f": {
+            configured?: boolean;
+            /** @description (typeName=com.tccc.kos.core.service.network.beans.EthernetDetails) */
+            ethernet?: components["schemas"]["89d270f3-7622-464c-8c99-1dfb2120773c"];
+            /** @description (typeName=com.tccc.kos.core.service.network.beans.WifiDetails) */
+            wifi?: components["schemas"]["d7672c5c-1576-4fb0-b900-316f6fcc9ba0"];
+            hwaddress?: string;
+            name?: string;
+            /** @description (typeName=com.tccc.kos.core.service.network.beans.Ip4Settings) */
+            ip4settings?: components["schemas"]["2d6bdbb7-e1bd-45a4-903e-51c248c3d565"];
+            type?: string;
+            /** @description (typeName=com.tccc.kos.core.service.network.beans.NetworkInterfaceCategory) */
+            category?: components["schemas"]["d2e5b8fa-90e6-4ca8-8940-6b6fc33ed481"];
+            /** Format: int32 */
+            nmdevicestate?: number;
+            /** Format: int32 */
+            mtu?: number;
+        };
+        "c1b93029-e916-47f9-810f-84b907850769": {
+            defaultLocale?: string;
+            file?: string;
+            /** @description (typeName=java.util.List<java.lang.String>) */
+            fallbacks?: components["schemas"]["38f032c0-cf40-429f-811a-4de4eb7039bf"];
+            kabId?: string;
+        };
+        "df055a54-3776-480a-95a6-5436241a47a7": components["schemas"]["3a66fd16-d6e3-4684-8154-a77d61f6ddcf"][];
+        "ac40fb62-e235-4b28-a214-95e2a0a4f215": {
+            /** @description (typeName=java.util.List<java.lang.String>) */
+            scopeNames?: components["schemas"]["38f032c0-cf40-429f-811a-4de4eb7039bf"];
+            /** @description (typeName=java.util.List<com.tccc.kos.commons.core.service.config.ConfigDetails>) */
+            details?: components["schemas"]["fe2f3beb-8034-4aeb-8a3f-91ab78945416"];
+        };
+        "14993297-fa07-4fb3-ac62-56f39f60b9d8": {
             ex?: string;
             /** Format: date-time */
             time?: string;
@@ -6326,147 +6235,242 @@ export interface components {
             /** Format: int32 */
             idx?: number;
         };
-        "d147e95c-329a-4fbb-967e-e9a952189c31": components["schemas"]["f44452d4-3bed-4000-83fa-ccddaaa45647"][];
-        "96e2d05b-122d-4695-8b70-a119ed85adef": {
+        "4a0695ea-142c-4955-8b52-a016df0c8cd0": string[];
+        /** Format: float */
+        "4dfeab80-0964-4731-968a-e5e878c9de42": number;
+        "314d69c9-57fd-4286-8dfe-5e434697feb9": components["schemas"]["9cd97ec6-72a6-4fba-8425-b3bebb4ecc99"][];
+        "1499d23f-6f32-4d18-8a3c-e16cda981767": {
+            stream?: string;
+            /** Format: int32 */
+            startLineNum?: number;
             /** Format: int64 */
-            runStartTime?: number;
-            /** @description (typeName=java.util.List<com.tccc.kos.commons.util.concurrent.future.trace.FutureTrace>) */
-            children?: components["schemas"]["0f4ef02f-925f-4e45-8678-c7c7db5a5b70"];
-            /** Format: int64 */
-            createTime?: number;
-            /** Format: int64 */
-            runEndTime?: number;
-            /** @description (typeName=com.tccc.kos.commons.util.concurrent.future.FutureState) */
-            endState?: components["schemas"]["55c0b715-6a56-4993-bd6c-2427a2606855"];
-            name?: string;
+            startTime?: number;
+            /** Format: int32 */
+            blockNum?: number;
             /** Format: int64 */
             endTime?: number;
+            /** @description (typeName=java.util.List<java.lang.String>) */
+            lines?: components["schemas"]["38f032c0-cf40-429f-811a-4de4eb7039bf"];
+            nodeId?: string;
             /** Format: int32 */
-            id?: number;
+            endLineNum?: number;
             /** Format: int32 */
-            parentId?: number;
+            lineCount?: number;
         };
-        "c5cd3b68-5b0f-4c22-82db-f37c075c4e61": unknown;
-        "7c9ab20c-f640-4c46-b779-0489f2e2167e": components["schemas"]["512ac08e-0e3e-4f39-a297-108b36db9ec7"][];
-        "edd52aa4-4eca-4280-9aba-d7f0446498b7": {
+        "b2a542fc-3ebf-4132-ba44-2b8c8acf693c": {
+            nodeName?: string;
+            hostname?: string;
+            id?: string;
+            nodeType?: string;
+        };
+        "16b44b02-78ae-4ab5-ac77-c957abe47ba9": components["schemas"]["b8c1f8de-93bd-4371-89cd-ee11212bba91"][];
+        "93f0bcbe-18fc-47de-928f-d4433c549499": {
+            /** @description (typeName=java.util.List<com.tccc.kos.commons.core.service.config.BeanChanges$AttrChange>) */
+            scopedChanges?: components["schemas"]["d115a0a3-faab-4b10-b0b9-f3d04a87ed1c"];
+            /** @description (typeName=java.util.List<com.tccc.kos.commons.core.service.config.BeanChanges$AttrChange>) */
+            changes?: components["schemas"]["d115a0a3-faab-4b10-b0b9-f3d04a87ed1c"];
+            /** @description (typeName=java.util.List<com.tccc.kos.commons.core.service.config.BeanChanges$Error>) */
+            errors?: components["schemas"]["eb4ed43a-d9f9-4041-9518-33fa8a5f3d38"];
+        };
+        "5ab722c0-909d-406f-9211-4b2fa1fa0694": {
+            path?: string;
+            /** @description (typeName=java.util.Map<java.lang.String, java.lang.Object>) */
+            values?: components["schemas"]["8b56adfb-42d7-4f0b-8f70-c1f29f5c825b"];
+            scope?: string;
+            replace?: boolean;
+        };
+        "9821e05f-ca55-4d0b-a446-25de253be668": unknown;
+        "a5049d3f-f6ca-411f-b3c6-821f4739058e": {
+            /** @description (typeName=java.util.Map<java.lang.String, java.lang.String>) */
+            defaults?: components["schemas"]["e3827b48-bafc-4c54-a4b8-5bf6e2824d59"];
+            scope?: string;
+            /** @description (typeName=java.util.Map<java.lang.String, java.lang.String>) */
+            overrides?: components["schemas"]["e3827b48-bafc-4c54-a4b8-5bf6e2824d59"];
+        };
+        "d06829c6-6480-45db-833f-13d81c637f28": {
+            visible?: boolean;
+            /** @description (typeName=com.tccc.kos.ext.freestyle.service.fuelgauge.FuelGaugeData) */
+            data?: components["schemas"]["8c6949e6-24ed-4792-a494-6b582a24e6e5"];
+        };
+        "b7293629-eea9-468b-aecf-6a7608d2cd2d": unknown;
+        "854ab308-7123-43b8-a1be-39d08d8a5f7c": {
             summary?: string;
             /** @description (typeName=java.util.List<java.lang.String>) */
-            details?: components["schemas"]["68f3bbfa-16f7-4e29-9bf5-4879addde120"];
+            details?: components["schemas"]["38f032c0-cf40-429f-811a-4de4eb7039bf"];
         };
-        "075c6e7f-2826-45ad-8f3c-0a692c9d28d9": string[];
-        /** Format: float */
-        "63fac6ee-1d68-4ece-84cb-7f65bf3924f1": number;
-        "b8892d3a-48f5-410d-81cd-cb2be1962605": components["schemas"]["1fa3f2a7-3e55-4ede-9908-5e571425a2cd"][];
-        "0ac0c787-d87d-4906-8c25-e20f8fe2c262": {
+        "4a408a56-5bae-4f97-82b2-5c520b35f763": components["schemas"]["0c418aed-b2d1-4b5f-bfce-5f7fad12dbd1"][];
+        "5816b275-4c70-4e7d-857c-940631facdad": unknown;
+        "fe2f3beb-8034-4aeb-8a3f-91ab78945416": components["schemas"]["7997b9ca-bc10-41e9-a65b-a19f988d72ee"][];
+        "f45d3e0b-e3cb-4b75-bcb1-55f92fb17a4d": {
             /** @description (typeName=java.lang.Class<?>) */
-            view?: components["schemas"]["c5cd3b68-5b0f-4c22-82db-f37c075c4e61"];
+            view?: components["schemas"]["29537709-71c2-45a6-9a66-9c343d7d5556"];
             data?: Record<string, never>;
         };
-        "cf208401-3fed-4ed6-9049-cde2933c4b10": {
-            incomplete?: boolean;
-            /** @description (typeName=java.util.List<com.tccc.kos.core.manifest.ResolvedDeviceManifest$ManifestInfo>) */
-            manifestInfoChain?: components["schemas"]["60b53a4a-88d1-4370-9f77-e37d9bd08bfe"];
-            /** @description (typeName=com.tccc.kos.commons.manifest.DeviceManifest) */
-            deviceManifest?: components["schemas"]["9b015dfc-362c-458f-af7c-d5774cd41c8d"];
-            manifestId?: string;
+        "43d49be8-f9f8-4548-ac17-f26e1956570c": {
+            nodeName?: string;
+            optional?: boolean;
+            nodeType?: string;
+            /** @description (typeName=com.tccc.kos.commons.util.NodeId) */
+            nodeId?: components["schemas"]["b2a542fc-3ebf-4132-ba44-2b8c8acf693c"];
+            primary?: boolean;
         };
-        /** @description (typeName=com.tccc.kos.commons.core.localization.LocalizationContext) */
-        "b5161c2f-0def-4003-98fa-5ba13394825e": components["schemas"]["8d6639fa-d662-40ee-ac2a-cba71b359af3"];
-        "d307fbe9-55c8-4841-a471-10ca132a7aeb": components["schemas"]["d5e4a5c0-c65b-4fc9-a865-e5e433ea4331"][];
-        "0f4ef02f-925f-4e45-8678-c7c7db5a5b70": components["schemas"]["96e2d05b-122d-4695-8b70-a119ed85adef"][];
-        "4e8b3c17-598c-4777-a218-8ab2469980b7": components["schemas"]["fac889a1-eab8-4a45-ad9b-646f5155d509"][];
-        "916f9699-11e0-4e38-a766-826c12196a14": {
+        "6fd9ac53-e97c-49d8-a942-5b5648fbe315": {
+            /** Format: int32 */
+            sec?: number;
+            /** Format: int32 */
+            min?: number;
+            /** Format: int32 */
+            hour?: number;
+        };
+        "9a13f8f8-8b56-4f1d-8693-27dd7a82aacf": components["schemas"]["cfd5cb9b-df47-41b1-aff6-8bf5bca247ee"][];
+        "09ea553d-f395-4e05-bad0-0766eb63accb": {
+            displayValue?: string;
+            units?: string;
+            type?: string;
+        };
+        "d115a0a3-faab-4b10-b0b9-f3d04a87ed1c": components["schemas"]["3cddc6a3-eb35-43fc-ad49-00660b6cd6af"][];
+        "f6d782be-f09f-4e73-91e0-ce8921d2b6c8": unknown;
+        /** @description (typeName=java.util.Collection<? extends com.tccc.kos.ext.dispense.service.ingredient.BaseIngredient>) */
+        "8275b0de-0ba6-4da1-865e-3a2108778a57": components["schemas"]["0e52b74e-4a63-456c-a8fb-93b687f23f9e"];
+        "eb4ed43a-d9f9-4041-9518-33fa8a5f3d38": components["schemas"]["73049cf5-2c7b-4861-bfb9-6593510737fa"][];
+        "a74f861b-9f2e-4525-9995-15f0fe6a7cb5": components["schemas"]["1499d23f-6f32-4d18-8a3c-e16cda981767"][];
+        "c913561c-30c3-43b0-b7ef-4d7abeffa03c": components["schemas"]["5c22ab84-f686-4258-a2bb-35a0938834a0"][];
+        "a70ed2cd-d1d6-417c-bf2a-0efe344acc99": {
+            parent?: string;
+            /** @description (typeName=java.io.File) */
+            parentFile?: components["schemas"]["a70ed2cd-d1d6-417c-bf2a-0efe344acc99"];
+            hidden?: boolean;
+            /** Format: int64 */
+            freeSpace?: number;
+            /** Format: int64 */
+            totalSpace?: number;
+            /** Format: int64 */
+            usableSpace?: number;
+            /** @description (typeName=java.io.File) */
+            canonicalFile?: components["schemas"]["a70ed2cd-d1d6-417c-bf2a-0efe344acc99"];
+            directory?: boolean;
+            path?: string;
+            /** @description (typeName=java.io.File) */
+            absoluteFile?: components["schemas"]["a70ed2cd-d1d6-417c-bf2a-0efe344acc99"];
+            file?: boolean;
+            absolute?: boolean;
+            name?: string;
+            canonicalPath?: string;
+            absolutePath?: string;
+        };
+        "e7f01b11-b357-4216-bbde-d1c6fca9b8fa": {
+            /** @description (typeName=com.tccc.kos.commons.util.MultiValueMap<java.lang.String, com.tccc.kos.core.service.manifest.NodeSoftwareInfo>) */
+            nodes?: components["schemas"]["25f6175d-4e92-48af-bb12-98dae6c67f7b"];
+        };
+        "10caf2dc-2be7-4f83-81ba-d994fe785568": string;
+        "afcd9eb4-3ada-4969-9af0-70cf1302a6d7": unknown;
+        "175caf39-dc2e-4958-9b74-09f282ffc9cb": {
             serialNumber?: string;
             name?: string;
             nodeId?: string;
         };
-        "739b66d3-b059-4ad4-9fee-7e4c2a1710db": {
-            ingredientId?: string;
-            holderPath?: string;
-            /** Format: int64 */
-            createTime?: number;
-            factoryJson?: string;
-            containerId?: string;
-            error?: string;
-        };
-        "3719f02d-9be7-4be3-b9d4-e9767d7662e8": unknown;
-        "efcdd978-cfa8-4cfd-aac1-5600683d9f95": components["schemas"]["96e2d05b-122d-4695-8b70-a119ed85adef"][];
-        "bb17aeec-adae-4ae0-96cc-4c826edefffa": {
-            /** @description (typeName=com.tccc.kos.commons.util.ListenerList<com.tccc.kos.core.service.udev.storage.StorageMountListener>) */
-            listeners?: components["schemas"]["d147e95c-329a-4fbb-967e-e9a952189c31"];
-            removed?: boolean;
-            vendor?: string;
-            /** @description (typeName=java.io.File) */
-            mountDir?: components["schemas"]["7ada1850-8ab4-45eb-906a-2d166b4fa217"];
-            model?: string;
-            label?: string;
-            id?: string;
-            /** Format: int64 */
-            runTimeMs?: number;
-            /** @description (typeName=com.tccc.kos.commons.util.NodeId) */
-            nodeId?: components["schemas"]["23e1c60c-afbf-4fb2-a86a-945449dc1cb2"];
-            syspath?: string;
-            local?: boolean;
-            /** @description (typeName=com.tccc.kos.core.service.udev.storage.StorageInfo) */
-            storageInfo?: components["schemas"]["2229db6d-5b87-4a12-974e-ebc0c5efea3d"];
-        };
-        "b34fa43f-8c9c-4611-901f-325835d1a7c6": components["schemas"]["817fa906-ed5b-4a76-9fd4-aaeb8e4442c3"][];
-        "41c382e8-f0b6-4c26-b6bb-a055df496f9e": {
-            /** @description (typeName=com.tccc.kos.commons.core.service.config.ConfigSchema) */
-            schema?: components["schemas"]["e7d1ff0a-2251-4231-a09b-8affe286c9f4"];
-            path?: string;
-            /** @description (typeName=java.util.Map<java.lang.String, java.lang.String>) */
-            defaults?: components["schemas"]["7ab832ae-1878-4577-9793-cb3dbb14a259"];
-            /** @description (typeName=java.util.List<com.tccc.kos.commons.core.service.config.ConfigDetails$ScopeData>) */
-            scopes?: components["schemas"]["4e8b3c17-598c-4777-a218-8ab2469980b7"];
-            /** @description (typeName=com.tccc.kos.commons.core.service.config.ConfigBean) */
-            bean?: components["schemas"]["1fc58076-acfd-468b-8647-75d19ee1a451"];
-        };
-        "0a5e5757-e5a6-4fc5-a60c-3233ef721f2f": {
-            sourceId?: string;
-            name?: string;
-            id?: string;
-            type?: string;
-        };
-        "78613682-c3a9-4b86-a31a-597eb7939ab5": components["schemas"]["50af293a-5e43-43dd-879c-56f0dc456130"][];
-        "1b8e7aa0-e641-432a-8b73-7c0766444fca": unknown;
-        "eeb3b80e-e101-4745-b44e-878da8d7f69a": {
-            empty?: boolean;
-        };
-        "1760c8be-366f-4d05-afde-75914ea2f303": components["schemas"]["a3572765-7147-40bf-bc33-a0dca3c0c23f"][];
-        "c10ecebb-7081-4dee-adba-125acd1f25af": components["schemas"]["40888442-2867-4620-9fe7-528dbc05b00d"][];
-        "e4112c62-24e3-4d9b-86d3-c17ba8f14dc2": components["schemas"]["00aa8833-9667-4afc-9cde-618cea3a52e6"][];
-        "8d6639fa-d662-40ee-ac2a-cba71b359af3": {
-            path?: string;
-            /** @description (typeName=java.util.Collection<java.lang.String>) */
-            locales?: components["schemas"]["075c6e7f-2826-45ad-8f3c-0a692c9d28d9"];
-            basePath?: string;
+        /** @description (typeName=com.tccc.kos.ext.dispense.service.nozzle.metrics.NozzleMetrics) */
+        "57967f9d-5269-4b18-b675-1e2ca1277405": components["schemas"]["a9f7c003-e077-475b-ac7f-0d46a66ef07d"];
+        "6ead8e04-3f4f-4787-8412-9b438b7b19b9": unknown;
+        "5c22ab84-f686-4258-a2bb-35a0938834a0": {
+            reason?: string;
+            /** Format: date-time */
+            createTime?: string;
+            resolvable?: boolean;
+            /** @description (typeName=java.util.Set<java.lang.String>) */
+            ifaces?: components["schemas"]["4a0695ea-142c-4955-8b52-a016df0c8cd0"];
+            /** Format: int32 */
+            id?: number;
             /** @description (typeName=com.tccc.kos.commons.util.json.JsonViewWrapper) */
-            details?: components["schemas"]["0ac0c787-d87d-4906-8c25-e20f8fe2c262"];
+            clientData?: components["schemas"]["afcd9eb4-3ada-4969-9af0-70cf1302a6d7"];
             type?: string;
-            /** @description (typeName=java.util.Map<java.lang.String, com.tccc.kos.commons.core.localization.LocalizationContext$CtxNamespace>) */
-            namespaces?: components["schemas"]["81851617-56b9-404c-a2bc-56c829a9430e"];
+            /** @description (typeName=java.util.Set<java.lang.String>) */
+            tags?: components["schemas"]["4a0695ea-142c-4955-8b52-a016df0c8cd0"];
+            /** @description (typeName=com.tccc.kos.commons.core.service.trouble.TroubleInfo) */
+            info?: components["schemas"]["471538f6-23cc-4afd-b551-7e910d9ffcc5"];
+            group?: string;
         };
-        /** @description (typeName=com.tccc.kos.commons.core.localization.LocalizationContext$CtxNamespace) */
-        "81851617-56b9-404c-a2bc-56c829a9430e": components["schemas"]["93ae9f7c-3760-4aaf-923c-d85ddfcd2c74"];
-        "5609eac9-5c9c-4249-a0f1-b3beed7c85cf": components["schemas"]["15244228-8cdb-4329-80b7-f63fd21ba064"][];
-        "6119f999-9e66-4473-be6e-c224338c9803": unknown;
-        "fa2d99cd-055f-4c2f-90ec-1bc84e8f5f45": {
+        "003683e3-222c-4682-8e8c-5303e3c4d784": components["schemas"]["cd3a65ee-c02a-42df-b157-6a7b7106ef39"][];
+        "c104fe89-bb81-4c15-ae53-b241dc9978ba": components["schemas"]["148ed800-89fb-47c4-8e52-c60407b2007b"][];
+        "c50e1cd7-df6d-4074-be4d-bcd49a3f8d80": components["schemas"]["47eb430b-84a1-4849-993d-dd146e8ab77d"][];
+        "70215390-23e2-440d-a665-9e35b0a30725": {
+            name?: string;
+            /** @description (typeName=java.util.Collection<? extends com.tccc.kos.commons.manifest.ManifestArtifact>) */
+            artifacts?: components["schemas"]["e1b3aa87-66a9-4add-b948-bf9688df3c15"];
+        };
+        "db1c6c02-ea15-466a-8e1d-feb690e4beae": {
+            deviceType?: string;
+            /** @description (typeName=java.util.Map<java.lang.String, java.lang.String>) */
+            properties?: components["schemas"]["e3827b48-bafc-4c54-a4b8-5bf6e2824d59"];
+            /** @description (typeName=com.tccc.kos.commons.manifest.device.ManifestDeviceInfo) */
+            deviceInfo?: components["schemas"]["76346f5c-b579-4a64-896e-0543184dcc3a"];
+        };
+        "4de0e452-32e3-4d2d-b714-249d09c44964": {
+            path?: string;
+            basePath?: string;
+            /** @description (typeName=java.util.List<com.tccc.kos.ext.cms.service.screen.Screen>) */
+            screens?: components["schemas"]["130325e2-99b4-4d06-8f78-b85c55d73aa4"];
+            /** @description (typeName=com.tccc.kos.commons.util.json.JsonViewWrapper) */
+            details?: components["schemas"]["b6ac1c50-b7f5-49e6-9a6d-a3d9fb2dbaf7"];
+            type?: string;
+        };
+        "89b5f581-452e-4651-a757-d08ee66368df": {
             redirect?: boolean;
             /** @description (typeName=com.tccc.kos.core.service.browser.BrowserId) */
-            browserId?: components["schemas"]["1f583606-ce7d-41af-a692-b6907a760b6f"];
+            browserId?: components["schemas"]["6d138f12-f37e-4b53-abdb-c2ccf2164a8a"];
             url?: string;
         };
-        "e21bc680-e33b-44a0-9d0c-14a12783cd57": {
-            /** Format: int32 */
-            month?: number;
-            /** Format: int32 */
-            year?: number;
-            /** Format: int32 */
-            day?: number;
+        "3a66fd16-d6e3-4684-8154-a77d61f6ddcf": unknown;
+        "dcc2f41b-1a99-4360-ac19-aaa418ca46ff": {
+            manifestId?: string;
+            deviceId?: string;
         };
-        /** @description (typeName=com.tccc.kos.ext.dispense.service.nozzle.metrics.NozzleMetrics$Info) */
-        "d4cf7e70-e9e2-4705-a3d3-a99b8705b2d9": components["schemas"]["620f22ac-aa6a-43e3-a9cf-9e7fb802b10f"];
+        "a1480f86-5e3a-4bb8-943d-3dfb18f9d551": {
+            reason?: string;
+            note?: string;
+            /** @description (typeName=com.tccc.kos.commons.util.ReasonData) */
+            reasonData?: components["schemas"]["f45d3e0b-e3cb-4b75-bcb1-55f92fb17a4d"];
+            /** @description (typeName=com.tccc.kos.commons.util.concurrent.future.FutureWork) */
+            rootFuture?: components["schemas"]["a1480f86-5e3a-4bb8-943d-3dfb18f9d551"];
+            /** @description (typeName=com.tccc.kos.commons.util.concurrent.future.FutureState) */
+            endState?: components["schemas"]["c573ce7e-99c2-4bbe-b667-d1205879d219"];
+            tracker?: string;
+            /** Format: int64 */
+            remainingTimeMs?: number;
+            name?: string;
+            /** Format: int32 */
+            progress?: number;
+            /** Format: int32 */
+            id?: number;
+            /** Format: int32 */
+            abortAbandonedTimeoutMs?: number;
+            /** @description (typeName=com.tccc.kos.commons.util.json.JsonViewWrapper) */
+            clientData?: components["schemas"]["b6ac1c50-b7f5-49e6-9a6d-a3d9fb2dbaf7"];
+        };
+        "e370aa43-21b8-444e-8358-8170961129f4": components["schemas"]["4434158c-d40a-40c6-8a97-e432e7d5ac00"][];
+        "bea126d8-d571-4384-9246-d5f9db97efba": {
+            incomplete?: boolean;
+            /** @description (typeName=java.util.List<com.tccc.kos.core.manifest.ResolvedDeviceManifest$ManifestInfo>) */
+            manifestInfoChain?: components["schemas"]["0b087158-06a2-4e03-81e0-c34835daab72"];
+            /** @description (typeName=com.tccc.kos.commons.manifest.DeviceManifest) */
+            deviceManifest?: components["schemas"]["db1c6c02-ea15-466a-8e1d-feb690e4beae"];
+            manifestId?: string;
+        };
+        "3b50fb51-973b-43d8-80ca-a933a0dfa37d": {
+            type?: string;
+            /** @description (typeName=com.tccc.kos.commons.manifest.chained.ChainedManifest) */
+            chainedManifest?: components["schemas"]["5a443710-5723-44ab-98db-b5566a1b9106"];
+            /** @description (typeName=com.tccc.kos.commons.kab.KabFile) */
+            kab?: components["schemas"]["694d0445-bdd6-4d8b-8a0b-056982cab77a"];
+        };
+        "81f5c678-d251-41bb-9636-75e618d483d4": unknown;
+        "0e52b74e-4a63-456c-a8fb-93b687f23f9e": components["schemas"]["d74ed601-956a-4df1-83bd-b0a60fac4770"][];
+        "340bebfa-6dcc-4232-a0f7-1462a243ee14": components["schemas"]["8d1c31f4-65cf-4784-84f4-7f8ac3903a41"][];
+        "e1b3aa87-66a9-4add-b948-bf9688df3c15": components["schemas"]["cfd5cb9b-df47-41b1-aff6-8bf5bca247ee"][];
+        "0b087158-06a2-4e03-81e0-c34835daab72": components["schemas"]["3b50fb51-973b-43d8-80ca-a933a0dfa37d"][];
+        /** @description (typeName=com.tccc.kos.commons.core.service.config.MethodPair$MethodSchema) */
+        "684983a0-2704-4836-b941-26b742cb6630": components["schemas"]["4ac11d29-aee5-4d5b-b42b-6309f8b41c03"];
+        "e3827b48-bafc-4c54-a4b8-5bf6e2824d59": string;
     };
     responses: never;
     parameters: never;

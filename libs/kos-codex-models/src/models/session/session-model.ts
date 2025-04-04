@@ -1,13 +1,17 @@
 import type {
-  KosContextLogger,
-  KosCreationContext,
   IKosDataModel,
   IKosIdentifiable,
   PublicModelInterface,
+  KosTimer,
 } from "@kosdev-code/kos-ui-sdk";
-import { kosModel } from "@kosdev-code/kos-ui-sdk";
-
-import type { SessionOptions } from "./types";
+import {
+  kosAction,
+  kosModel,
+  kosTopicHandler,
+  TIMER_END,
+  TIMER_EVENT,
+  TimerManager,
+} from "@kosdev-code/kos-ui-sdk";
 
 export const MODEL_TYPE = "session-model";
 
@@ -16,32 +20,75 @@ export type SessionModel = PublicModelInterface<SessionModelImpl>;
 @kosModel(MODEL_TYPE)
 export class SessionModelImpl implements IKosDataModel, IKosIdentifiable {
   id: string;
-  private logger: KosContextLogger;
+  timer!: KosTimer;
+  message?: string;
+  timerStatus!: "inactive" | "active" | "paused" | "finished";
 
-  constructor(
-    modelId: string,
-    options: SessionOptions,
-    context: KosCreationContext,
-  ) {
+  constructor(modelId: string) {
     this.id = modelId;
-    this.logger = context.logger;
 
-    if (options) {
-      // Assign options properties here.
+    console.log("starting session");
+    this.createTimer();
+  }
+
+  // extract-code session-model-timer
+  @kosTopicHandler({
+    topic: TIMER_EVENT,
+    websocket: false,
+  })
+  handleTimer(message: { name: string; action: string }) {
+    if (message.action === TIMER_END) {
+      this.timerStatus = "finished";
     }
   }
 
-  updateModel(options: SessionOptions): void {
-    // Update model properties here.
+  start = () => {
+    if (this.timerStatus === "finished") this.timer?.reset();
+    if (this.timer) {
+      this.timer.start();
+      this.timerStatus = "active";
+    }
+  };
+
+  pause = () => {
+    if (this.timer) {
+      this.timer.pause();
+      this.timerStatus = "paused";
+    }
+  };
+
+  reset = () => {
+    if (this.timer) {
+      this.timer.reset();
+      this.timerStatus = "inactive";
+    }
+  };
+
+  // extract-code create-timer
+  createTimer() {
+    this.timer = TimerManager.createTimer("sessionTimer", 3) as KosTimer;
   }
 
-  // -------------------LIFECYCLE----------------------------
-
-  async init(): Promise<void> {
-    this.logger.debug(`initializing session ${this.id}`);
-  }
-
-  async load(): Promise<void> {
-    this.logger.debug(`loading session ${this.id}`);
-  }
+  // extract-code create-timer-with-warning
+  createTimerWithWarning = () => {
+    this.message = "Timer started";
+    this.timer = TimerManager.createTimer("sessionData", 10, [
+      {
+        name: "Warning",
+        action: (name, timeRemaining) => {
+          this.message = `${timeRemaining} seconds left`;
+        },
+        remainingTime: 5,
+      },
+      {
+        name: "End",
+        action: (name, timeRemaining) => {
+          this.message = `Timer finished`;
+          this.timerStatus = "finished";
+        },
+        remainingTime: 0,
+      },
+    ])!;
+    this.timer.start();
+  };
 }

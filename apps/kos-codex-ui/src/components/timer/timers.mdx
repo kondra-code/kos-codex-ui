@@ -1,0 +1,36 @@
+import { Meta, Canvas } from "@storybook/blocks";
+import { Snippet } from "../snippet";
+import { TimerStory } from "./timer.stories";
+import { TimerWithWarningStory } from "./timer-with-warning.stories";
+
+<Meta title="Foundations/15. Timers" />
+
+# Timers
+
+kOS provides an interface to handle timers and timing. This is controlled via a central `TimerManager` so timers will automatically persist throughout an app.
+
+The timer can be added to the model and then observed in the UI. The timer has `start`, `pause`, and `reset` methods.
+
+<Snippet name="create-timer@session-model.ts" />
+
+In the component, we can hook into the model as we would with any other model. The timer is created and can be started, paused, and reset.
+
+<Snippet name={["timer@timer.tsx", "timer-export@timer.tsx"]} />
+
+<Canvas of={TimerStory} />
+
+Any events (by default only the end event) can be listened to via a `@kosTopicHandler` decorator. This will automatically subscribe to any timer events and call the method when the event is fired.
+
+<Snippet name="session-model-timer@session-model.ts" />
+
+## Timer events
+
+You can also add custom timer events when creating a timer. These events can be used to trigger actions in the UI or other models. This is useful when you want to create a timer that has multiple events, such as a countdown timer.
+
+<Snippet name="create-timer-with-warning@session-model.ts" />
+
+In the component we can then hook into the model and display the message at the 5 second mark
+
+<Snippet name="timer-with-warning@timer-with-warning.tsx" />
+
+<Canvas of={TimerWithWarningStory} />

@@ -10,5 +10,6 @@ export const Button = styled.button`
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
+  ${(props) => props.disabled && "pointer-events: none; opacity: 0.5;"}
 `;

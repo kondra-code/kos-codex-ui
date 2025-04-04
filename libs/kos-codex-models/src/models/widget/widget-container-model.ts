@@ -64,7 +64,7 @@ export class WidgetContainerModelImpl
 
   // extract-code widget-container-handler
   @kosTopicHandler({
-    topic: "/kos/assignments/add",
+    topic: "/app/system/codex/objects/added",
     websocket: true,
   })
   handleWidgetAdd(message: WidgetResponse) {
@@ -73,7 +73,7 @@ export class WidgetContainerModelImpl
 
   // extract-code widget-container-wildcard
   @kosTopicHandler({
-    topic: "/kos/assignments/*",
+    topic: "/app/system/codex/objects/*",
     websocket: true,
   })
   handleWidgetWildcard(
@@ -85,7 +85,7 @@ export class WidgetContainerModelImpl
 
   // extract-code widget-container-condition
   @kosTopicHandler({
-    topic: "/kos/assignments/add",
+    topic: "/app/system/codex/objects/modified",
     websocket: true,
     condition: (message: WidgetResponse) => message.desc !== undefined,
   })
@@ -107,8 +107,8 @@ export class WidgetContainerModelImpl
     // Update model properties here.
   }
 
-  async createWidget() {
-    const [err, data] = await createWidget();
+  async createWidget({ description }: { description: string }) {
+    const [err, data] = await createWidget({ description });
     if (err) {
       console.error(err);
       return;
