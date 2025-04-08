@@ -11,10 +11,6 @@ import {
 import { ElementType, Suspense } from "react";
 import { MemoryRouter } from "react-router";
 import { KosCoreContextProvider } from "./registration";
-import {
-  ApplicationComponentConfigurationProvider,
-  ApplicationProvider,
-} from "@kosdev-code/kos-ddk-model-components";
 import type { ComponentMode } from "@kosdev-code/kos-ddk-components";
 
 export const globalTypes = {

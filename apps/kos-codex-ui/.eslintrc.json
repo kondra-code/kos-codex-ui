@@ -13,6 +13,14 @@
     {
       "files": ["*.js", "*.jsx"],
       "rules": {}
+    },
+    {
+      "files": ["*.json"],
+      "rules": {}
+    },
+    {
+      "files": ["*.mdx"],
+      "rules": {}
     }
   ]
 }
