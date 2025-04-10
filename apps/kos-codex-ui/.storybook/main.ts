@@ -19,6 +19,7 @@ const config: StorybookConfig = {
   addons: [
     "@nx/react/plugins/storybook",
     { name: "@storybook/addon-docs", options: { transcludeMarkdown: true } },
+    "@storybook/addon-themes",
   ],
   framework: {
     name: "@storybook/react-webpack5",

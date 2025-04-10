@@ -66,6 +66,7 @@
     "@nx/workspace": "18.0.3",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "@storybook/addon-docs": "^8.6.0",
+    "@storybook/addon-themes": "^8.6.12",
     "@storybook/core-server": "^8.5.8",
     "@storybook/react-vite": "^8.5.8",
     "@storybook/react-webpack5": "^8.5.8",

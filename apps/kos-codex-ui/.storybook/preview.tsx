@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { Global } from "@emotion/react";
+import { Global, ThemeProvider } from "@emotion/react";
 import { Preview } from "@storybook/react";
 import { getStyles } from "@kosdev-code/kos-ddk-styles";
 import snippets from "./snippets.json";
@@ -8,6 +8,8 @@ import {
   KosTranslationProvider,
   LoadingMessage,
 } from "@kosdev-code/kos-ui-sdk";
+import { withThemeFromJSXProvider } from "@storybook/addon-themes";
+
 import { ElementType, Suspense } from "react";
 import { MemoryRouter } from "react-router";
 import { KosCoreContextProvider } from "./registration";
@@ -47,6 +49,9 @@ export const AppExample = ({ children }: { children: React.ReactNode }) => {
 };
 
 export const decorators = [
+  withThemeFromJSXProvider({
+    Provider: ThemeProvider,
+  }),
   (
     Story: ElementType,
     context: { globals: { mode: ComponentMode; snippets: typeof snippets } },
