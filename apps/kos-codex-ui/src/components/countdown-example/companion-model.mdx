@@ -6,7 +6,7 @@ import { TimerExampleStory } from "./countdown-example.stories";
 
 # Companion Models
 
-As part of the model framework, you may want to extend a specific model to add functionality. Instead of this, the preferred pattern within kOS is the use of companion models. A companion model favours composition over inheritance, and enables the creation of a model that is tightly coupled to another model while extending its functionality.
+As part of the model framework, you may want to extend a specific model to add functionality. Instead of this, the preferred pattern within KOS is the use of companion models. A companion model favours composition over inheritance, and enables the creation of a model that is tightly coupled to another model while extending its functionality.
 
 For this example, let's create a companion model to our Counter, called Countdown - this allows us to have a `Countdown` that doesn't have to duplicate all of the logic of the `Counter` but instead can utilize that parent's methods to provide new functionality.
 

@@ -25,7 +25,7 @@ export const MainView: React.FunctionComponent = kosComponent(() => {
       <div className="logo">
         <img src="./assets/kos-logo.svg"></img>
       </div>
-      <h1>{t("welcome", "Welcome to kOS!")}</h1>
+      <h1>{t("welcome", "Welcome to KOS!")}</h1>
       <h2>{t("mainView", "Main View")}</h2>
     </Main>
   );

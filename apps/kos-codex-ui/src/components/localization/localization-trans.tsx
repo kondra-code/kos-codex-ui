@@ -25,7 +25,7 @@ export const LocalizationTrans: React.FunctionComponent = kosComponent(() => {
         i18nKey="example.link"
         components={{ link: <a href="https://kosdev.com" /> }}
         defaults="Click here to go to the <link>{{link}}</link>"
-        values={{ link: "kOS homepage" }}
+        values={{ link: "KOS homepage" }}
       />
     </LocalizationContainer>
   );

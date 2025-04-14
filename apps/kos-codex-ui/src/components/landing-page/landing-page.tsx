@@ -107,7 +107,7 @@ export const LandingPage = () => {
           <ItemText>
             <ItemTitle>Core Concepts</ItemTitle>
             <ItemDescription>
-              Explore all core concepts used in kOS Studio ecosystem.
+              Explore all core concepts used in KOS Studio ecosystem.
             </ItemDescription>
           </ItemText>
           <LinkText href="index.html?path=/docs/foundations-1-an-introduction-to-models--docs">
@@ -141,7 +141,7 @@ export const LandingPage = () => {
           <ItemText>
             <ItemTitle>Core Concepts</ItemTitle>
             <ItemDescription>
-              Explore all core concepts used in kOS Studio ecosystem.
+              Explore all core concepts used in KOS Studio ecosystem.
             </ItemDescription>
           </ItemText>
           <LinkText disabled>Coming Soon</LinkText>

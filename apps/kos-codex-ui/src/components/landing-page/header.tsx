@@ -58,9 +58,9 @@ export const Header = () => {
   return (
     <HeaderWrapper>
       <TextWrap>
-        <HeaderText>Welcome to kOS Codex!</HeaderText>
+        <HeaderText>Welcome to KOS Codex!</HeaderText>
         <Description>
-          Explore all concepts used in kOS Studio ecosystem. Click a category to
+          Explore all concepts used in KOS Studio ecosystem. Click a category to
           start testing components
         </Description>
       </TextWrap>

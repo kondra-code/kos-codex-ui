@@ -19,7 +19,7 @@ export const Localization: React.FunctionComponent = kosComponent(() => {
   const { t } = useKosTranslation("kos-codex");
   return (
     <LayoutContainer>
-      {t("example.welcome", { defaultValue: "Welcome to the kOS codex" })}
+      {t("example.welcome", { defaultValue: "Welcome to the KOS codex" })}
     </LayoutContainer>
   );
 });

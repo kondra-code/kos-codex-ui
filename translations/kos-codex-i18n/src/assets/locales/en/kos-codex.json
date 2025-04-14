@@ -1,7 +1,7 @@
 {
   "example": {
 
-    "welcome": "Welcome to the kOS codex",
+    "welcome": "Welcome to the KOS codex",
     "interpolation": "Hello {{name}}",
     "link": "Click here to go to the <link>{{link}}</link>"
   }

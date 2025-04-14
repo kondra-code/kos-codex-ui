@@ -15,7 +15,7 @@ The higher-order component provides the model, but if used too much could have a
 
 If a specific model is used a lot within a specific section of the UI, using `context` will help to reduce the use of HoCs or prop drilling. For more information on Context as a concept, check out the (react docs)[https://react.dev/learn/passing-data-deeply-with-context].
 
-kOS provides a generator to create model contexts, which provides the tools needed to access the model without multiple HoCs or hooks. Use `kosui context` to generate the appropriate files, then use the `provider` higher up in the tree and use the hook provided to access it further down.
+KOS provides a generator to create model contexts, which provides the tools needed to access the model without multiple HoCs or hooks. Use `kosui context` to generate the appropriate files, then use the `provider` higher up in the tree and use the hook provided to access it further down.
 
 <Snippet name="provider@provider-example.tsx" />
 

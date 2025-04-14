@@ -3,7 +3,7 @@ import logo from "../src/assets/kos-logo.png";
 
 export default create({
   base: "dark",
-  brandTitle: "kOS CodeX",
+  brandTitle: "KOS CodeX",
   brandImage: logo,
   barSelectedColor: "#4E4E4E",
   barBg: "#262626",

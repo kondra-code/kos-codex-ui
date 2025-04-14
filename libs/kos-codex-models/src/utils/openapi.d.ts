@@ -1085,7 +1085,7 @@ export interface paths {
             cookie?: never;
         };
         /** Return schema data about all known config data. This describes the structure of every known
-         *     ConfigBean. This is used by kOS Studio tools. (v1.0) */
+         *     ConfigBean. This is used by KOS Studio tools. (v1.0) */
         get: {
             parameters: {
                 query?: never;
@@ -1122,7 +1122,7 @@ export interface paths {
             cookie?: never;
         };
         /** Return schema data about the ConfigBean identified by the handle path. This describes
-         *     the structure of the config bean for use by tools in kOS Studio. (v1.0) */
+         *     the structure of the config bean for use by tools in KOS Studio. (v1.0) */
         get: {
             parameters: {
                 query?: never;
@@ -1244,7 +1244,7 @@ export interface paths {
          *     useful for tooling and for inspecting what changes have been persisted in the config
          *     service.
          *
-         *     A stock kOS install defines default values as the initial values of a config bean as
+         *     A stock KOS install defines default values as the initial values of a config bean as
          *     set in the bean constructor with any values from system xml files loaded on top.
          *     Override values are any changes applied via endpoints which are persisted in the database.
          *
