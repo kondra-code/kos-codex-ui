@@ -1,6 +1,30 @@
 {
   "migrations": [
     {
+      "version": "0.1.1759",
+      "description": "updates kabtool to support built automation",
+      "cli": "nx",
+      "implementation": "./src/migrations/update-kabtool/update-kabtool",
+      "package": "@kosdev-code/kos-nx-plugin",
+      "name": "update-kabtool"
+    },
+    {
+      "version": "0.1.2297",
+      "description": "adds update tool to support automated dependency updates",
+      "cli": "nx",
+      "implementation": "./src/migrations/add-update-tool/migrate",
+      "package": "@kosdev-code/kos-nx-plugin",
+      "name": "add-update-tool"
+    },
+    {
+      "version": "0.1.2297",
+      "description": "updates the kabtool to use the .env.local file",
+      "cli": "nx",
+      "implementation": "./src/migrations/kabtool-env/migrate",
+      "package": "@kosdev-code/kos-nx-plugin",
+      "name": "kabtool-env"
+    },
+    {
       "version": "1.6.0",
       "description": "Migration for v1.6.0",
       "implementation": "./src/migrations/consolidate-sdk/consolidate-sdk",

@@ -1,11 +1,11 @@
 import type {
-  KosContextLogger,
-  KosCreationContext,
   IKosDataModel,
   IKosIdentifiable,
+  KosContextLogger,
+  KosCreationContext,
   PublicModelInterface,
 } from "@kosdev-code/kos-ui-sdk";
-import { kosModel, kosModelEffect } from "@kosdev-code/kos-ui-sdk";
+import { kosModel } from "@kosdev-code/kos-ui-sdk";
 
 import type { CountdownOptions } from "./types";
 
@@ -17,7 +17,9 @@ export type CountdownModel = PublicModelInterface<CountdownModelImpl>;
 
 // extract-code countdown
 @kosModel(MODEL_TYPE)
-export class CountdownModelImpl implements IKosDataModel, IKosIdentifiable {
+export class CountdownModelImpl
+  implements IKosDataModel, IKosIdentifiable, CounterModel
+{
   id: string;
   private logger: KosContextLogger;
   private counter: CounterModel;

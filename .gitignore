@@ -40,3 +40,4 @@ Thumbs.db
 
 .nx/cache
 .env.local
+apps/kos-codex-ui/.storybook/snippets.json

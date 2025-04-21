@@ -6,7 +6,7 @@ const transform = (fileInfo, { jscodeshift: j }, options) => {
   const nodesToRemove: any[] = [];
   const nodesToExport = new Map();
   try {
-    const extractRaw = fs.readFileSync(options.snippetFile, "utf8");
+    const extractRaw = fs.readFileSync(options.snippetFile, "utf8") ?? "{}";
     snippets = JSON.parse(extractRaw);
   } catch (e) {
     console.error("Error reading snippet file", e);
@@ -17,7 +17,7 @@ const transform = (fileInfo, { jscodeshift: j }, options) => {
 
     if (
       node.value.leadingComments.some((c) =>
-        c.value.includes("extract-code ignore")
+        c.value.includes("extract-code ignore"),
       )
     ) {
       nodesToRemove.push(node);
@@ -25,7 +25,7 @@ const transform = (fileInfo, { jscodeshift: j }, options) => {
     }
 
     const codeExtractComment = node.value.leadingComments.find((c) =>
-      c.value.includes("extract-code")
+      c.value.includes("extract-code"),
     );
     if (!codeExtractComment) return;
 
@@ -33,7 +33,7 @@ const transform = (fileInfo, { jscodeshift: j }, options) => {
 
     const name = getName(snippetName, fileInfo.path);
 
-    const isAtStartOfFile = node.value.type === j.ImportDeclaration.name; 
+    const isAtStartOfFile = node.value.type === j.ImportDeclaration.name;
     if (isAtStartOfFile) {
       nodesToExport.set(name, fileInfo.source);
       return;
@@ -58,7 +58,7 @@ const transform = (fileInfo, { jscodeshift: j }, options) => {
 
 function getName(name, path) {
   // Add filepath
-  return `${name}@${path.split('/').pop()}`
+  return `${name}@${path.split("/").pop()}`;
 }
 
 export default transform;
