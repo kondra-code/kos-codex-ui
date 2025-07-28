@@ -11,6 +11,6 @@ if [ -z "${KOSBUILD_VERSION}" ]; then
 fi
 
 cd "${TOP_DIR}"
-npx nx run training-zero4-ui:version --args=--ver="${KOSBUILD_VERSION}"
+npx nx run kosdev-codex-ui:version --args=--ver="${KOSBUILD_VERSION}"
 
 exit 0

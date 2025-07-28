@@ -4,10 +4,45 @@ import { Snippet } from "../snippet";
 
 # Models
 
+When working with KOS devices, it's not always practical to maintain all state in the application level.  In many cases the source of truth for state lives in hardware or other hard to reach or otherwise impractical sources.  
+
+Given limited resources and without having the ability to easily scale horizontally it's not generally possible to use traditional web interactions with fully realized backend persistence, services and controllers optimized for a single application or use case.
+
+The KOS Model Framework was created to help bridge the gap and allow application clients to work with a projection of device state without having to build every interaction and and feature into the Java layer.
+
+KOS Models are written in Typescript and the framework has been developed to solve many of the cross-cutting concerns that are common when working with embedded or single-purpose devices.  For example, most interactions with the Java layer occur over a websocket layer using a KOS specific protocol. The
+KOS model framework provides out-of-the-box capability that makes it easier for web developers, who are already comfortable with React, to work with websockets in a way that feels more comfortable and familiar.
+
+Think of KOS Models like a Service or Client layer for your UI applications as they exposes a lot of capability that makes it easier to interact with the data and features in the Java layer.
+
 <Meta title="Foundations/1. An Introduction to Models" />
 
-- Use the `kosui` cli tool to create a new model.
-- Register it in `src/app/registration.tsx`.
+## Creating a new model
+
+The KOS UI SDK provides a command line utility, `kosui`, that can be used to generate common KOS artifacts such as models or components that are used throughout KOS UI applications.
+
+In this case use the `kosui` to create a new model and answer the questions to ensure it is created in the model project of your workspace:
+
+```sh 
+kosui model counter-model
+```
+
+This will generate a new model and include much of the boilerplate needed to use it within the application.
+
+### Model Registration
+
+KOS Models need to be registered with each application so that there is a clear understanding of what features and services are consumed by the client.  When the model is generated, a registration
+bean is created that can be used to register the model with your application:
+
+<Snippet name="registration@countdown-registration.ts" />
+
+Use this registration bean to register this model with the application in `src/app/registration.tsx`.
+
+<Snippet name="registration@registration.ts" />
+
+Once registered, the model can safely be used in an application, however no code is actually executed within the model until it is used.  Registration merely signals the intent to use a model within an application so that the full set exposed features is understood at application startup.
+
+### Update the Model
 - Update the model to add an interval on load
 
 <Snippet name="counter-model-simple@counter-model.ts" />

@@ -12,5 +12,4 @@ echo "************ NPM Install ***********"
 npm ci
 echo "************ NPM run kab ***********"
 npm run kab
-npx nx run zero4-splash:splash
 

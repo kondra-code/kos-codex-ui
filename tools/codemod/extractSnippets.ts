@@ -9,7 +9,7 @@ const transform = (fileInfo, { jscodeshift: j }, options) => {
     const extractRaw = fs.readFileSync(options.snippetFile, "utf8") ?? "{}";
     snippets = JSON.parse(extractRaw);
   } catch (e) {
-    console.error("Error reading snippet file", e);
+    console.warn("Error reading snippet file", e);
   }
 
   root.find(j.Node).forEach((node) => {

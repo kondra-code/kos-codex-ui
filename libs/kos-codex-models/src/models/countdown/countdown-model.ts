@@ -31,12 +31,33 @@ export class CountdownModelImpl
     this.id = modelId;
     this.logger = context.logger;
     this.counter = options.companionParent;
-
-    console.log("initializing");
-    if (options) {
-      // Assign options properties here.
-    }
+    this.logger.info(`creating countdown ${this.id}`);
   }
+
+  // Counter Interface
+  get count(): number {
+    return this.counter.count;
+  }
+  get interval(): NodeJS.Timeout | null {
+    return this.counter.interval;
+  }
+  increment(): void {
+    this.counter.increment();
+  }
+  stopCounter(): void {
+    this.counter.stopCounter();
+  }
+  startCounter(): void {
+    this.counter.startCounter();
+  }
+  toggleCounter() {
+    this.counter.toggleCounter();
+  }
+  get isCounting(): boolean {
+    return this.counter.isCounting;
+  }
+
+  // Countdown Properties
 
   get timeRemaining() {
     return Math.max(30 - this.counter.count, 0);

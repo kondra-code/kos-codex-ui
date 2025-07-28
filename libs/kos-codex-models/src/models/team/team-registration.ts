@@ -1,8 +1,8 @@
 import { KosModelRegistrationFactory } from "@kosdev-code/kos-ui-sdk";
-import type { TeamOptions } from "./types";
-import { TeamModelImpl, MODEL_TYPE } from "./team-model";
+import { UserContainer } from "../user";
 import type { TeamModel } from "./team-model";
-import { User } from "../user";
+import { MODEL_TYPE, TeamModelImpl } from "./team-model";
+import type { TeamOptions } from "./types";
 
 /**
  * # Team
@@ -90,4 +90,4 @@ export const Team = new KosModelRegistrationFactory<TeamModel, TeamOptions>({
   type: MODEL_TYPE,
 });
 
-Team.addRelatedModel(User);
+Team.addRelatedModel(UserContainer);

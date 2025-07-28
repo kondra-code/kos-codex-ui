@@ -5,8 +5,8 @@
 
   "artifacts": [
     {
-      "id": "training-zero4-ui",
-      "filename": "dist/archives/packages/training-zero4-ui/training-zero4-ui.kab",
+      "id": "kosdev-codex-ui",
+      "filename": "dist/archives/packages/kos-codex-ui/kos-codex-ui.kab",
       "artifactstore": "kos-cdn",
       "marketplace": 1
     }

@@ -115,6 +115,11 @@
     },
     "clean-extract": {
       "command": "rm -f apps/kos-codex-ui/.storybook/snippets.json && touch apps/kos-codex-ui/.storybook/snippets.json"
+    },
+    "version": {
+      "command": "node tools/scripts/update-release-version.mjs kosdev-codex-ui {args.ver}",
+      "options": {},
+      "dependsOn": []
     }
   },
   "tags": []

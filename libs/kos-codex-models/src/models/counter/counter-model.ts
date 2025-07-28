@@ -1,13 +1,16 @@
-import { kosModel } from "@kosdev-code/kos-ui-sdk";
 import type {
   IKosDataModel,
   IKosIdentifiable,
   PublicModelInterface,
 } from "@kosdev-code/kos-ui-sdk";
+import { kosModel } from "@kosdev-code/kos-ui-sdk";
 
 export const MODEL_TYPE = "counter-model";
 
-export type CounterModel = PublicModelInterface<CounterModelImpl>;
+export type CounterModel = Omit<
+  PublicModelInterface<CounterModelImpl>,
+  "unload"
+>;
 
 // extract-code counter-model
 @kosModel(MODEL_TYPE)
@@ -50,7 +53,7 @@ export class CounterModelImpl implements IKosDataModel, IKosIdentifiable {
     this.startCounter();
   }
 
-  async destroy(): Promise<void> {
+  async unload(): Promise<void> {
     if (this.interval) {
       clearInterval(this.interval);
       this.interval = null;
