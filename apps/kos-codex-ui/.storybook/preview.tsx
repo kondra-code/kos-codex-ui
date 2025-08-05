@@ -2,6 +2,8 @@ import "reflect-metadata";
 import { Global, ThemeProvider } from "@emotion/react";
 import { Preview } from "@storybook/react";
 import { getStyles } from "@kosdev-code/kos-ddk-styles";
+import { kosFetch } from "@kosdev-code/kos-ui-sdk";
+
 import snippets from "./snippets.json";
 import {
   ErrorBoundaryWithFallback,
@@ -93,4 +95,18 @@ const preview: Preview = {
   },
 };
 
+console.log(typeof window);
+async function fetchStudioBrowser() {
+  console.log(window.location.href);
+  try {
+    const response = await kosFetch(`kos:/api/studio/browser?url=${window.location.href}`, {
+      method: `POST`,
+    });
+    console.log("Studio browser API response:", response);
+  } catch (e) {
+    console.error("Failed to fetch studio browser API", e);
+  }
+}
+
+fetchStudioBrowser();
 export default preview;

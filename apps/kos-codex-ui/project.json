@@ -67,7 +67,7 @@
       "dependsOn": ["zip"]
     },
     "zip": {
-      "command": "node tools/scripts/archiver.js kos-codex-ui",
+      "command": "cp apps/kos-codex-ui/src/browser.html dist/apps/kos-codex-ui/browser.html && node tools/scripts/archiver.js kos-codex-ui ",
       "options": {
         "outputPath": "dist/archives/packages/kos-codex-ui/",
         "zipName": "ui.zip"
