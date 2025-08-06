@@ -48,9 +48,12 @@ export const Region: React.FunctionComponent = kosComponent(() => {
 
   return (
     <RegionContainer>
-      <div>Unformatted date: {now.toString()}</div>
       <div>
-        Formatted Date & Time: {formattedDate} - {formattedTime}
+        <strong>Unformatted date:</strong> {now.toString()}
+      </div>
+      <div>
+        <strong>Formatted Date & Time:</strong> {formattedDate} -{" "}
+        {formattedTime}
       </div>
       <label>Select a region:</label>
       <Select

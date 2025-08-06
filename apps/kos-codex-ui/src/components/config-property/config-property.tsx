@@ -36,7 +36,8 @@ export const ConfigProperty: React.FunctionComponent<Props> = kosComponent(
 
     return (
       <LayoutContainer>
-        The name of this device is {device.deviceName.displayValue}
+        The name of this device is{" "}
+        <strong>{device.deviceName.displayValue}</strong>
         <FormLayout>
           <Input
             value={value}

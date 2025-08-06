@@ -2,12 +2,21 @@ import styled from "@emotion/styled";
 import { kosComponent } from "@kosdev-code/kos-ui-sdk";
 import { useColor, useCounter, withCounter } from "../../hooks";
 import { CounterModel } from "@kos-codex/kos-codex-models";
+import { Button } from "../button";
 
 const Main = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: ${(props) => props.color || "transparent"};
+  padding: 16px;
+  border-radius: 8px;
+`;
+
+const CountDisplay = styled.div`
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.55);
+  border-radius: 4px;
 `;
 
 // extract-code CounterExample
@@ -18,7 +27,7 @@ export const CounterExample: React.FunctionComponent = kosComponent(() => {
 
   return (
     <Main>
-      <div>Active Count: {count}</div>
+      <CountDisplay>Active Count: {count}</CountDisplay>
     </Main>
   );
 });
@@ -31,10 +40,10 @@ export const CounterWithToggle: React.FunctionComponent = kosComponent(() => {
 
   return (
     <Main>
-      <div>Active Count: {count}</div>
-      <button onClick={toggleCounter} type="button">
+      <CountDisplay>Active Count: {count}</CountDisplay>
+      <Button onClick={toggleCounter} type="button">
         {isCounting ? "Stop" : "Start"}
-      </button>
+      </Button>
     </Main>
   );
 });
@@ -49,10 +58,10 @@ export const CounterWithColor: React.FunctionComponent = kosComponent(() => {
 
   return (
     <Main color={color}>
-      <div>Active Count: {count}</div>
-      <button onClick={toggleCounter} type="button">
+      <CountDisplay>Active Count: {count}</CountDisplay>
+      <Button onClick={toggleCounter} type="button">
         {isCounting ? "Stop" : "Start"}
-      </button>
+      </Button>
     </Main>
   );
 });
@@ -63,7 +72,7 @@ const Counter: React.FunctionComponent<{
 }> = kosComponent(({ counter }: { counter: CounterModel }) => {
   return (
     <Main>
-      <div>Active Count: {counter.count}</div>
+      <CountDisplay>Active Count: {counter.count}</CountDisplay>
     </Main>
   );
 });

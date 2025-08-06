@@ -39,8 +39,19 @@ export default withWidgetContainer(WidgetList);
 
 const Widget = kosComponent(({ widget }: { widget: WidgetModel }) => {
   return (
-    <div>
+    <WidgetStyle>
       {widget.id} : {widget.description}
-    </div>
+    </WidgetStyle>
   );
 });
+
+const WidgetStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 4px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 8px;
+  background-color: #f9f9f9;
+`;

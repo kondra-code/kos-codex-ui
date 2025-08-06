@@ -9,6 +9,12 @@ const UnitLayout = styled.div`
   align-items: center;
 `;
 
+const Row = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
 // extract-code units-demo
 export const Units = () => {
   const [value, setValue] = useState("2000");
@@ -17,15 +23,19 @@ export const Units = () => {
   const inLocalUnits = convert(Number(value), "ml", targetUnit);
   return (
     <UnitLayout>
-      <div>
+      <Row>
+        <strong>Volume in mL</strong>
+        <Input
+          value={value}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setValue(e.target.value)
+          }
+        />
+      </Row>
+      <Row>
+        <strong>In region units: </strong>
         {inLocalUnits} {targetUnit}
-      </div>
-      <Input
-        value={value}
-        onChange={(e: ChangeEvent<HTMLInputElement>) =>
-          setValue(e.target.value)
-        }
-      />
+      </Row>
     </UnitLayout>
   );
 };
