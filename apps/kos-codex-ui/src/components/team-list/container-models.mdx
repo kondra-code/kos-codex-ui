@@ -10,7 +10,7 @@ Container models are a way to manage a collection of models within a single mode
 
 ## Creating a container model
 
-Use the `kosui model` command, and create a model - call it a `team` model, and ensure it is a container model as well as _not_ being a singleton model.
+Use the `kosui model --name team --container` command to and create a model named `team` which is a container model and _not_ a singleton model.
 
 Each `team` doesn't need to know about the container model, so we can say "no" to that question.
 

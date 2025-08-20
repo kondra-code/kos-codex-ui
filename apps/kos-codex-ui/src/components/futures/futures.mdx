@@ -12,6 +12,13 @@ A future is an object that is subscribed to updates for a specific operation. Th
 
 To make a model future-aware, it needs to be extended with the `FutureContainer` class, and has a `futureManager` property that's initialized with a new `FutureManager` instance.
 
+It can also be set up as future-aware by adding the `--futureAware` flag when creating the model with the CLI.
+
+```
+kosui model --name futures --container --futureAware
+```
+
+
 The creation of a future is done with a `@kosFuture` decorator on a method that returns a `Future` object.
 
 Then within the UI, call the method and the future will be created and tracked, with updates being automatically sent to the UI.

@@ -24,10 +24,10 @@ The KOS UI SDK provides a command line utility, `kosui`, that can be used to gen
 In this case use the `kosui` to create a new model and answer the questions to ensure it is created in the model project of your workspace:
 
 ```sh 
-kosui model counter-model
+kosui model -i
 ```
 
-This will generate a new model and include much of the boilerplate needed to use it within the application.
+This will guide you through the steps to generate a new model and include much of the boilerplate needed to use it within the application.
 
 ### Model Registration
 
@@ -47,9 +47,9 @@ Once registered, the model can safely be used in an application, however no code
 
 <Snippet name="counter-model-simple@counter-model.ts" />
 
-Create a hook to consume the model with `kosui hook`.
+Create a hook to consume the model with `kosui hook -i`.
 
-This will generate both a hook and a Higher-Order Component (HOC) in order to access the model.
+This will guide you through the steps to generate both a hook and a Higher-Order Component (HOC) in order to access the model.
 
 The difference is that the HOC guarantees that the model will be present, while the hook does not and requires a bit of handling. The trade-off is that the hook has better performance, so given the tradeoffs, either can be used.
 

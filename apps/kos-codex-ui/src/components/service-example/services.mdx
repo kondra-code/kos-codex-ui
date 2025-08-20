@@ -8,7 +8,7 @@ import { Snippet } from "../snippet";
 
 Most of the time, the models we use will be hooked up to API calls within the backend. To do this, we use `services` in order to establish the communication between the frontend and backend. These are done via websocket, but use a Below is an example of how to set up a service:
 
-Use `kosui model` to set up a model, give it a name (in this case `service-example`) then set up a container model, and then say `yes` when prompted to set up services.
+Use `kosui model --name service-example --container --dataServices` to set up a model, give it a name (in this case `service-example`) then set up a container model, and include services.
 
 The CLI tool will provide most of what you need to get started, just missing the api path. Use the API explorer tool within the simulator to find the url, and typescript autocomplete will enable you to type in the path and see what routes are available.
 
@@ -24,7 +24,7 @@ In order to view the API calls happening, you can open the web socket browser, w
 
 <Snippet name="ServiceExampleConstructor@service-example-model.ts" />
 
-We can then create a hook with `kosui hook` and a component with `kosui component` and within the component, use the hook iterate over the list as normal, and render the name of each service-example.
+We can then create a hook with `kosui hook -i` and a component with `kosui component -i` and within the component, use the hook iterate over the list as normal, and render the name of each service-example.
 
 <Snippet name="ServiceExample@service-example.tsx" />
 
