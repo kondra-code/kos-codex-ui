@@ -46,3 +46,21 @@ Sometimes models create side effects, which need to be captured - kos offers `@k
 This is instead of using computed properties and can help capture side effects in a more declarative way.
 
 <Snippet name="kosModelEffect@widget-model.ts" />
+
+
+## Advanced usage
+
+Topic handlers also include advanced features like throttling, buffering and debouncing. This allows you to control how often the handler is called, which can be useful for performance reasons.
+
+<Source code={`
+@kosTopicHandler("widget:update", {
+  throttle: 1000, // Throttle the handler to only be called once every second
+  buffer: {
+    time: 500, // Buffer the handler for 500ms
+    maxSize: 10, // Maximum of 10 events to buffer
+  },
+  debounce: 300, // Debounce the handler for 300ms
+})
+handler(events: Events[]) {
+  // The events array will contain all the events that were received during the buffer time
+}`} />
