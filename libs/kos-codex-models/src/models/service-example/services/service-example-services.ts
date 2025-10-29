@@ -13,7 +13,7 @@ const log = KosLog.createLogger({
   group: "Services",
 });
 
-const SERVICE_PATH: ApiPath = "/api/system/codex/objects";
+export const SERVICE_PATH: ApiPath = "/api/system/codex/objects";
 export type ServiceExampleContainerClientResponse = ClientResponse<
   KosApi,
   typeof SERVICE_PATH,

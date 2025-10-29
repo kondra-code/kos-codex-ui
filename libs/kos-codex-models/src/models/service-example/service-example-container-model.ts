@@ -1,4 +1,4 @@
-import { kosModel, kosChild, KosModelContainer } from "@kosdev-code/kos-ui-sdk";
+import { kosModel, kosChild, KosModelContainer, DependencyLifecycle, kosServiceRequest } from "@kosdev-code/kos-ui-sdk";
 import type {
   KosContextLogger,
   KosCreationContext,
@@ -78,6 +78,16 @@ export class ServiceExampleContainerModelImpl
 
   removeModel(id: string) {
     this._models.removeModel(id);
+  }
+
+  // extract-code declarative
+  @kosServiceRequest({
+    path: "/api/system/codex/objects",
+    method: "get",
+    lifecycle: DependencyLifecycle.READY,
+  })
+  async fetchData(data: ServiceExampleOptions[]) {
+    this.updateServiceExample(data);
   }
 
   // extract-code initialize

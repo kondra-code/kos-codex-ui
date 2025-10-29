@@ -29,3 +29,13 @@ We can then create a hook with `kosui hook -i` and a component with `kosui compo
 <Snippet name="ServiceExample@service-example.tsx" />
 
 <Canvas of={ServiceExampleStory} />
+
+## Declarative Service calls
+
+In order to make service calls more declarative, KOS provides the `@kosServiceCall` decorator, which can be used to decorate methods within a model. This will automatically handle the service call and allow you to focus on the data returned.
+
+The decorator takes an options object, which includes the service path, method, the lifecycle to attach it to, and any parameters needed.
+
+<Snippet name="declarative@service-example-container-model.ts" />
+
+More advanced options include the ability to add query parameters, headers, and body data. This allows for more complex service calls to be made with ease. These can be found in the SDK documentation.
