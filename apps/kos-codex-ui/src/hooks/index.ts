@@ -22,4 +22,8 @@ export * from "./widget-container";
 
 export * from "./futures";
 
+export * from "./multi-futures";
+
 export * from "./session";
+
+export * from "./state-machine";

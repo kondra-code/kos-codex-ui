@@ -1,0 +1,25 @@
+import { Meta, Canvas } from "@storybook/blocks";
+import { Snippet } from "../snippet";
+import { StateMachineStory } from "./state-machine.stories";
+
+<Meta title="Foundations/15. Finite State Machines" />
+
+# Finite State Machines
+
+KOS models can implement finite state machines (FSM) to manage complex state transitions in a predictable manner. This is particularly useful for models that have distinct states and require controlled transitions between them.
+
+To create a state machine model, define the states and transitions using the `@kosStateMachine` decorator for the model you wish to be controlled.
+
+The following example demonstrates a simple pouring state machine with states for idle, pouring, and canceling a pour.
+
+<Snippet name={['states@state-machine-model.ts', 'events@state-machine-model.ts', 'state-machine-model@state-machine-model.ts']} />
+
+In this example, the `PouringStateMachineModel` defines three states: `idle`, `pouring`, and `canceling`. The transitions between these states are managed by events such as `startPour` and `cancelPour`.
+
+Because some of the methods are guarded with the `@kosStateGuard` decorator, the state machine will only allow them to be called when the conditions defined in these guards are met.
+
+Because all of this logic is encapsulated within the model, the React component using this model can remain simple and focused on rendering the UI and handling user interactions.
+
+<Snippet name="StateMachine@state-machine.tsx" />
+
+<Canvas of={StateMachineStory} />

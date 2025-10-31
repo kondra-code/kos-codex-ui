@@ -1,6 +1,7 @@
 import { Meta, Canvas } from "@storybook/blocks";
 import { Snippet } from "../snippet";
 import { FuturesStory } from "./futures.stories";
+import { MultiFuturesStory } from "./multiple-futures.stories";
 
 <Meta title="Foundations/14. Futures" />
 
@@ -48,3 +49,14 @@ It can also be very useful to add multiple `get` methods to the model in order t
 You can also hook into a future's lifecycle by creating a `onFutureUpdate` method in the model. This method will be called whenever the future is updated and can handle side-effects or more complex logic.
 
 <Canvas of={FuturesStory} />
+
+## Multiple Futures
+
+A model can also handle multiple futures at once. This is useful when you have multiple operations that need to be tracked independently.
+
+This is done by using the `@kosMultipleFutureAware` decorator on the model, and adding the `alias` option to the `@kosFuture` decorator to your methods. This will create a separate future for each alias, accessible via `${alias}Future`.
+
+
+<Snippet name="multi-future-model@multi-futures-model.ts" />
+
+<Canvas of={MultiFuturesStory} />

@@ -81,6 +81,11 @@
       "name": "session",
       "type": "session-model",
       "singleton": true
+    },
+    "state-machine": {
+      "name": "state-machine",
+      "type": "state-machine-model",
+      "singleton": true
     }
   },
   "generator": {
