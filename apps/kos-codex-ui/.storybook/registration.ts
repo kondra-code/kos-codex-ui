@@ -13,6 +13,8 @@ import {
   Futures,
   Countdown,
   Session,
+  MultiFutures,
+  StateMachine,
 } from "@kos-codex/kos-codex-models";
 
 KosModelRegistry.dispense
@@ -24,7 +26,9 @@ KosModelRegistry.dispense
   .model(UserContainer)
   .model(ServiceExampleContainer)
   .model(Futures)
+  .model(MultiFutures)
   .model(DeviceModel)
+  .model(StateMachine)
   .model(Color)
   .model(Countdown)
   .model(Session)

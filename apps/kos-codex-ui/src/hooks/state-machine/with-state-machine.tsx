@@ -1,8 +1,8 @@
-import { StateMachineModel } from "@kos-codex/kos-codex-models";
+import { StateMachineModelImpl } from "@kos-codex/kos-codex-models";
 import { useStateMachine } from "./use-state-machine";
 
 interface StateMachineProps {
-  stateMachine: StateMachineModel;
+  stateMachine: StateMachineModelImpl;
 }
 
 type HoCStateMachineProps = StateMachineProps;
@@ -12,7 +12,7 @@ export function withStateMachine<
 >(WrappedComponent: React.ComponentType<T>) {
   return (props: Omit<T, keyof StateMachineProps>) => {
     const { model, status, KosModelLoader } = useStateMachine();
-
+    console.log(model, status)
     return (
       <KosModelLoader {...status}>
         <WrappedComponent {...(props as T)} stateMachine={model} />

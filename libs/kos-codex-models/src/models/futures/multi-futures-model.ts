@@ -35,7 +35,7 @@ export class MultiFuturesModelImpl
   @kosFuture({
     alias: "foo"
   })
-  async start(trackerId?: string) {
+  async startFoo(trackerId?: string) {
     const [err, data] = await startFuture(trackerId || "");
     if (err) {
       return;
@@ -75,17 +75,17 @@ export class MultiFuturesModelImpl
 
 
   get barTimeLeft(): number | undefined {
-    if (!this.future?.remainingTimeMs) {
+    if (!this.barFuture?.remainingTimeMs) {
       return 0;
     }
-    return this.future?.remainingTimeMs / 1000;
+    return this.barFuture?.remainingTimeMs / 1000;
   }
 
   get isBarComplete(): boolean {
-    return this.future?.endState === "SUCCESS";
+    return this.barFuture?.endState === "SUCCESS";
   }
 
   get isBarInProgress(): boolean {
-    return !!this.future && !this.future.endState;
+    return !!this.barFuture && !this.barFuture.endState;
   }
 }

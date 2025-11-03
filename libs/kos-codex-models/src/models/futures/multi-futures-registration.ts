@@ -58,7 +58,7 @@ import { MultiFuturesModelImpl, MODEL_TYPE } from "./multi-futures-model";
  * ## registration
  *
  * The registration property is an object that can be used to simplify registration of the model with the model registry.  The registration object
- * can be spread into the model registration and provides all of the required information to register the model implementation class against the model type.
+* can be spread into the model registration and provides all of the required information to register the model implementation class against the model type.
  *
  *
  * @example

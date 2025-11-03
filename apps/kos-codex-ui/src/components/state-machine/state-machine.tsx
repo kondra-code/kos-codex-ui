@@ -22,12 +22,13 @@ export interface StateMachineProps {
 
 // extract-code StateMachine
 export const StateMachine: React.FunctionComponent<StateMachineProps> = kosComponent(({ stateMachine }) => {
+    console.log(stateMachine)
   return (
     <LayoutContainer>
       <Heading>Current state</Heading>
       {stateMachine.currentState}
       <Button onClick={() => stateMachine.startPour()} type="button" disabled={stateMachine.isPouring}>
-        Start Pour
+        Start Pour {stateMachine.isCancellingPour && "(Cannot start while cancelling)"}
       </Button>      
       {stateMachine.isPouring && <Button onClick={() => stateMachine.cancelPour()} type="button">
         Cancel Pour

@@ -92,3 +92,4 @@ export const StateMachine = new SingletonKosModelRegistrationFactory<
   class: StateMachineModelImpl,
   type: MODEL_TYPE,
 });
+

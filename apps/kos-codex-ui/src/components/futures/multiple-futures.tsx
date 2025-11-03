@@ -46,7 +46,7 @@ export const MultiFutures: React.FunctionComponent<Props> = kosComponent(
       <FuturesContainer>
         <Text>Foo Future</Text>
         <Button
-          onClick={() => futures.start()}
+          onClick={() => futures.startFoo()}
           disabled={futures.isFooInProgress}
           type="button"
         >
@@ -55,19 +55,19 @@ export const MultiFutures: React.FunctionComponent<Props> = kosComponent(
         {futures.progress !== undefined ? (
           <ProgressBar progress={futures.fooProgress} />
         ) : null}
-        {futures.isBarComplete ? <div>Complete</div> : null}
+        {futures.isFooComplete ? <div>Complete</div> : null}
       </FuturesContainer>
             <FuturesContainer>
                 <Text>Bar Future</Text>
         <Button
-          onClick={() => futures.start()}
+          onClick={() => futures.startBar()}
           disabled={futures.isBarInProgress}
           type="button"
         >
           {futures.isBarInProgress ? "Bar In Progress" : "Start Bar"}
         </Button>
-        {futures.progress !== undefined ? (
-          <ProgressBar progress={futures.progress} />
+        {futures.barProgress !== undefined ? (
+          <ProgressBar progress={futures.barProgress} />
         ) : null}
         {futures.isBarComplete ? <div>Complete</div> : null}
       </FuturesContainer>

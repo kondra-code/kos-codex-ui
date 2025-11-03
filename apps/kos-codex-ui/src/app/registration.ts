@@ -4,8 +4,10 @@ import {
   Counter,
   Device,
   Futures,
+  MultiFutures,
   ServiceExampleContainer,
   Session,
+  StateMachine,
   TeamContainer,
   UnitExample,
   WidgetContainer,
@@ -25,6 +27,8 @@ Registration.model(Color)
   .model(Countdown)
   .model(Session)
   .model(Device)
+  .model(MultiFutures)
+  .model(StateMachine)
   .companion(Counter.type, Countdown.type);
 
 const { KosCoreContextProvider } = initKosProvider();
