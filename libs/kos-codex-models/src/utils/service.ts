@@ -1,5 +1,5 @@
 import { createClient, type PathsByMethod } from "@kosdev-code/kos-ui-sdk";
-import { paths } from "./openapi";
+import type { paths } from "./openapi";
 
 const api = createClient<paths>();
 

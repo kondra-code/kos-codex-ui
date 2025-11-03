@@ -1,7 +1,6 @@
 import { SingletonKosModelRegistrationFactory } from "@kosdev-code/kos-ui-sdk";
 import type { StateMachineOptions } from "./types";
 import { StateMachineModelImpl, MODEL_TYPE } from "./state-machine-model";
-import type { StateMachineModel } from "./state-machine-model";
 
 /**
  * # StateMachine
@@ -87,7 +86,7 @@ import type { StateMachineModel } from "./state-machine-model";
  
  * */
 export const StateMachine = new SingletonKosModelRegistrationFactory<
-  StateMachineModel,
+  StateMachineModelImpl,
   StateMachineOptions
 >({
   class: StateMachineModelImpl,
